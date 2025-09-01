@@ -15,6 +15,7 @@ import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
+  EDUCATION,
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
@@ -399,6 +400,141 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
   )
 }
 
+function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
+  return (
+    <MorphingDialog
+      transition={{
+        type: 'spring',
+        bounce: 0,
+        duration: 0.3,
+      }}
+    >
+      <MorphingDialogTrigger>
+        <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 cursor-pointer w-full group hover:bg-zinc-400/30 dark:hover:bg-zinc-500/30 transition-colors duration-200">
+          <Spotlight
+            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+            size={64}
+          />
+          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className="relative flex w-full flex-row justify-between items-start">
+              <div>
+                <h4 className="font-normal dark:text-zinc-100">
+                  {education.degree}
+                </h4>
+                <p className="text-zinc-500 dark:text-zinc-400">
+                  {education.institution}
+                </p>
+                <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
+                  {education.field}
+                </p>
+              </div>
+              <div className="flex flex-col items-end space-y-2">
+                <p className="text-zinc-600 dark:text-zinc-400">
+                  {education.start} - {education.end}
+                </p>
+                <div className="flex items-center space-x-1 text-xs text-zinc-400 dark:text-zinc-500 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
+                  <span>Click for details</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 15 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-3 w-3"
+                  >
+                    <path
+                      d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+                      fill="currentColor"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm">
+        <MorphingDialogContent className="relative w-full max-w-2xl rounded-2xl bg-white p-8 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50 max-h-[80vh] overflow-y-auto shadow-2xl">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold dark:text-zinc-100">
+                {education.degree}
+              </h3>
+              <a
+                href={education.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors font-medium focus:outline-none focus:ring-0"
+              >
+                {education.institution}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3.5 w-3.5"
+                >
+                  <path
+                    d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                    fill="currentColor"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <p className="text-sm text-zinc-500 dark:text-zinc-500">
+                {education.field}
+              </p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-500">
+                {education.moreInfoPeriod}
+              </p>
+              {education.description && (
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-3">
+                  {education.description}
+                </p>
+              )}
+            </div>
+            {education.achievements && education.achievements.length > 0 && (
+              <div className="space-y-3">
+                <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">
+                  Details & Achievements
+                </h4>
+                <div className="space-y-3">
+                  {education.achievements.map((achievement, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="mt-2.5 h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0"></div>
+                      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                        {achievement}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </MorphingDialogContent>
+        <MorphingDialogClose
+          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white/90 backdrop-blur-sm p-2 shadow-lg ring-1 ring-zinc-200/50 dark:bg-zinc-900/90 dark:ring-zinc-800/50 z-10"
+          variants={{
+            initial: { opacity: 0, scale: 0.8 },
+            animate: {
+              opacity: 1,
+              scale: 1,
+              transition: { delay: 0.3, duration: 0.2 },
+            },
+            exit: { opacity: 0, scale: 0.8, transition: { duration: 0.1 } },
+          }}
+        >
+          <XIcon className="h-5 w-5 text-zinc-600 dark:text-zinc-400" />
+        </MorphingDialogClose>
+      </MorphingDialogContainer>
+    </MorphingDialog>
+  )
+}
+
 function MagneticSocialLink({
   children,
   link,
@@ -497,6 +633,21 @@ export default function Personal() {
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
             <WorkExperienceCard key={job.id} job={job} />
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Education</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Academic background and qualifications.
+        </p>
+        <div className="flex flex-col space-y-2">
+          {EDUCATION.map((education) => (
+            <EducationCard key={education.id} education={education} />
           ))}
         </div>
       </motion.section>

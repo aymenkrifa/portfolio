@@ -18,6 +18,19 @@ type WorkExperience = {
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
 }
 
+type Education = {
+  institution: string
+  degree: string
+  field: string
+  start: string
+  end: string
+  moreInfoPeriod: string
+  link: string
+  id: string
+  description?: string
+  achievements?: string[]
+}
+
 type BlogPost = {
   title: string
   description: string
@@ -115,6 +128,38 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     bulletPoints: [
       "Contributed to an object detection project for the autonomous and self-driving security robots' self-charging feature using C++ and OpenCV, successfully enhancing the robot's capabilities by ensuring accurate detection of the charging station port.",
       'Collaborated with engineering team, ensuring effective communication and timely task completion.',
+    ],
+  },
+]
+
+export const EDUCATION: Education[] = [
+  {
+    institution: 'Ecole Polytechnique de Sousse',
+    degree: 'Engineering Degree',
+    field: 'Computer Science',
+    start: '2021',
+    end: '2025',
+    moreInfoPeriod: 'September 2021 - June 2025',
+    link: 'https://polytecsousse.tn',
+    id: 'edu1',
+    description: 'Specialized in Machine Learning and Artificial Intelligence',
+    achievements: [
+      'Graduated with High Honors (GPA: 3.7/4.0)',
+      'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"',
+    ],
+  },
+  {
+    institution: 'Ecole Polytechnique de Sousse',
+    degree: 'Bachelor of Engineering',
+    field: 'Software Engineering',
+    start: '2019',
+    end: '2021',
+    moreInfoPeriod: 'September 2019 - July 2021',
+    link: 'https://polytecsousse.tn',
+    id: 'edu2',
+    achievements: [
+      'Graduated with High Honors (GPA: 3.8/4.0)',
+      'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"',
     ],
   },
 ]
