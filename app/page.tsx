@@ -110,12 +110,16 @@ function calculateExperienceDuration(moreInfoPeriod: string): string {
   return ''
 }
 
-// Function to calculate total work experience
-function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { totalJobs: number, totalMonths: number } {
-  let totalMonths = 0
+// Function to calculate total work experience by job type
+function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { fullTimeMonths: number, internshipMonths: number, fullTimeCount: number, internshipCount: number } {
+  let fullTimeMonths = 0
+  let internshipMonths = 0
+  let fullTimeCount = 0
+  let internshipCount = 0
   
   workExperience.forEach(job => {
     const periodLower = job.moreInfoPeriod.toLowerCase()
+    let jobMonths = 0
     
     // Handle "present" case
     if (periodLower.includes('present')) {
@@ -132,10 +136,8 @@ function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { tot
         const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
         const currentDate = new Date()
         
-        const diffInMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                            (currentDate.getMonth() - startDate.getMonth())
-        
-        totalMonths += diffInMonths
+        jobMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                   (currentDate.getMonth() - startDate.getMonth())
       }
     } else {
       // Handle date range cases
@@ -154,35 +156,69 @@ function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { tot
         const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
         const endDate = new Date(endYear, monthMap[endMonth.toLowerCase()] || 0)
         
-        const diffInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                            (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
-        
-        totalMonths += diffInMonths
+        jobMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                   (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
       }
+    }
+    
+    // Categorize by job type
+    if (job.jobType === 'Full-time') {
+      fullTimeMonths += jobMonths
+      fullTimeCount++
+    } else if (job.jobType === 'Internship') {
+      internshipMonths += jobMonths
+      internshipCount++
     }
   })
   
   return {
-    totalJobs: workExperience.length,
-    totalMonths: totalMonths
+    fullTimeMonths,
+    internshipMonths,
+    fullTimeCount,
+    internshipCount
   }
 }
 
-function formatTotalExperience(totalJobs: number, totalMonths: number): string {
-  const years = Math.floor(totalMonths / 12)
-  const months = totalMonths % 12
+function formatTotalExperience(fullTimeMonths: number, internshipMonths: number, fullTimeCount: number, internshipCount: number): string {
+  const parts = []
   
-  let experienceText = `${totalJobs} position${totalJobs > 1 ? 's' : ''}`
-  
-  if (years > 0 && months > 0) {
-    experienceText += ` • ${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''} total experience`
-  } else if (years > 0) {
-    experienceText += ` • ${years} year${years > 1 ? 's' : ''} total experience`
-  } else if (months > 0) {
-    experienceText += ` • ${months} month${months > 1 ? 's' : ''} total experience`
+  // Full-time experience
+  if (fullTimeCount > 0 && fullTimeMonths > 0) {
+    const years = Math.floor(fullTimeMonths / 12)
+    const remainingMonths = fullTimeMonths % 12
+    
+    if (years >= 3) {
+      parts.push(`${years}+ years of full-time experience`)
+    } else if (years >= 1) {
+      if (remainingMonths > 0) {
+        parts.push(`${years}+ years of full-time experience`)
+      } else {
+        parts.push(`${years} year${years > 1 ? 's' : ''} of full-time experience`)
+      }
+    } else {
+      parts.push(`${fullTimeMonths} months of full-time experience`)
+    }
   }
   
-  return experienceText
+  // Internship experience
+  if (internshipCount > 0) {
+    parts.push(`${internshipCount} internship${internshipCount > 1 ? 's' : ''}`)
+  }
+  
+  // Fallback to show total positions if no specific categories
+  if (parts.length === 0) {
+    const totalPositions = fullTimeCount + internshipCount
+    return `${totalPositions} position${totalPositions > 1 ? 's' : ''} across different companies.`
+  }
+  
+  // Format as a proper sentence
+  if (parts.length === 1) {
+    return parts[0] + '.'
+  } else if (parts.length === 2) {
+    return `${parts[0]} and ${parts[1]}.`
+  }
+  
+  return parts.join(', ') + '.'
 }
 
 type ProjectVideoProps = {
@@ -321,7 +357,10 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 </svg>
               </a>
               <p className="text-sm text-zinc-500 dark:text-zinc-500">
-                {job.moreInfoPeriod} ({calculateExperienceDuration(job.moreInfoPeriod)}) • {job.jobType}
+                {job.jobType}
+              </p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-500">
+                {job.moreInfoPeriod} ({calculateExperienceDuration(job.moreInfoPeriod)})
               </p>
             </div>
             <div className="space-y-3">
@@ -451,8 +490,8 @@ export default function Personal() {
         <h3 className="mb-2 text-lg font-medium">Work Experience</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
           {(() => {
-            const { totalJobs, totalMonths } = calculateTotalExperience(WORK_EXPERIENCE)
-            return formatTotalExperience(totalJobs, totalMonths)
+            const { fullTimeMonths, internshipMonths, fullTimeCount, internshipCount } = calculateTotalExperience(WORK_EXPERIENCE)
+            return formatTotalExperience(fullTimeMonths, internshipMonths, fullTimeCount, internshipCount)
           })()}
         </p>
         <div className="flex flex-col space-y-2">
