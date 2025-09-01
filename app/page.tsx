@@ -39,6 +39,77 @@ const TRANSITION_SECTION = {
   duration: 0.3,
 }
 
+// Function to calculate experience duration from period string
+function calculateExperienceDuration(moreInfoPeriod: string): string {
+  const periodLower = moreInfoPeriod.toLowerCase()
+  
+  // Handle "present" case
+  if (periodLower.includes('present')) {
+    const startMatch = moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
+    if (startMatch) {
+      const startMonth = startMatch[1]
+      const startYear = parseInt(startMatch[2])
+      
+      const monthMap: { [key: string]: number } = {
+        'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
+        'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
+      }
+      
+      const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
+      const currentDate = new Date()
+      
+      const diffInMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                          (currentDate.getMonth() - startDate.getMonth())
+      
+      if (diffInMonths >= 12) {
+        const years = Math.floor(diffInMonths / 12)
+        const months = diffInMonths % 12
+        if (months === 0) {
+          return years === 1 ? '1 year' : `${years} years`
+        } else {
+          return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`
+        }
+      } else {
+        return diffInMonths === 1 ? '1 month' : `${diffInMonths} months`
+      }
+    }
+  } else {
+    // Handle date range cases
+    const rangeMatch = moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*(\w+)\s+(\d{4})/i)
+    if (rangeMatch) {
+      const startMonth = rangeMatch[1]
+      const startYear = parseInt(rangeMatch[2])
+      const endMonth = rangeMatch[3]
+      const endYear = parseInt(rangeMatch[4])
+      
+      const monthMap: { [key: string]: number } = {
+        'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
+        'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
+      }
+      
+      const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
+      const endDate = new Date(endYear, monthMap[endMonth.toLowerCase()] || 0)
+      
+      const diffInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                          (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
+      
+      if (diffInMonths >= 12) {
+        const years = Math.floor(diffInMonths / 12)
+        const months = diffInMonths % 12
+        if (months === 0) {
+          return years === 1 ? '1 year' : `${years} years`
+        } else {
+          return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`
+        }
+      } else {
+        return diffInMonths === 1 ? '1 month' : `${diffInMonths} months`
+      }
+    }
+  }
+  
+  return ''
+}
+
 type ProjectVideoProps = {
   src: string
 }
@@ -113,6 +184,9 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 <p className="text-zinc-500 dark:text-zinc-400">
                   {job.company}
                 </p>
+                <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
+                  {job.jobType}
+                </p>
               </div>
               <div className="flex flex-col items-end space-y-2">
                 <p className="text-zinc-600 dark:text-zinc-400">
@@ -172,7 +246,7 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 </svg>
               </a>
               <p className="text-sm text-zinc-500 dark:text-zinc-500">
-                {job.moreInfoPeriod}
+                {job.moreInfoPeriod} ({calculateExperienceDuration(job.moreInfoPeriod)}) • {job.jobType}
               </p>
             </div>
             <div className="space-y-3">

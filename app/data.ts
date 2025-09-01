@@ -15,6 +15,7 @@ type WorkExperience = {
   id: string
   moreInfoPeriod: string
   bulletPoints: string[]
+  jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
 }
 
 type BlogPost = {
@@ -58,6 +59,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     moreInfoPeriod: 'July 2022 - Present',
     link: 'https://quicktext.im',
     id: 'work1',
+    jobType: 'Full-time',
     bulletPoints: [
       'Engineered and refined pipelines that empowered LLMs with domain-specific knowledge for hotel-related prompts, improving response accuracy.',
       'Implemented a Retrieval-Augmented Generation (RAG) system using LangChain with Mistral, Meta’s Llama, and OpenAI’s GPT models, leveraging ChromaDB as the vector store to significantly reduce model hallucination by 15% and enable more context-aware responses.',
@@ -77,6 +79,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     moreInfoPeriod: 'February 2022 - July 2022',
     link: 'https://quicktext.im',
     id: 'work2',
+    jobType: 'Internship',
     bulletPoints: [
       "Leveraged supervised Machine Learning techniques (decision trees, random forests), achieving a 70% accuracy rate in predicting website users' trip categories.",
       'Extracted insights from millions of data points, maintaining data integrity and compliance.',
@@ -92,6 +95,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     moreInfoPeriod: 'September 2021 - October 2021',
     link: 'https://whitecapetech.com',
     id: 'work3',
+    jobType: 'Internship',
     bulletPoints: [
       'Utilized modern web technologies, including React and Node.js, to develop dynamic and responsive web applications.',
       'Implemented RESTful APIs and integrated third-party services to enhance application functionality.',
@@ -107,6 +111,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     moreInfoPeriod: 'August 2020 - September 2020',
     link: 'https://enovarobotics.eu',
     id: 'work4',
+    jobType: 'Internship',
     bulletPoints: [
       "Contributed to an object detection project for the autonomous and self-driving security robots' self-charging feature using C++ and OpenCV, successfully enhancing the robot's capabilities by ensuring accurate detection of the charging station port.",
       'Collaborated with engineering team, ensuring effective communication and timely task completion.',
