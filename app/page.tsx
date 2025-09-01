@@ -595,7 +595,10 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
+        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Personal and open-source projects
+        </p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
@@ -644,7 +647,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Education</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Academic background and qualifications.
+          Academic background and qualifications
         </p>
         <div className="flex flex-col space-y-2">
           {EDUCATION.map((education) => (
