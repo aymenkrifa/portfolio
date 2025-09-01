@@ -49,28 +49,36 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Reglazed Studio',
-    title: 'CEO',
-    start: '2024',
+    company: 'Quicktext',
+    title: 'Machine Learning Engineer',
+    start: 'July 2022',
     end: 'Present',
-    link: 'https://ibelick.com',
+    link: 'https://quicktext.im/',
     id: 'work1',
   },
   {
-    company: 'Freelance',
-    title: 'Design Engineer',
-    start: '2022',
-    end: '2024',
-    link: 'https://ibelick.com',
+    company: 'Quicktext',
+    title: 'Machine Learning Engineer Intern',
+    start: 'February 2022',
+    end: 'July 2022',
+    link: 'https://quicktext.im/',
     id: 'work2',
   },
   {
-    company: 'Freelance',
-    title: 'Front-end Developer',
-    start: '2017',
-    end: 'Present',
-    link: 'https://ibelick.com',
+    company: 'Whitecape Technologies',
+    title: 'Software Engineer Intern',
+    start: 'September 2022',
+    end: 'October 2022',
+    link: 'https://www.whitecapetech.com/',
     id: 'work3',
+  },
+  {
+    company: 'Enova Robotics',
+    title: 'Software Engineer Intern',
+    start: 'August 2020',
+    end: 'September 2020',
+    link: 'https://enovarobotics.eu/',
+    id: 'work4',
   },
 ]
 
@@ -105,21 +113,17 @@ export const BLOG_POSTS: BlogPost[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    label: 'Github',
-    link: 'https://github.com/ibelick',
+    label: 'GitHub',
+    link: 'https://github.com/aymenkrifa',
   },
   {
-    label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    label: 'X (Twitter)',
+    link: 'https://x.com/krifaymen',
   },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
-  },
-  {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
+    link: 'https://www.linkedin.com/in/aymenkrifa',
   },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'aymenkrifa@gmail.com'
