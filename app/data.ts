@@ -53,7 +53,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Machine Learning Engineer',
     start: 'July 2022',
     end: 'Present',
-    link: 'https://quicktext.im/',
+    link: 'https://quicktext.im',
     id: 'work1',
   },
   {
@@ -61,7 +61,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Machine Learning Engineer Intern',
     start: 'February 2022',
     end: 'July 2022',
-    link: 'https://quicktext.im/',
+    link: 'https://quicktext.im',
     id: 'work2',
   },
   {
@@ -69,7 +69,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Software Engineer Intern',
     start: 'September 2022',
     end: 'October 2022',
-    link: 'https://www.whitecapetech.com/',
+    link: 'https://whitecapetech.com',
     id: 'work3',
   },
   {
@@ -77,7 +77,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Software Engineer Intern',
     start: 'August 2020',
     end: 'September 2020',
-    link: 'https://enovarobotics.eu/',
+    link: 'https://enovarobotics.eu',
     id: 'work4',
   },
 ]
@@ -122,7 +122,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/aymenkrifa',
+    link: 'https://linkedin.com/in/aymenkrifa',
   },
 ]
 
