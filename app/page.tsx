@@ -447,10 +447,10 @@ export default function Personal() {
         transition={TRANSITION_SECTION}
       >
         <div className="flex-1">
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Leveraging machine learning to build smarter systems and unlock hidden patterns in data.
-            From model development to production deployment. 🚀
-          </p>
+          <div className="text-zinc-600 dark:text-zinc-400">
+            <p>Leveraging machine learning to build smarter systems and unlock hidden patterns in data.</p>
+            <p>From model development to production deployment. 🚀</p>
+          </div>
         </div>
       </motion.section>
 
