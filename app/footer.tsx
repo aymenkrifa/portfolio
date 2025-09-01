@@ -73,7 +73,7 @@ export function Footer() {
         <a href="https://github.com/ibelick/nim" target="_blank">
           <TextLoop className="text-xs text-zinc-500">
             <span>© 2025 Aymen Krifa</span>
-            <span>Template by Julien Thibeaut</span>
+            <span>Template inspired by Nim</span>
           </TextLoop>
         </a>
         <div className="text-xs text-zinc-400">
