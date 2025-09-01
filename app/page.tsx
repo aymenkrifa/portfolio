@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
+import { Info } from '@geist-ui/icons'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
@@ -649,6 +650,16 @@ export default function Personal() {
           {EDUCATION.map((education) => (
             <EducationCard key={education.id} education={education} />
           ))}
+        </div>
+        <div className="mt-6">
+          <div className="flex items-center gap-2">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 flex-shrink-0">
+              <Info size={14} className="text-blue-600 dark:text-blue-400" />
+            </div>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              Final degree was pursued in parallel with full-time work through night classes on campus.
+            </p>
+          </div>
         </div>
       </motion.section>
 {/* 
