@@ -13,6 +13,8 @@ type WorkExperience = {
   end: string
   link: string
   id: string
+  moreInfoPeriod: string
+  bulletPoints: string[]
 }
 
 type BlogPost = {
@@ -53,32 +55,62 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Machine Learning Engineer',
     start: '2022',
     end: 'Present',
+    moreInfoPeriod: 'July 2022 - Present',
     link: 'https://quicktext.im',
     id: 'work1',
+    bulletPoints: [
+      'Engineered and refined pipelines that empowered LLMs with domain-specific knowledge for hotel-related prompts, improving response accuracy.',
+      'Implemented a Retrieval-Augmented Generation (RAG) system using LangChain with Mistral, Meta’s Llama, and OpenAI’s GPT models, leveraging ChromaDB as the vector store to significantly reduce model hallucination by 15% and enable more context-aware responses.',
+      'Designed and implemented an LLM-as-a-Judge evaluation framework, utilizing prompt chaining to objectively assess and iteratively improve the quality and accuracy of LLM-generated responses.',
+      'Developed and deployed a voice-enabled room booking assistant with Ultravox, integrating function calls for efficient hotel reservation workflow automation agents.',
+      'Revamped and fine-tuned internal ML pipelines, leading to a boost in workflow efficiency and substantially improving system scalability for fine-tuning core models.',
+      'Led the transition of the BERT-based chatbot intent detection system to multi-label classification and integrated generative AI, resulting in a 25% reduction in reported bugs.',
+      'Translated complex data into actionable insights and compelling visualizations for stakeholders, enabling data-driven strategic decisions.',
+      'Drove stakeholder engagement for critical ML initiatives, aligning technical roadmaps with business objectives and ensuring project success.',
+    ],
   },
   {
     company: 'Quicktext',
     title: 'Machine Learning Engineer Intern',
     start: 'Feb.',
     end: 'Jul. 2022',
+    moreInfoPeriod: 'February 2022 - July 2022',
     link: 'https://quicktext.im',
     id: 'work2',
+    bulletPoints: [
+      "Leveraged supervised Machine Learning techniques (decision trees, random forests), achieving a 70% accuracy rate in predicting website users' trip categories.",
+      'Extracted insights from millions of data points, maintaining data integrity and compliance.',
+      "Engineered and deployed a robust predictor API using Flask, seamlessly integrating the machine learning model with the company's web application to deliver automated recommendations.",
+      'Delivered weekly, data-driven insights through comprehensive reports, influencing key decisions.',
+    ],
   },
   {
     company: 'Whitecape Technologies',
     title: 'Software Engineer Intern',
     start: 'Sep.',
     end: 'Oct. 2021',
+    moreInfoPeriod: 'September 2021 - October 2021',
     link: 'https://whitecapetech.com',
     id: 'work3',
+    bulletPoints: [
+      'Utilized modern web technologies, including React and Node.js, to develop dynamic and responsive web applications.',
+      'Implemented RESTful APIs and integrated third-party services to enhance application functionality.',
+      'Participated in agile development processes, collaborating with cross-functional teams to deliver high-quality software solutions.',
+      'Created user-friendly interfaces with a focus on accessibility and performance optimization.',
+    ],
   },
   {
     company: 'Enova Robotics',
     title: 'Software Engineer Intern',
     start: 'Aug.',
     end: 'Sep. 2020',
+    moreInfoPeriod: 'August 2020 - September 2020',
     link: 'https://enovarobotics.eu',
     id: 'work4',
+    bulletPoints: [
+      "Contributed to an object detection project for the autonomous and self-driving security robots' self-charging feature using C++ and OpenCV, successfully enhancing the robot's capabilities by ensuring accurate detection of the charging station port.",
+      'Collaborated with engineering team, ensuring effective communication and timely task completion.',
+    ],
   },
 ]
 
@@ -105,7 +137,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     title: 'How to Export Metadata from MDX for Next.js SEO',
-    description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
+    description:
+      'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
     link: '/blog/example-mdx-metadata',
     uid: 'blog-4',
   },
