@@ -797,17 +797,19 @@ export default function Personal() {
       </motion.section>
 
       {/* Resume Section */}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <ResumeSection />
-      </motion.section>
+      {process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' && (
+        <motion.section
+          variants={VARIANTS_SECTION}
+          transition={TRANSITION_SECTION}
+        >
+          <ResumeSection />
+        </motion.section>
+      )}
 
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
-        className="-mt-12"
+        className={process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' ? '-mt-12' : ''}
       >
         <h3 className="mb-2 text-lg font-medium">Get in touch</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
