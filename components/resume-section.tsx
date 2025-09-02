@@ -63,7 +63,7 @@ export default function ResumeSection() {
           Want my resume?
         </h4>
         <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3">
-          Enter your email to receive my resume
+          I'll send it right to your inbox
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export default function ResumeSection() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="your.email@example.com"
+            placeholder="your@email.com"
             className="flex-1 px-3 py-2 text-sm bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100
                      placeholder-zinc-500 dark:placeholder-zinc-400 rounded-lg
                      hover:bg-zinc-200 dark:hover:bg-zinc-700
@@ -94,7 +94,7 @@ export default function ResumeSection() {
                      focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-100 focus:ring-offset-0
                      transition-colors duration-200 whitespace-nowrap"
           >
-            {isLoading ? 'Sending...' : 'Send'}
+            {isLoading ? 'On its way...' : 'Send Resume'}
           </button>
         </div>
 
@@ -109,7 +109,7 @@ export default function ResumeSection() {
                 : 'text-red-700 dark:text-red-300 bg-red-100 dark:bg-red-900/20'
             }`}
           >
-            {message}
+            {isSuccess ? 'All set! Check your email for my resume 📧' : message}
           </motion.div>
         )}
       </form>

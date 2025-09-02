@@ -808,32 +808,22 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-2 text-lg font-medium">Let's Connect</h3>
+        <h3 className="mb-2 text-lg font-medium">Get in touch</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Feel free to reach out via email or connect on social platforms
+          Drop me a line at <a
+            className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200"
+            href={`mailto:${EMAIL}`}
+          >
+            {EMAIL}
+          </a> or find me around the web
         </p>
         
-        <div className="space-y-4">
-          {/* Email */}
-          <div>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              Email: <a
-                className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200"
-                href={`mailto:${EMAIL}`}
-              >
-                {EMAIL}
-              </a>
-            </p>
-          </div>
-          
-          {/* Social Links */}
-          <div className="flex items-center space-x-4">
-            {SOCIAL_LINKS.map((link) => (
-              <MagneticSocialLink key={link.label} link={link.link}>
-                {link.label}
-              </MagneticSocialLink>
-            ))}
-          </div>
+        <div className="flex items-center space-x-4">
+          {SOCIAL_LINKS.map((link) => (
+            <MagneticSocialLink key={link.label} link={link.link}>
+              {link.label}
+            </MagneticSocialLink>
+          ))}
         </div>
       </motion.section>
     </motion.main>
