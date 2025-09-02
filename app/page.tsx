@@ -587,8 +587,8 @@ export default function Personal() {
       >
         <div className="flex-1">
           <div className="text-zinc-600 dark:text-zinc-400">
-            <p>Leveraging machine learning to build smarter systems and unlock hidden patterns in data.</p>
-            <p>From model development to production deployment. 🚀</p>
+            <p>Bridging research and real-world impact through AI — from fine-tuning LLMs to deploying scalable, production-ready pipelines.</p>
+            <p>In summary, I turn data into tools that work, learn, and deliver real value. 🎯</p>
           </div>
         </div>
       </motion.section>
