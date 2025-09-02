@@ -48,6 +48,15 @@ type SkillCategory = {
   skills: string[]
 }
 
+type Certification = {
+  name: string
+  issuer: string
+  date: string
+  credentialId?: string
+  link?: string
+  id: string
+}
+
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Languages',
@@ -69,6 +78,41 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Databases',
     skills: ['PostgreSQL', 'ChromaDB', 'MongoDB'],
+  },
+]
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    name: 'Machine Learning Engineer',
+    issuer: 'DataCamp',
+    date: 'November 2024',
+    credentialId: 'afc9890d64a572bfb23614fa6eaae2a18afedfca',
+    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/afc9890d64a572bfb23614fa6eaae2a18afedfca',
+    id: 'cert1',
+  },
+  {
+    name: 'Google Data Analytics Specialization',
+    issuer: 'Google',
+    date: 'March 2022',
+    credentialId: 'BVTWPKS2GGUW',
+    link: 'https://www.coursera.org/account/accomplishments/professional-cert/BVTWPKS2GGUW',
+    id: 'cert2',
+  },
+  {
+    name: 'Associate Data Scientist',
+    issuer: 'DataCamp',
+    date: 'July 2022',
+    credentialId: '56954fa5219fd1e348b6f93ccb25e55981fc8f69',
+    link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/56954fa5219fd1e348b6f93ccb25e55981fc8f69',
+    id: 'cert3',
+  },
+  {
+    name: 'Machine Learning',
+    issuer: 'Stanford University (Coursera)',
+    date: 'December 2020',
+    credentialId: '8QLPUR9CTQLE',
+    link: 'https://www.coursera.org/account/accomplishments/verify/8QLPUR9CTQLE',
+    id: 'cert4',
   },
 ]
 
