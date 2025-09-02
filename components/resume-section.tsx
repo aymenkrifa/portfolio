@@ -92,7 +92,7 @@ export default function ResumeSection() {
         {/* Email Input and Button Row */}
         <div className="flex gap-2">
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value)
