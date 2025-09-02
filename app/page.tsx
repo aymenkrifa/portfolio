@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
+import ResumeRequestForm from '@/components/resume-request-form'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -806,6 +807,11 @@ export default function Personal() {
             {EMAIL}
           </a>
         </p>
+        
+        <div className="mb-8">
+          <ResumeRequestForm />
+        </div>
+        
         <div className="flex items-center justify-start space-x-3">
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>
