@@ -794,41 +794,46 @@ export default function Personal() {
             ))}
           </AnimatedBackground>
         </div>
-      </motion.section> */}
+      </motion.section>
+
+      {/* Resume Section */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <ResumeSection />
+      </motion.section>
 
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="text-center mb-8">
-          <h3 className="mb-3 text-2xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-700 dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-300 bg-clip-text text-transparent">
-            Let's Connect
-          </h3>
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
-            Feel free to contact me at{' '}
-            <a
-              className="inline-flex items-center px-2 py-1 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-lg transition-colors duration-200 text-zinc-800 dark:text-zinc-200 font-medium"
-              href={`mailto:${EMAIL}`}
-            >
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              {EMAIL}
-            </a>
-          </p>
-        </div>
-
-        <div className="flex items-center justify-center space-x-4 mb-12">
-          {SOCIAL_LINKS.map((link) => (
-            <MagneticSocialLink key={link.label} link={link.link}>
-              {link.label}
-            </MagneticSocialLink>
-          ))}
-        </div>
-
-        {/* Resume Section */}
-        <div className="flex justify-center">
-          <ResumeSection />
+        <h3 className="mb-2 text-lg font-medium">Let's Connect</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Feel free to reach out via email or connect on social platforms
+        </p>
+        
+        <div className="space-y-4">
+          {/* Email */}
+          <div>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              Email: <a
+                className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200"
+                href={`mailto:${EMAIL}`}
+              >
+                {EMAIL}
+              </a>
+            </p>
+          </div>
+          
+          {/* Social Links */}
+          <div className="flex items-center space-x-4">
+            {SOCIAL_LINKS.map((link) => (
+              <MagneticSocialLink key={link.label} link={link.link}>
+                {link.label}
+              </MagneticSocialLink>
+            ))}
+          </div>
         </div>
       </motion.section>
     </motion.main>
