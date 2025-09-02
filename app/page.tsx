@@ -815,10 +815,10 @@ export default function Personal() {
             href={`mailto:${EMAIL}`}
           >
             {EMAIL}
-          </a> or find me around the web
+          </a> or find me online
         </p>
         
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>
               {link.label}
