@@ -20,6 +20,7 @@ import {
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
+  SKILL_CATEGORIES,
 } from './data'
 
 const VARIANTS_CONTAINER = {
@@ -44,25 +45,25 @@ const TRANSITION_SECTION = {
 // Function to calculate experience duration from period string
 function calculateExperienceDuration(moreInfoPeriod: string): string {
   const periodLower = moreInfoPeriod.toLowerCase()
-  
+
   // Handle "present" case
   if (periodLower.includes('present')) {
     const startMatch = moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
     if (startMatch) {
       const startMonth = startMatch[1]
       const startYear = parseInt(startMatch[2])
-      
+
       const monthMap: { [key: string]: number } = {
         'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
         'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
       }
-      
+
       const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
       const currentDate = new Date()
-      
-      const diffInMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                          (currentDate.getMonth() - startDate.getMonth())
-      
+
+      const diffInMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+        (currentDate.getMonth() - startDate.getMonth())
+
       if (diffInMonths >= 12) {
         const years = Math.floor(diffInMonths / 12)
         const months = diffInMonths % 12
@@ -83,18 +84,18 @@ function calculateExperienceDuration(moreInfoPeriod: string): string {
       const startYear = parseInt(rangeMatch[2])
       const endMonth = rangeMatch[3]
       const endYear = parseInt(rangeMatch[4])
-      
+
       const monthMap: { [key: string]: number } = {
         'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
         'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
       }
-      
+
       const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
       const endDate = new Date(endYear, monthMap[endMonth.toLowerCase()] || 0)
-      
-      const diffInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                          (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
-      
+
+      const diffInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 +
+        (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
+
       if (diffInMonths >= 12) {
         const years = Math.floor(diffInMonths / 12)
         const months = diffInMonths % 12
@@ -108,7 +109,7 @@ function calculateExperienceDuration(moreInfoPeriod: string): string {
       }
     }
   }
-  
+
   return ''
 }
 
@@ -118,28 +119,28 @@ function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { ful
   let internshipMonths = 0
   let fullTimeCount = 0
   let internshipCount = 0
-  
+
   workExperience.forEach(job => {
     const periodLower = job.moreInfoPeriod.toLowerCase()
     let jobMonths = 0
-    
+
     // Handle "present" case
     if (periodLower.includes('present')) {
       const startMatch = job.moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
       if (startMatch) {
         const startMonth = startMatch[1]
         const startYear = parseInt(startMatch[2])
-        
+
         const monthMap: { [key: string]: number } = {
           'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
           'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
         }
-        
+
         const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
         const currentDate = new Date()
-        
-        jobMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                   (currentDate.getMonth() - startDate.getMonth())
+
+        jobMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+          (currentDate.getMonth() - startDate.getMonth())
       }
     } else {
       // Handle date range cases
@@ -149,20 +150,20 @@ function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { ful
         const startYear = parseInt(rangeMatch[2])
         const endMonth = rangeMatch[3]
         const endYear = parseInt(rangeMatch[4])
-        
+
         const monthMap: { [key: string]: number } = {
           'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
           'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
         }
-        
+
         const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
         const endDate = new Date(endYear, monthMap[endMonth.toLowerCase()] || 0)
-        
-        jobMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                   (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
+
+        jobMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 +
+          (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
       }
     }
-    
+
     // Categorize by job type
     if (job.jobType === 'Full-time') {
       fullTimeMonths += jobMonths
@@ -172,7 +173,7 @@ function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { ful
       internshipCount++
     }
   })
-  
+
   return {
     fullTimeMonths,
     internshipMonths,
@@ -183,12 +184,12 @@ function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { ful
 
 function formatTotalExperience(fullTimeMonths: number, internshipMonths: number, fullTimeCount: number, internshipCount: number): string {
   const parts = []
-  
+
   // Full-time experience
   if (fullTimeCount > 0 && fullTimeMonths > 0) {
     const years = Math.floor(fullTimeMonths / 12)
     const remainingMonths = fullTimeMonths % 12
-    
+
     if (years >= 3) {
       parts.push(`${years}+ years of full-time experience`)
     } else if (years >= 1) {
@@ -201,25 +202,25 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
       parts.push(`${fullTimeMonths} months of full-time experience`)
     }
   }
-  
+
   // Internship experience
   if (internshipCount > 0) {
     parts.push(`${internshipCount} internship${internshipCount > 1 ? 's' : ''}`)
   }
-  
+
   // Fallback to show total positions if no specific categories
   if (parts.length === 0) {
     const totalPositions = fullTimeCount + internshipCount
     return `${totalPositions} position${totalPositions > 1 ? 's' : ''} across different companies.`
   }
-  
+
   // Format as a proper sentence
   if (parts.length === 1) {
     return parts[0] + '.'
   } else if (parts.length === 2) {
     return `${parts[0]} and ${parts[1]}.`
   }
-  
+
   return parts.join(', ') + '.'
 }
 
@@ -665,7 +666,36 @@ export default function Personal() {
           </div>
         </div>
       </motion.section>
-{/* 
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Skills</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Technologies and tools I work with regularly.
+        </p>
+        <div className="space-y-6">
+          {SKILL_CATEGORIES.map((category) => (
+            <div key={category.name} className="space-y-3">
+              <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                {category.name}
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-lg bg-zinc-50 px-3 py-1.5 text-sm text-zinc-600 dark:bg-zinc-900/50 dark:text-zinc-400"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+      {/* 
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}

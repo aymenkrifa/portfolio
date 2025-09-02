@@ -43,6 +43,35 @@ type SocialLink = {
   link: string
 }
 
+type SkillCategory = {
+  name: string
+  skills: string[]
+}
+
+export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    name: 'Languages',
+    skills: ['Python', 'SQL', 'Shell Scripting'],
+  },
+  {
+    name: 'AI/ML',
+    skills: ['PyTorch', 'Scikit-Learn', 'LangChain', 'OpenAI', 'Transformers'],
+  },
+  {
+    name: 'Web Frameworks & UI',
+    skills: ['FastAPI', 'Flask', 'Streamlit'],
+  },
+
+  {
+    name: 'Tools & Cloud',
+    skills: ['Docker', 'Git', 'AWS', 'GitHub Actions'],
+  },
+  {
+    name: 'Databases',
+    skills: ['PostgreSQL', 'ChromaDB', 'MongoDB'],
+  },
+]
+
 export const PROJECTS: Project[] = [
   {
     name: 'AutoActivator',
