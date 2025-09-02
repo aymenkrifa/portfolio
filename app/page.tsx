@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import ResumeDialog from '@/components/resume-dialog'
+import ResumeSection from '@/components/resume-section'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -826,9 +826,9 @@ export default function Personal() {
           ))}
         </div>
 
-        {/* Resume Section - Simple Dialog */}
+        {/* Resume Section */}
         <div className="flex justify-center">
-          <ResumeDialog />
+          <ResumeSection />
         </div>
       </motion.section>
     </motion.main>
