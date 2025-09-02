@@ -209,7 +209,7 @@ export const EDUCATION: Education[] = [
     id: 'edu1',
     description: 'Specialized in Machine Learning and Artificial Intelligence',
     achievements: [
-      'Graduated with High Honors (GPA: 3.7/4.0)',
+      'Graduated with High Honors (GPA: 3.8/4.0)',
       'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"',
     ],
   },
@@ -223,7 +223,7 @@ export const EDUCATION: Education[] = [
     link: 'https://polytecsousse.tn',
     id: 'edu2',
     achievements: [
-      'Graduated with High Honors (GPA: 3.8/4.0)',
+      'Graduated with High Honors (GPA: 3.9/4.0)',
       'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"',
     ],
   },
