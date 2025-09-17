@@ -79,6 +79,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     name: 'Databases',
     skills: ['PostgreSQL', 'ChromaDB', 'MongoDB'],
   },
+  {
+    name: 'AI Tools',
+    skills: ['Windsurf', 'GitHub Copilot'],
+  },
 ]
 
 export const CERTIFICATIONS: Certification[] = [
