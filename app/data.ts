@@ -129,6 +129,14 @@ export const PROJECTS: Project[] = [
     video: '',
     id: 'project1',
   },
+  {
+    name: 'Reaper',
+    description:
+      'A simple TUI for listing, monitoring, and killing listening ports using Rust.',
+    link: 'https://github.com/aymenkrifa/reaper',
+    video: '',
+    id: 'project2',
+  },
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
