@@ -81,7 +81,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'AI Tools',
-    skills: ['Windsurf', 'GitHub Copilot'],
+    skills: ['Windsurf', 'GitHub Copilot', 'Copilot CLI'],
   },
 ]
 
