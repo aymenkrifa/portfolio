@@ -114,6 +114,7 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
                 // Determine if this is near the start or end
                 const isNearStart = weekIndex < 5
                 const isNearEnd = weekIndex > weeks.length - 5
+                const isTopRows = dayIndex <= 1
                 
                 return (
                   <div
@@ -121,7 +122,9 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
                     className={`group relative h-[11px] w-[11px] rounded-sm transition-all hover:ring-2 hover:ring-zinc-400 dark:hover:ring-zinc-500 ${getColorClass(day.level)}`}
                     title={`${day.count} contributions on ${formatDate(day.date)}`}
                   >
-                    <div className={`pointer-events-none absolute bottom-full z-50 mb-2 hidden whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white shadow-lg group-hover:block dark:bg-zinc-100 dark:text-zinc-900 ${
+                    <div className={`pointer-events-none absolute z-50 mb-2 hidden whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white shadow-lg group-hover:block dark:bg-zinc-100 dark:text-zinc-900 ${
+                      isTopRows ? 'top-full mt-2' : 'bottom-full'
+                    } ${
                       isNearEnd ? 'right-0' : isNearStart ? 'left-0' : 'left-1/2 -translate-x-1/2'
                     }`}>
                       {day.count} contributions on {formatDate(day.date)}
