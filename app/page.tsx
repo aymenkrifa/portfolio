@@ -14,6 +14,7 @@ import {
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import ResumeSection from '@/components/resume-section'
+import { GitHubContributions } from '@/components/github-contributions'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -695,6 +696,19 @@ export default function Personal() {
               </div>
             </div>
           ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">GitHub Contributions</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          My coding activity over the past year.
+        </p>
+        <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+          <GitHubContributions username="aymenkrifa" />
         </div>
       </motion.section>
 

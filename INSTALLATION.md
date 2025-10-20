@@ -69,12 +69,38 @@ Your content here...
 
 For a better understanding of the Next.js project structure, refer to the [Next.js](https://nextjs.org/docs/app/getting-started/project-structure) documentation.
 
-7. **Additional Features**
+7. **GitHub Contributions (Optional)**
+
+The portfolio includes a GitHub contributions calendar that shows your coding activity. To enable it:
+
+   - **Option 1: Use the fallback (no setup required)**  
+     The component will automatically fall back to a third-party service (ghchart.rshah.org) if no token is provided.
+
+   - **Option 2: Use GitHub's official API (recommended)**  
+     Create a `.env.local` file and add your GitHub token:
+     
+     ```bash
+     NEXT_PUBLIC_GITHUB_TOKEN=your_github_token_here
+     ```
+     
+     To get a token:
+     1. Go to [GitHub Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens)
+     2. Click "Generate new token (classic)"
+     3. Give it a name (e.g., "Portfolio Website")
+     4. No special scopes are needed for public data
+     5. Click "Generate token" and copy it
+
+The component in `components/github-contributions.tsx` automatically:
+- Fetches contribution data from GitHub's GraphQL API
+- Falls back to the image-based service if the API fails
+- Updates dynamically based on your activity
+
+8. **Additional Features**
 
 Want to add more animated components?
 Check out [Motion-Primitives](https://motion-primitives.com/) for additional animation components and templates. If you want something else DM on [X](https://x.com/Ibelick).
 
-8.  **Deployment**
+9.  **Deployment**
 
 You can deploy your site to any hosting platform that supports Next.js. For the easiest deployment experience, consider using Vercel:
 
