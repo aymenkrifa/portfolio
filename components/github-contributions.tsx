@@ -95,6 +95,34 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
     weeks.push(contributions.slice(i, i + 7))
   }
 
+  // Get month labels for the timeline
+  const getMonthLabels = () => {
+    if (contributions.length === 0) return []
+    
+    const labels: { month: string; weekIndex: number }[] = []
+    let lastMonth = -1
+    
+    weeks.forEach((week, weekIndex) => {
+      if (week.length > 0) {
+        const date = new Date(week[0].date)
+        const month = date.getMonth()
+        
+        // Only add label if it's a new month and not the very first week
+        if (month !== lastMonth && weekIndex > 0) {
+          const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+          labels.push({ month: months[month], weekIndex })
+          lastMonth = month
+        } else if (weekIndex === 0) {
+          lastMonth = month
+        }
+      }
+    })
+    
+    return labels
+  }
+
+  const monthLabels = getMonthLabels()
+
   return (
     <div className="w-full overflow-hidden rounded-lg">
       <div className="mb-4 flex items-center justify-between">
@@ -107,7 +135,43 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
       </div>
       
       <div className="overflow-x-auto">
+        {/* Month labels */}
+        <div className="relative mb-3 h-4">
+          <div className="inline-flex gap-[3px]">
+            {weeks.map((week, weekIndex) => {
+              const monthLabel = monthLabels.find(m => m.weekIndex === weekIndex)
+              return (
+                <div key={weekIndex} className="w-[11px] relative">
+                  {monthLabel && (
+                    <span className="absolute left-0 text-[10px] text-zinc-500 dark:text-zinc-400">
+                      {monthLabel.month}
+                    </span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Contribution grid */}
         <div className="inline-flex gap-[3px] relative">
+          {/* Day labels */}
+          <div className="flex flex-col gap-[3px] mr-2">
+            <div className="h-[11px]"></div>
+            <div className="h-[11px] flex items-center">
+              <span className="text-[9px] text-zinc-500 dark:text-zinc-400 pr-1">Mon</span>
+            </div>
+            <div className="h-[11px]"></div>
+            <div className="h-[11px] flex items-center">
+              <span className="text-[9px] text-zinc-500 dark:text-zinc-400 pr-1">Wed</span>
+            </div>
+            <div className="h-[11px]"></div>
+            <div className="h-[11px] flex items-center">
+              <span className="text-[9px] text-zinc-500 dark:text-zinc-400 pr-1">Fri</span>
+            </div>
+            <div className="h-[11px]"></div>
+          </div>
+
           {weeks.map((week, weekIndex) => (
             <div key={weekIndex} className="flex flex-col gap-[3px]">
               {week.map((day, dayIndex) => {
