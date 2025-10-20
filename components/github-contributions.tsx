@@ -82,6 +82,13 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
     )
   }
 
+  // Format date consistently for SSR/CSR
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString)
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+  }
+
   // Group contributions by week
   const weeks: ContributionDay[][] = []
   for (let i = 0; i < contributions.length; i += 7) {
@@ -107,10 +114,10 @@ export function GitHubContributions({ username }: GitHubContributionsProps) {
                 <div
                   key={`${weekIndex}-${dayIndex}`}
                   className={`group relative h-[11px] w-[11px] rounded-sm transition-all hover:ring-2 hover:ring-zinc-400 dark:hover:ring-zinc-500 ${getColorClass(day.level)}`}
-                  title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
+                  title={`${day.count} contributions on ${formatDate(day.date)}`}
                 >
-                  <div className="pointer-events-none absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white group-hover:block dark:bg-zinc-100 dark:text-zinc-900">
-                    {day.count} contributions on {new Date(day.date).toLocaleDateString()}
+                  <div className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white shadow-lg group-hover:block dark:bg-zinc-100 dark:text-zinc-900">
+                    {day.count} contributions on {formatDate(day.date)}
                   </div>
                 </div>
               ))}
