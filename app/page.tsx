@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
+import ExternalLinkIndicator from '@/components/ui/ExternalLinkIndicator'
 import { Info } from '@geist-ui/icons'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
@@ -346,21 +347,7 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 className="inline-flex items-center gap-2 text-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors font-medium focus:outline-none focus:ring-0"
               >
                 {job.company}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-3.5 w-3.5"
-                >
-                  <path
-                    d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                <ExternalLinkIndicator />
               </a>
               <p className="text-sm text-zinc-500 dark:text-zinc-500">
                 {job.jobType}
@@ -474,21 +461,7 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
                 className="inline-flex items-center gap-2 text-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors font-medium focus:outline-none focus:ring-0"
               >
                 {education.institution}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-3.5 w-3.5"
-                >
-                  <path
-                    d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                <ExternalLinkIndicator className="h-3.5 w-3.5" />
               </a>
               <p className="text-sm text-zinc-500 dark:text-zinc-500">
                 {education.field}
@@ -611,11 +584,13 @@ export default function Personal() {
               </div> */}
               <div className="px-1">
                 <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
                   href={project.link}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {project.name}
+                  <ExternalLinkIndicator />
                   <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
                 </a>
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
