@@ -94,6 +94,14 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     name: 'AI Tools',
     skills: ['Windsurf', 'GitHub Copilot', 'Copilot CLI'],
   },
+  {
+    name: 'Collaboration Tools',
+    skills: ['Jira', 'Confluence', 'Trello', 'Microsoft Teams', 'Slack', 'Bitbucket', 'GitHub']
+  },
+  {
+    name: 'Languages',
+    skills: ['English (Proficient)', 'French (Conversational)', 'Arabic (Native)']
+  }
 ]
 
 export const CERTIFICATIONS: Certification[] = [
