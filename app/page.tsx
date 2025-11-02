@@ -651,7 +651,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Skills</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Technologies and tools I work with regularly.
+          Technologies and tools I work/worked with throughout the years.
         </p>
         <div className="space-y-6">
           {SKILL_CATEGORIES.map((category) => (
