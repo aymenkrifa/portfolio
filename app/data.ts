@@ -59,25 +59,36 @@ type Certification = {
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    name: 'Languages',
-    skills: ['Python', 'SQL', 'Shell Scripting'],
+    name: 'Programming Languages',
+    skills: ['Python', 'SQL', 'Bash'],
   },
   {
     name: 'AI/ML',
-    skills: ['PyTorch', 'Scikit-Learn', 'LangChain', 'OpenAI', 'Transformers'],
+    skills: ['PyTorch', 'scikit-learn', 'LangChain', 'LangGraph', '🤗 Transformers', 'spaCy', 'OpenAI', 'Google Gemini', 'Ultravox', 'DeepEval', 'Mem0'],
+  },
+  {
+    name: 'Libraries & Frameworks',
+    skills: ['NumPy', 'Pandas', 'Plotly', 'BeautifulSoup4', 'Selenium', 'pytest'],
   },
   {
     name: 'Web Frameworks & UI',
     skills: ['FastAPI', 'Flask', 'Streamlit'],
   },
-
   {
-    name: 'Tools & Cloud',
-    skills: ['Docker', 'Git', 'AWS', 'GitHub Actions'],
+    name: 'MLOps & Deployment',
+    skills: ['Docker', 'Docker Compose', 'Kubernetes', 'MLflow', 'GitHub Actions', 'Datadog'],
+  },
+  {
+    name: 'Cloud & Infrastructure',
+    skills: ['Azure (OpenAI)', 'aiXplain', 'RunPod'],
   },
   {
     name: 'Databases',
-    skills: ['PostgreSQL', 'ChromaDB', 'MongoDB'],
+    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'Elasticsearch'],
+  },
+  {
+    name: 'Development Tools',
+    skills: ['Git', 'IPython', 'Jupyter', 'Twilio'],
   },
   {
     name: 'AI Tools',
