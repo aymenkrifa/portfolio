@@ -60,11 +60,11 @@ type Certification = {
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Programming Languages',
-    skills: ['Python', 'SQL', 'Bash'],
+    skills: ['Python 3', 'SQL', 'Bash'],
   },
   {
     name: 'AI/ML',
-    skills: ['PyTorch', 'scikit-learn', 'LangChain', 'LangGraph', '🤗 Transformers', 'spaCy', 'OpenAI', 'Google Gemini', 'Ultravox', 'DeepEval', 'Mem0'],
+    skills: ['PyTorch', 'scikit-learn', 'LangChain', 'LangGraph', 'Hugging Face Transformers', 'spaCy', 'OpenAI', 'Google Gemini', 'Ultravox', 'DeepEval', 'Mem0'],
   },
   {
     name: 'Libraries & Frameworks',
