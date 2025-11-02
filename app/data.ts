@@ -229,6 +229,7 @@ export const EDUCATION: Education[] = [
     achievements: [
       'Graduated with High Honors (GPA: 3.8/4.0)',
       'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"',
+      'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing',
     ],
   },
   {
@@ -243,6 +244,7 @@ export const EDUCATION: Education[] = [
     achievements: [
       'Graduated with High Honors (GPA: 3.9/4.0)',
       'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"',
+      'Relevant Coursework: Algorithms, Probability and Statistics, Machine Learning, Mathematics'
     ],
   },
 ]
