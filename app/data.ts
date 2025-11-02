@@ -161,14 +161,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work1',
     jobType: 'Full-time',
     bulletPoints: [
-      'Engineered and refined pipelines that empowered LLMs with domain-specific knowledge for hotel-related prompts, improving response accuracy.',
-      'Implemented a Retrieval-Augmented Generation (RAG) system using LangChain with Mistral, Meta’s Llama, and OpenAI’s GPT models, leveraging ChromaDB as the vector store to significantly reduce model hallucination by 15% and enable more context-aware responses.',
-      'Designed and implemented an LLM-as-a-Judge evaluation framework, utilizing prompt chaining to objectively assess and iteratively improve the quality and accuracy of LLM-generated responses.',
-      'Developed and deployed a voice-enabled room booking assistant with Ultravox, integrating function calls for efficient hotel reservation workflow automation agents.',
-      'Revamped and fine-tuned internal ML pipelines, leading to a boost in workflow efficiency and substantially improving system scalability for fine-tuning core models.',
-      'Led the transition of the BERT-based chatbot intent detection system to multi-label classification and integrated generative AI, resulting in a 25% reduction in reported bugs.',
-      'Translated complex data into actionable insights and compelling visualizations for stakeholders, enabling data-driven strategic decisions.',
-      'Drove stakeholder engagement for critical ML initiatives, aligning technical roadmaps with business objectives and ensuring project success.',
+      'Architected multi-agent orchestration system with 35+ specialized LangGraph agents for hotel operations, implementing custom tools, prompt engineering, Mem0 memory persistence, and MCP data integration across distributed workflows',
+      'Engineered production RAG pipeline with LangChain, ChromaDB, and Azure OpenAI, reducing hallucinations by 15% across 10K+ monthly queries; deployed via FastAPI with Datadog monitoring',
+      'Re-architected BERT intent classifier from single-label to multi-label using PyTorch and Transformers, serving 100K+ monthly requests via FastAPI and reducing misclassification bugs by 25%',
+      'Designed LLM-as-a-Judge evaluation framework with DeepEval and Gemini-based prompt chaining to automate quality assessment, improving response scores by 18% and enabling systematic evaluation across production LLM outputs',
+      'Developed voice-enabled booking assistant handling phone reservations with 40+ FastAPI function calling endpoints, integrating Ultravox, LLM APIs, Redis state management, and Twilio telephony',
+      'Implemented FastText language detection microservice improving accuracy by 20%, enabling multi-language support across hotel chatbot operations serving 600K+ monthly requests',
     ],
   },
   {
@@ -181,10 +179,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work2',
     jobType: 'Internship',
     bulletPoints: [
-      "Leveraged supervised Machine Learning techniques (decision trees, random forests), achieving a 70% accuracy rate in predicting website users' trip categories.",
-      'Extracted insights from millions of data points, maintaining data integrity and compliance.',
-      "Engineered and deployed a robust predictor API using Flask, seamlessly integrating the machine learning model with the company's web application to deliver automated recommendations.",
-      'Delivered weekly, data-driven insights through comprehensive reports, influencing key decisions.',
+      'Built data cleaning pipeline processing 15M+ data points and trained trip category prediction model using random forests and scikit-learn, achieving 70% accuracy in classifying user travel preferences',
+      'Deployed Flask REST API serving real-time predictions, integrating ML recommendations into production web application for automated trip categorization'
     ],
   },
   {
