@@ -639,7 +639,7 @@ export default function Personal() {
               <Info size={14} className="text-blue-600 dark:text-blue-400" />
             </div>
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              Final degree was pursued in parallel with full-time work through night classes on campus.
+              Recent degree was pursued in parallel with full-time work through night classes on campus.
             </p>
           </div>
         </div>
