@@ -172,6 +172,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Architected multi-agent orchestration system with 35+ specialized LangGraph agents for hotel operations, implementing custom tools, prompt engineering, Mem0 memory persistence, and MCP data integration across distributed workflows',
       'Engineered production RAG pipeline with LangChain, ChromaDB, and Azure OpenAI, reducing hallucinations by 15% across 10K+ monthly queries; deployed via FastAPI with Datadog monitoring',
       'Re-architected BERT intent classifier from single-label to multi-label using PyTorch and Transformers, serving 100K+ monthly requests via FastAPI and reducing misclassification bugs by 25%',
+      'Contributed to team growth by conducting 40+ technical interviews for ML Engineer roles and successfully mentoring and onboarding 7 new hires, accelerating their time-to-impact',
       'Designed LLM-as-a-Judge evaluation framework with DeepEval and Gemini-based prompt chaining to automate quality assessment, improving response scores by 18% and enabling systematic evaluation across production LLM outputs',
       'Developed voice-enabled booking assistant handling phone reservations with 40+ FastAPI function calling endpoints, integrating Ultravox, LLM APIs, Redis state management, and Twilio telephony',
       'Implemented FastText language detection microservice improving accuracy by 20%, enabling multi-language support across hotel chatbot operations serving 600K+ monthly requests',
