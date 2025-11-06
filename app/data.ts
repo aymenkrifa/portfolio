@@ -76,7 +76,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'MLOps & Deployment',
-    skills: ['Docker', 'Docker Compose', 'Kubernetes', 'MLflow', 'GitHub Actions', 'Datadog'],
+    skills: ['Docker', 'Docker Compose', 'MLflow', 'GitHub Actions', 'Datadog'],
   },
   {
     name: 'Cloud & Infrastructure',
@@ -84,7 +84,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Databases',
-    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'Elasticsearch'],
+    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'SQLite' ],
   },
   {
     name: 'Development Tools',
