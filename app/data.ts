@@ -105,6 +105,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Languages',
     skills: ['English (Proficient)', 'French (Conversational)', 'Arabic (Native)']
+  },
+  {
+    name: 'Exposure to Other Technologies/Tools but Not Proficient In',
+    skills: ['OpenCV', 'Supabase', 'ElasticSearch', 'AWS', 'Vercel', 'Kubernetes', 'Vespa', 'MongoDB', 'TensorFlow', 'Keras', 'XGBoost', 'LightGBM', 'CatBoost', 'PowerBI', 'Kibana', 'Rust', 'C++', 'C', 'Java']
   }
 ]
 
