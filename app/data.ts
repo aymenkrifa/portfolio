@@ -64,11 +64,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'AI/ML',
-    skills: ['PyTorch', 'scikit-learn', 'LangChain', 'LangGraph', 'Hugging Face Transformers', 'spaCy', 'OpenAI', 'Google Gemini', 'Ultravox', 'DeepEval', 'Mem0'],
+    skills: ['PyTorch', 'scikit-learn', 'LangChain', 'LangGraph', 'HF Transformers', 'spaCy', 'OpenAI (API & SDK)', 'Google Gemini (API)', 'Ultravox (API & SDK)', 'DeepEval', 'Mem0'],
   },
   {
     name: 'Libraries & Frameworks',
-    skills: ['NumPy', 'Pandas', 'Plotly', 'BeautifulSoup4', 'Selenium', 'pytest'],
+    skills: ['NumPy', 'pandas', 'Plotly', 'BeautifulSoup4', 'Selenium', 'pytest'],
   },
   {
     name: 'Web Frameworks & UI',
@@ -84,11 +84,15 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Databases',
-    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'SQLite' ],
+    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'SQLite'],
   },
   {
     name: 'Development Tools',
-    skills: ['Git', 'IPython', 'Jupyter', 'Twilio'],
+    skills: ['Git', 'IPython', 'Jupyter'],
+  },
+  {
+    name: 'Operating Systems',
+    skills: ['Linux']
   },
   {
     name: 'AI Tools',
