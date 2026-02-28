@@ -68,11 +68,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'PyTorch',
       'Hugging Face Transformers',
       'scikit-learn',
+      'LLM Evaluation Frameworks',
+      'Prompt Engineering',
       'Retrieval-Augmented Generation (RAG)',
       'LangChain',
       'LangGraph (Graph-based orchestration)',
-      'Prompt Engineering',
-      'LLM Evaluation Frameworks',
       'Multi-Agent Orchestration'
     ],
   },
