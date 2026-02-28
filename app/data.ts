@@ -59,58 +59,60 @@ type Certification = {
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    name: 'Programming Languages',
-    skills: ['Python 3', 'SQL', 'Bash'],
+    name: 'Programming',
+    skills: ['Python', 'SQL', 'Bash'],
   },
   {
-    name: 'AI/ML',
-    skills: ['PyTorch', 'scikit-learn', 'LangChain', 'LangGraph', 'HF Transformers', 'spaCy', 'OpenAI (API & SDK)', 'Google Gemini (API)', 'Ultravox (API & SDK)', 'DeepEval', 'Mem0'],
+    name: 'Machine Learning & LLM Systems',
+    skills: [
+      'PyTorch',
+      'Hugging Face Transformers',
+      'scikit-learn',
+      'Retrieval-Augmented Generation (RAG)',
+      'LangChain',
+      'LangGraph (Graph-based orchestration)',
+      'Prompt Engineering',
+      'LLM Evaluation Frameworks',
+      'Multi-Agent Orchestration'
+    ],
   },
   {
-    name: 'Libraries & Frameworks',
-    skills: ['NumPy', 'pandas', 'Plotly', 'BeautifulSoup4', 'Selenium', 'pytest'],
+    name: 'MLOps & Infrastructure',
+    skills: [
+      'Docker',
+      'Docker Compose',
+      'Kubernetes',
+      'MLflow',
+      'DVC',
+      'GitHub Actions',
+      'Datadog',
+    ],
   },
   {
-    name: 'Web Frameworks & UI',
-    skills: ['FastAPI', 'Flask', 'Streamlit'],
+    name: 'Backend & APIs',
+    skills: ['FastAPI', 'Flask', 'REST APIs'],
   },
   {
-    name: 'MLOps & Deployment',
-    skills: ['Docker', 'Docker Compose', 'MLflow', 'GitHub Actions', 'Datadog'],
+    name: 'Databases & Storage',
+    skills: ['PostgreSQL', 'ChromaDB', 'Redis'],
   },
   {
-    name: 'Cloud & Infrastructure',
-    skills: ['Azure (OpenAI)', 'aiXplain', 'RunPod'],
+    name: 'Cloud Platforms',
+    skills: ['AWS', 'Azure (OpenAI Service)'],
   },
   {
-    name: 'Databases',
-    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'SQLite'],
+    name: 'Development Environment',
+    skills: ['Linux', 'Git', 'Jupyter'],
   },
   {
-    name: 'Development Tools',
-    skills: ['Git', 'IPython', 'Jupyter'],
-  },
-  {
-    name: 'Operating Systems',
-    skills: ['Linux']
-  },
-  {
-    name: 'AI Tools',
-    skills: ['Windsurf', 'GitHub Copilot', 'Copilot CLI'],
-  },
-  {
-    name: 'Collaboration Tools',
-    skills: ['Jira', 'Confluence', 'Trello', 'Microsoft Teams', 'Slack', 'Bitbucket', 'GitHub']
+    name: 'Collaboration',
+    skills: ['Jira', 'Confluence', 'Slack', 'Microsoft Teams', 'GitHub'],
   },
   {
     name: 'Languages',
-    skills: ['English (Proficient)', 'French (Conversational)', 'Arabic (Native)']
-  },
-  {
-    name: 'Exposure to Other Technologies/Tools but Not Proficient In',
-    skills: ['OpenCV', 'Supabase', 'ElasticSearch', 'AWS', 'Vercel', 'Kubernetes', 'Vespa', 'MongoDB', 'TensorFlow', 'Keras', 'XGBoost', 'LightGBM', 'CatBoost', 'PowerBI', 'Kibana', 'Rust', 'C++', 'C', 'Java']
+    skills: ['English (Proficient)', 'French (Conversational)', 'Arabic (Native)'],
   }
-]
+];
 
 export const CERTIFICATIONS: Certification[] = [
   {
