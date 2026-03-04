@@ -25,6 +25,7 @@ import {
   SOCIAL_LINKS,
   SKILL_CATEGORIES,
   CERTIFICATIONS,
+  PROFESSIONAL_SUMMARY,
 } from './data'
 
 const VARIANTS_CONTAINER = {
@@ -572,33 +573,24 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
-        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Personal and open-source projects
-        </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              {/* <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div> */}
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                  <ExternalLinkIndicator />
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </div>
+        <h3 className="mb-2 text-lg font-medium">About</h3>
+        <div className="space-y-4">
+          {PROFESSIONAL_SUMMARY.paragraphs.map((paragraph, index) => (
+            <p key={index} className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              {paragraph}
+            </p>
           ))}
+          <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+            {PROFESSIONAL_SUMMARY.highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400"
+              >
+                <span className="h-1 w-1 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </motion.section>
 
@@ -668,6 +660,40 @@ export default function Personal() {
                     {skill}
                   </span>
                 ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Personal and open-source projects
+        </p>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              {/* <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                <ProjectVideo src={project.video} />
+              </div> */}
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                  <ExternalLinkIndicator />
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
               </div>
             </div>
           ))}

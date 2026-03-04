@@ -298,6 +298,17 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ]
 
+export const PROFESSIONAL_SUMMARY = {
+  headline: 'Machine Learning Engineer',
+  paragraphs: [
+    'Machine Learning Engineer with a strong background in designing and deploying production AI systems. Experienced across the full lifecycle, from research and experimentation to scalable deployment, with a focus on LLM applications, NLP infrastructure, and agentic systems.',
+  ],
+  highlights: [
+    '3+ YoE shipping ML systems to production',
+    'LLMs, RAG & Agentic Systems',
+  ],
+}
+
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'GitHub',
