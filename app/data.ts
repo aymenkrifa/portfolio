@@ -170,12 +170,12 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Quicktext',
+    company: 'Quinta (formerly Quicktext)',
     title: 'Machine Learning Engineer',
     start: '2022',
     end: 'Present',
     moreInfoPeriod: 'July 2022 - Present',
-    link: 'https://quicktext.im',
+    link: 'https://www.quinta.im',
     id: 'work1',
     jobType: 'Full-time',
     bulletPoints: [
@@ -189,12 +189,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     ],
   },
   {
-    company: 'Quicktext',
+    company: 'Quinta (formerly Quicktext)',
     title: 'Machine Learning Engineer Intern',
     start: 'Feb.',
     end: 'Jul. 2022',
     moreInfoPeriod: 'February 2022 - July 2022',
-    link: 'https://quicktext.im',
+    link: 'https://www.quinta.im',
     id: 'work2',
     jobType: 'Internship',
     bulletPoints: [
