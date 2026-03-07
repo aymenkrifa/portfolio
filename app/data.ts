@@ -154,7 +154,7 @@ export const PROJECTS: Project[] = [
     name: 'AutoActivator',
     description:
       'Smart shell tool that seamlessly switches Python virtual environments as you navigate between project directories.',
-    link: 'https://github.com/aymenkrifa/autoactivator',
+    link: 'https://www.github.com/aymenkrifa/autoactivator',
     video: '',
     id: 'project1',
   },
@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
     name: 'Reaper',
     description:
       'A simple TUI for listing, monitoring, and killing listening ports using Rust.',
-    link: 'https://github.com/aymenkrifa/reaper',
+    link: 'https://www.github.com/aymenkrifa/reaper',
     video: '',
     id: 'project2',
   },
@@ -208,7 +208,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Sep.',
     end: 'Oct. 2021',
     moreInfoPeriod: 'September 2021 - October 2021',
-    link: 'https://whitecapetech.com',
+    link: 'https://www.whitecapetech.com',
     id: 'work3',
     jobType: 'Internship',
     bulletPoints: [
@@ -224,7 +224,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Aug.',
     end: 'Sep. 2020',
     moreInfoPeriod: 'August 2020 - September 2020',
-    link: 'https://enovarobotics.eu',
+    link: 'https://www.enovarobotics.eu',
     id: 'work4',
     jobType: 'Internship',
     bulletPoints: [
@@ -242,7 +242,7 @@ export const EDUCATION: Education[] = [
     start: '2022',
     end: '2025',
     moreInfoPeriod: 'September 2022 - June 2025',
-    link: 'https://polytecsousse.tn',
+    link: 'https://www.polytecsousse.tn',
     id: 'edu1',
     description: 'Specialized in Machine Learning and Artificial Intelligence',
     achievements: [
@@ -258,7 +258,7 @@ export const EDUCATION: Education[] = [
     start: '2019',
     end: '2022',
     moreInfoPeriod: 'September 2019 - July 2022',
-    link: 'https://polytecsousse.tn',
+    link: 'https://www.polytecsousse.tn',
     id: 'edu2',
     achievements: [
       'Graduated with High Honors (GPA: 3.9/4.0)',
@@ -312,15 +312,15 @@ export const PROFESSIONAL_SUMMARY = {
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'GitHub',
-    link: 'https://github.com/aymenkrifa',
+    link: 'https://www.github.com/aymenkrifa',
   },
   {
     label: 'X (Twitter)',
-    link: 'https://x.com/krifaymen',
+    link: 'https://www.x.com/krifaymen',
   },
   {
     label: 'LinkedIn',
-    link: 'https://linkedin.com/in/aymenkrifa',
+    link: 'https://www.linkedin.com/in/aymenkrifa',
   },
 ]
 
