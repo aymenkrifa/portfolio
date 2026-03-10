@@ -23,9 +23,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Fetch resume from your blob storage
-    // Replace this URL with your actual resume blob URL
-    const resumeUrl = process.env.RESUME_BLOB_URL || 'YOUR_RESUME_BLOB_URL'
+    const resumeUrl = process.env.RESUME_BLOB_URL
+    if (!resumeUrl) {
+      return NextResponse.json(
+        { error: 'Resume URL is not configured' },
+        { status: 500 }
+      )
+    }
     
     let resumeBuffer: Buffer
     let resumeFilename = 'resume.pdf'
@@ -52,9 +56,17 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send email with resume attachment
+    const from_email = process.env.FROM_EMAIL
+
+    if (!from_email) {
+      return NextResponse.json(
+        { error: 'Sender email is not configured' },
+        { status: 500 }
+      )
+    }
+
     const { data, error } = await resend.emails.send({
-      from: process.env.FROM_EMAIL || 'noreply@yourdomain.com',
+      from: from_email,
       to: [email],
       subject: 'Resume - Aymen Krifa',
       html: `
