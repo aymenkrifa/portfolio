@@ -674,7 +674,7 @@ export default function Personal() {
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
           Personal and open-source projects
         </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="flex flex-col space-y-4">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
               {/* <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
@@ -694,6 +694,16 @@ export default function Personal() {
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
                   {project.description}
                 </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

@@ -4,6 +4,7 @@ type Project = {
   link: string
   video: string
   id: string
+  tags: string[]
 }
 
 type WorkExperience = {
@@ -157,15 +158,25 @@ export const PROJECTS: Project[] = [
     link: 'https://www.github.com/aymenkrifa/autoactivator',
     video: '',
     id: 'project1',
+    tags: ['Shell', 'Python'],
   },
   {
     name: 'Reaper',
     description:
-      'A simple TUI for listing, monitoring, and killing listening ports using Rust.',
+      'A Linux TUI for listing, monitoring, and killing listening ports using Rust.',
     link: 'https://www.github.com/aymenkrifa/reaper',
     video: '',
     id: 'project2',
+    tags: ['Rust', 'Ratatui'],
   },
+  {
+    name: 'KExplorer',
+    description: 'Real-time, highly-opinionated, web-based Kubernetes dashboard for managing deployments, pods, and cluster resources.',
+    link: 'https://www.github.com/aymenkrifa/KExplorer',
+    video: '',
+    id: 'project3',
+    tags: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Kubernetes', 'Python', 'FastAPI'],
+  }
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
