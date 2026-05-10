@@ -47,236 +47,75 @@ const TRANSITION_SECTION = {
   duration: 0.3,
 }
 
-// Function to calculate experience duration from period string
-function calculateExperienceDuration(moreInfoPeriod: string): string {
-  const periodLower = moreInfoPeriod.toLowerCase()
-
-  // Handle "present" case
-  if (periodLower.includes('present')) {
-    const startMatch = moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
-    if (startMatch) {
-      const startMonth = startMatch[1]
-      const startYear = parseInt(startMatch[2])
-
-      const monthMap: { [key: string]: number } = {
-        'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
-        'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
-      }
-
-      const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
-      const currentDate = new Date()
-
-      const diffInMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
-        (currentDate.getMonth() - startDate.getMonth())
-
-      if (diffInMonths >= 12) {
-        const years = Math.floor(diffInMonths / 12)
-        const months = diffInMonths % 12
-        if (months === 0) {
-          return years === 1 ? '1 year' : `${years} years`
-        } else {
-          return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`
-        }
-      } else {
-        return diffInMonths === 1 ? '1 month' : `${diffInMonths} months`
-      }
-    }
-  } else {
-    // Handle date range cases
-    const rangeMatch = moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*(\w+)\s+(\d{4})/i)
-    if (rangeMatch) {
-      const startMonth = rangeMatch[1]
-      const startYear = parseInt(rangeMatch[2])
-      const endMonth = rangeMatch[3]
-      const endYear = parseInt(rangeMatch[4])
-
-      const monthMap: { [key: string]: number } = {
-        'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
-        'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
-      }
-
-      const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
-      const endDate = new Date(endYear, monthMap[endMonth.toLowerCase()] || 0)
-
-      const diffInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 +
-        (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
-
-      if (diffInMonths >= 12) {
-        const years = Math.floor(diffInMonths / 12)
-        const months = diffInMonths % 12
-        if (months === 0) {
-          return years === 1 ? '1 year' : `${years} years`
-        } else {
-          return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`
-        }
-      } else {
-        return diffInMonths === 1 ? '1 month' : `${diffInMonths} months`
-      }
-    }
-  }
-
-  return ''
+const MONTH_MAP: Record<string, number> = {
+  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
 }
 
-// Function to calculate total work experience by job type
-function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE): { fullTimeMonths: number, internshipMonths: number, fullTimeCount: number, internshipCount: number } {
-  let fullTimeMonths = 0
-  let internshipMonths = 0
-  let fullTimeCount = 0
-  let internshipCount = 0
-
-  workExperience.forEach(job => {
-    const periodLower = job.moreInfoPeriod.toLowerCase()
-    let jobMonths = 0
-
-    // Handle "present" case
-    if (periodLower.includes('present')) {
-      const startMatch = job.moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
-      if (startMatch) {
-        const startMonth = startMatch[1]
-        const startYear = parseInt(startMatch[2])
-
-        const monthMap: { [key: string]: number } = {
-          'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
-          'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
-        }
-
-        const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
-        const currentDate = new Date()
-
-        jobMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
-          (currentDate.getMonth() - startDate.getMonth())
-      }
-    } else {
-      // Handle date range cases
-      const rangeMatch = job.moreInfoPeriod.match(/(\w+)\s+(\d{4})\s*-\s*(\w+)\s+(\d{4})/i)
-      if (rangeMatch) {
-        const startMonth = rangeMatch[1]
-        const startYear = parseInt(rangeMatch[2])
-        const endMonth = rangeMatch[3]
-        const endYear = parseInt(rangeMatch[4])
-
-        const monthMap: { [key: string]: number } = {
-          'january': 0, 'february': 1, 'march': 2, 'april': 3, 'may': 4, 'june': 5,
-          'july': 6, 'august': 7, 'september': 8, 'october': 9, 'november': 10, 'december': 11
-        }
-
-        const startDate = new Date(startYear, monthMap[startMonth.toLowerCase()] || 0)
-        const endDate = new Date(endYear, monthMap[endMonth.toLowerCase()] || 0)
-
-        jobMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 +
-          (endDate.getMonth() - startDate.getMonth()) + 1 // +1 to include both start and end month
-      }
-    }
-
-    // Categorize by job type
-    if (job.jobType === 'Full-time') {
-      fullTimeMonths += jobMonths
-      fullTimeCount++
-    } else if (job.jobType === 'Internship') {
-      internshipMonths += jobMonths
-      internshipCount++
-    }
-  })
-
-  return {
-    fullTimeMonths,
-    internshipMonths,
-    fullTimeCount,
-    internshipCount
+function getPeriodMonths(period: string): number {
+  const lower = period.toLowerCase()
+  if (lower.includes('present')) {
+    const m = period.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
+    if (!m) return 0
+    const start = new Date(parseInt(m[2]), MONTH_MAP[m[1].toLowerCase()] ?? 0)
+    const now = new Date()
+    return (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth())
   }
+  const m = period.match(/(\w+)\s+(\d{4})\s*-\s*(\w+)\s+(\d{4})/i)
+  if (!m) return 0
+  const start = new Date(parseInt(m[2]), MONTH_MAP[m[1].toLowerCase()] ?? 0)
+  const end = new Date(parseInt(m[4]), MONTH_MAP[m[3].toLowerCase()] ?? 0)
+  return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1
+}
+
+function formatMonths(months: number): string {
+  if (months <= 0) return ''
+  if (months < 12) return months === 1 ? '1 month' : `${months} months`
+  const years = Math.floor(months / 12)
+  const rem = months % 12
+  const yearStr = years === 1 ? '1 year' : `${years} years`
+  return rem === 0 ? yearStr : `${yearStr} ${rem} month${rem > 1 ? 's' : ''}`
+}
+
+function calculateExperienceDuration(moreInfoPeriod: string): string {
+  return formatMonths(getPeriodMonths(moreInfoPeriod))
+}
+
+function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE) {
+  let fullTimeMonths = 0, internshipMonths = 0, fullTimeCount = 0, internshipCount = 0
+  for (const job of workExperience) {
+    const months = getPeriodMonths(job.moreInfoPeriod)
+    if (job.jobType === 'Full-time') { fullTimeMonths += months; fullTimeCount++ }
+    else if (job.jobType === 'Internship') { internshipMonths += months; internshipCount++ }
+  }
+  return { fullTimeMonths, internshipMonths, fullTimeCount, internshipCount }
 }
 
 function formatTotalExperience(fullTimeMonths: number, internshipMonths: number, fullTimeCount: number, internshipCount: number): string {
   const parts = []
 
-  // Full-time experience
   if (fullTimeCount > 0 && fullTimeMonths > 0) {
     const years = Math.floor(fullTimeMonths / 12)
-    const remainingMonths = fullTimeMonths % 12
-
-    if (years >= 3) {
+    const rem = fullTimeMonths % 12
+    if (years >= 3 || (years >= 1 && rem > 0)) {
       parts.push(`${years}+ years of full-time experience`)
     } else if (years >= 1) {
-      if (remainingMonths > 0) {
-        parts.push(`${years}+ years of full-time experience`)
-      } else {
-        parts.push(`${years} year${years > 1 ? 's' : ''} of full-time experience`)
-      }
+      parts.push(`${years} year${years > 1 ? 's' : ''} of full-time experience`)
     } else {
       parts.push(`${fullTimeMonths} months of full-time experience`)
     }
   }
 
-  // Internship experience
   if (internshipCount > 0) {
     parts.push(`${internshipCount} internship${internshipCount > 1 ? 's' : ''}`)
   }
 
-  // Fallback to show total positions if no specific categories
   if (parts.length === 0) {
-    const totalPositions = fullTimeCount + internshipCount
-    return `${totalPositions} position${totalPositions > 1 ? 's' : ''} across different companies.`
+    const total = fullTimeCount + internshipCount
+    return `${total} position${total > 1 ? 's' : ''} across different companies.`
   }
 
-  // Format as a proper sentence
-  if (parts.length === 1) {
-    return parts[0] + '.'
-  } else if (parts.length === 2) {
-    return `${parts[0]} and ${parts[1]}.`
-  }
-
-  return parts.join(', ') + '.'
-}
-
-type ProjectVideoProps = {
-  src: string
-}
-
-function ProjectVideo({ src }: ProjectVideoProps) {
-  return (
-    <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
-    >
-      <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
-            src={src}
-            autoPlay
-            loop
-            muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-          />
-        </MorphingDialogContent>
-        <MorphingDialogClose
-          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
-            exit: { opacity: 0, transition: { duration: 0 } },
-          }}
-        >
-          <XIcon className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
-    </MorphingDialog>
-  )
+  return parts.length === 1 ? parts[0] + '.' : `${parts[0]} and ${parts[1]}.`
 }
 
 function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
@@ -561,18 +400,6 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex-1">
-          <div className="text-zinc-600 dark:text-zinc-400">
-            <p>Bridging research and real-world impact through AI — from fine-tuning LLMs to deploying scalable, production-ready pipelines.</p>
-            <p>In summary, I turn data into tools that work, learn, and deliver real value. 🎯</p>
-          </div>
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
         <h3 className="mb-2 text-lg font-medium">About</h3>
         <div className="space-y-4">
           {PROFESSIONAL_SUMMARY.paragraphs.map((paragraph, index) => (
@@ -655,7 +482,7 @@ export default function Personal() {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-lg bg-zinc-50 px-3 py-1.5 text-sm text-zinc-600 dark:bg-zinc-900/50 dark:text-zinc-400"
+                    className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
                   >
                     {skill}
                   </span>
@@ -677,9 +504,6 @@ export default function Personal() {
         <div className="flex flex-col space-y-4">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
-              {/* <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div> */}
               <div className="px-1">
                 <a
                   className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
@@ -698,7 +522,7 @@ export default function Personal() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                      className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
                     >
                       {tag}
                     </span>
@@ -710,18 +534,20 @@ export default function Personal() {
         </div>
       </motion.section>
 
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-2 text-lg font-medium">GitHub Contributions</h3>
-        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          My coding activity over the past year.
-        </p>
-        <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-          <GitHubContributions username="aymenkrifa" />
-        </div>
-      </motion.section>
+      {process.env.NEXT_PUBLIC_SHOW_GITHUB_CONTRIBUTIONS === 'true' && (
+        <motion.section
+          variants={VARIANTS_SECTION}
+          transition={TRANSITION_SECTION}
+        >
+          <h3 className="mb-2 text-lg font-medium">GitHub Contributions</h3>
+          <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+            My coding activity over the past year.
+          </p>
+          <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+            <GitHubContributions username="aymenkrifa" />
+          </div>
+        </motion.section>
+      )}
 
       <motion.section
         variants={VARIANTS_SECTION}
@@ -731,54 +557,60 @@ export default function Personal() {
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
           Professional certifications and completed courses.
         </p>
-        <div className="space-y-4">
+        <div className="flex flex-col space-y-2">
           {CERTIFICATIONS.map((cert) => (
             <div
               key={cert.id}
-              className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950"
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 w-full"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h4 className="font-medium text-zinc-900 dark:text-zinc-100">
-                    {cert.name}
-                  </h4>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    {cert.issuer}
-                  </p>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-500 mt-1">
-                    Issued: {cert.date}
-                  </p>
-                  {cert.credentialId && (
-                    <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
-                      Credential ID: {cert.credentialId}
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-normal dark:text-zinc-100">
+                      {cert.name}
+                    </h4>
+                    <p className="text-zinc-500 dark:text-zinc-400">
+                      {cert.issuer}
                     </p>
+                    <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
+                      Issued: {cert.date}
+                    </p>
+                    {cert.credentialId && (
+                      <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
+                        Credential ID: {cert.credentialId}
+                      </p>
+                    )}
+                  </div>
+                  {cert.link && (
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                    >
+                      View
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-3 w-3"
+                      >
+                        <path
+                          d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                          fill="currentColor"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                        ></path>
+                      </svg>
+                    </a>
                   )}
                 </div>
-                {cert.link && (
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                  >
-                    View
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 w-3"
-                    >
-                      <path
-                        d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                        fill="currentColor"
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </a>
-                )}
               </div>
             </div>
           ))}

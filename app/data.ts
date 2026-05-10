@@ -2,7 +2,6 @@ type Project = {
   name: string
   description: string
   link: string
-  video: string
   id: string
   tags: string[]
 }
@@ -156,7 +155,6 @@ export const PROJECTS: Project[] = [
     description:
       'Smart shell tool that seamlessly switches Python virtual environments as you navigate between project directories.',
     link: 'https://www.github.com/aymenkrifa/autoactivator',
-    video: '',
     id: 'project1',
     tags: ['Shell', 'Python'],
   },
@@ -165,7 +163,6 @@ export const PROJECTS: Project[] = [
     description:
       'A Linux TUI for listing, monitoring, and killing listening ports using Rust.',
     link: 'https://www.github.com/aymenkrifa/reaper',
-    video: '',
     id: 'project2',
     tags: ['Rust', 'Ratatui'],
   },
@@ -173,10 +170,16 @@ export const PROJECTS: Project[] = [
     name: 'KExplorer',
     description: 'Real-time, highly-opinionated, web-based Kubernetes dashboard for managing deployments, pods, and cluster resources.',
     link: 'https://www.github.com/aymenkrifa/KExplorer',
-    video: '',
     id: 'project3',
     tags: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Kubernetes', 'Python', 'FastAPI'],
-  }
+  },
+  {
+    name: 'Chroma Explorer',
+    description: 'Desktop GUI for exploring and managing ChromaDB vector databases. A Linux-focused fork with support for legacy Chroma 0.x servers.',
+    link: 'https://www.github.com/aymenkrifa/chroma-explorer',
+    id: 'project4',
+    tags: ['TypeScript', 'React', 'Electron', 'Tailwind CSS', 'ChromaDB'],
+  },
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -279,35 +282,7 @@ export const EDUCATION: Education[] = [
   },
 ]
 
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-    description: 'How AI is changing the way we design',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-1',
-  },
-  {
-    title: 'Why I left my job to start my own company',
-    description:
-      'A deep dive into my decision to leave my job and start my own company',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-2',
-  },
-  {
-    title: 'What I learned from my first year of freelancing',
-    description:
-      'A look back at my first year of freelancing and what I learned',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-3',
-  },
-  {
-    title: 'How to Export Metadata from MDX for Next.js SEO',
-    description:
-      'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
-    link: '/blog/example-mdx-metadata',
-    uid: 'blog-4',
-  },
-]
+export const BLOG_POSTS: BlogPost[] = []
 
 export const PROFESSIONAL_SUMMARY = {
   headline: 'Machine Learning Engineer',
