@@ -81,6 +81,13 @@ function calculateExperienceDuration(moreInfoPeriod: string): string {
   return formatMonths(getPeriodMonths(moreInfoPeriod))
 }
 
+function getFullTimeYearsRounded(workExperience: typeof WORK_EXPERIENCE): number {
+  const { fullTimeMonths } = calculateTotalExperience(workExperience)
+  const years = Math.floor(fullTimeMonths / 12)
+  const rem = fullTimeMonths % 12
+  return rem >= 6 ? years + 1 : years
+}
+
 function calculateTotalExperience(workExperience: typeof WORK_EXPERIENCE) {
   let fullTimeMonths = 0, internshipMonths = 0, fullTimeCount = 0, internshipCount = 0
   for (const job of workExperience) {
@@ -97,12 +104,11 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
   if (fullTimeCount > 0 && fullTimeMonths > 0) {
     const years = Math.floor(fullTimeMonths / 12)
     const rem = fullTimeMonths % 12
-    if (years >= 3 || (years >= 1 && rem > 0)) {
-      parts.push(`${years}+ years of full-time experience`)
-    } else if (years >= 1) {
-      parts.push(`${years} year${years > 1 ? 's' : ''} of full-time experience`)
+    const displayYears = rem >= 6 ? years + 1 : years
+    if (displayYears >= 1) {
+      parts.push(`${displayYears}+ years of full-time experience`)
     } else {
-      parts.push(`${fullTimeMonths} months of full-time experience`)
+      parts.push(`${fullTimeMonths} month${fullTimeMonths > 1 ? 's' : ''} of full-time experience`)
     }
   }
 
@@ -196,21 +202,45 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 {job.moreInfoPeriod} ({calculateExperienceDuration(job.moreInfoPeriod)})
               </p>
             </div>
-            <div className="space-y-3">
-              <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">
-                Key Responsibilities & Achievements
-              </h4>
+            {job.description ? (
               <div className="space-y-3">
-                {job.bulletPoints.map((point, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="mt-2.5 h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0"></div>
-                    <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                      {point}
-                    </p>
-                  </div>
-                ))}
+                <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">
+                  Overview
+                </h4>
+                <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  {job.description}
+                  {job.cta && (
+                    <>
+                      {' '}
+                      <a
+                        href={job.cta.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-zinc-900 dark:text-zinc-100 underline underline-offset-4 decoration-zinc-400 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-colors"
+                      >
+                        {job.cta.label}
+                      </a>
+                    </>
+                  )}
+                </p>
               </div>
-            </div>
+            ) : job.bulletPoints && job.bulletPoints.length > 0 ? (
+              <div className="space-y-3">
+                <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">
+                  Key Responsibilities & Achievements
+                </h4>
+                <div className="space-y-3">
+                  {job.bulletPoints.map((point, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="mt-2.5 h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0"></div>
+                      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                        {point}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
         </MorphingDialogContent>
         <MorphingDialogClose
@@ -389,6 +419,9 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
+  const yoe = getFullTimeYearsRounded(WORK_EXPERIENCE)
+  const interpolate = (s: string) => s.replaceAll('{yoe}', String(yoe))
+
   return (
     <motion.main
       className="space-y-24"
@@ -404,7 +437,7 @@ export default function Personal() {
         <div className="space-y-4">
           {PROFESSIONAL_SUMMARY.paragraphs.map((paragraph, index) => (
             <p key={index} className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              {paragraph}
+              {interpolate(paragraph)}
             </p>
           ))}
           <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
@@ -414,7 +447,7 @@ export default function Personal() {
                 className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400"
               >
                 <span className="h-1 w-1 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0" />
-                {item}
+                {interpolate(item)}
               </li>
             ))}
           </ul>
@@ -669,13 +702,16 @@ export default function Personal() {
         className={process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' ? '-mt-12' : ''}
       >
         <h3 className="mb-2 text-lg font-medium">Get in touch</h3>
-        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="mb-2 text-sm text-zinc-600 dark:text-zinc-400">
           Drop me a line at <a
             className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200"
             href={`mailto:${EMAIL}`}
           >
             {EMAIL}
-          </a> or find me online
+          </a> or find me online.
+        </p>
+        <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-500">
+          {PROFESSIONAL_SUMMARY.availability}
         </p>
         
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">

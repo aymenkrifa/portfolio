@@ -14,7 +14,9 @@ type WorkExperience = {
   link: string
   id: string
   moreInfoPeriod: string
-  bulletPoints: string[]
+  bulletPoints?: string[]
+  description?: string
+  cta?: { label: string; url: string }
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
 }
 
@@ -193,14 +195,29 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work1',
     jobType: 'Full-time',
     bulletPoints: [
-      'Architected multi-agent orchestration system with 35+ specialized LangGraph agents for hotel operations, implementing custom tools, prompt engineering, Mem0 memory persistence, and MCP data integration across distributed workflows',
-      'Engineered production RAG pipeline with LangChain, ChromaDB, and Azure OpenAI, reducing hallucinations by 15% across 10K+ monthly queries; deployed via FastAPI with Datadog monitoring',
-      'Re-architected BERT intent classifier from single-label to multi-label using PyTorch and Transformers, serving 100K+ monthly requests via FastAPI and reducing misclassification bugs by 25%',
-      'Contributed to team growth by conducting 40+ technical interviews for ML Engineer roles and successfully mentoring and onboarding 7 new hires, accelerating their time-to-impact',
-      'Designed LLM-as-a-Judge evaluation framework with DeepEval and Gemini-based prompt chaining to automate quality assessment, improving response scores by 18% and enabling systematic evaluation across production LLM outputs',
-      'Developed voice-enabled booking assistant handling phone reservations with 40+ FastAPI function calling endpoints, integrating Ultravox, LLM APIs, Redis state management, and Twilio telephony',
-      'Implemented FastText language detection microservice improving accuracy by 20%, enabling multi-language support across hotel chatbot operations serving 600K+ monthly requests',
+      'Led a team of 4 engineers to ship a production LangGraph multi-agent system (50+ specialized agents) that replaced a legacy stack, resolving compound guest requests in a single turn instead of sequential follow-ups.',
+      'Reduced hallucinations by 15% across 100K+ monthly queries by deploying a production RAG pipeline with LangChain and ChromaDB to ground LLM responses in proprietary data.',
+      'Re-architected a BERT intent classifier from single-label to multi-label with NTR-Focal Loss and Macro-F1 evaluation, cutting misclassification by 25% and enabling compound intent detection across 250K+ monthly inference calls.',
+      'Engineered an LLM-as-a-Judge evaluation pipeline with custom Chain-of-Thought metrics (faithfulness, completeness, link accuracy), improving answer faithfulness by 18% and relevance by 32% via iterative tuning.',
+      'Co-architected an AI voice concierge (Ultravox + Twilio) supporting 24+ languages, solving voice-native property routing via HNSW embedding similarity over fuzzy STT-transcribed hotel names.',
+      'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
+      'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
     ],
+  },
+  {
+    company: 'Skinify.ai',
+    title: 'Co-Founder',
+    start: '2024',
+    end: 'Present',
+    moreInfoPeriod: 'May 2024 - Present',
+    link: 'https://skinify.ai',
+    id: 'work_skinify',
+    jobType: 'Part-time',
+    description: 'Co-founding Skinify — an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
+    cta: {
+      label: 'Transform your skin today →',
+      url: 'https://skinify.ai',
+    },
   },
   {
     company: 'Quinta (formerly Quicktext)',
@@ -287,12 +304,13 @@ export const BLOG_POSTS: BlogPost[] = []
 export const PROFESSIONAL_SUMMARY = {
   headline: 'Machine Learning Engineer',
   paragraphs: [
-    'Machine Learning Engineer with a strong background in designing and deploying production AI systems. Experienced across the full lifecycle, from research and experimentation to scalable deployment, with a focus on LLM applications, NLP infrastructure, and agentic systems.',
+    'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Led a team of 4 engineers to deliver a 50+ agent LangGraph system, with deep experience in RAG pipelines, multi-agent orchestration, and NLU — from research and experimentation to systems handling 600K+ monthly requests.',
   ],
   highlights: [
-    '3+ YoE shipping ML systems to production',
+    '{yoe}+ YoE shipping ML systems to production',
     'LLMs, RAG & Agentic Systems',
   ],
+  availability: 'Currently exploring AI/ML engineering roles and open-source opportunities — open to remote or relocation.',
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
