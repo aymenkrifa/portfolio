@@ -85,6 +85,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'Docker Compose',
       'Kubernetes',
       'MLflow',
+      'LangSmith',
       'DVC',
       'GitHub Actions',
       'Datadog',
