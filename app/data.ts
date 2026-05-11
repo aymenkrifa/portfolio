@@ -113,7 +113,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Languages',
-    skills: ['English (Proficient)', 'French (Conversational)', 'Arabic (Native)'],
+    skills: ['English (fluent)', 'French (conversational)', 'Arabic (native)'],
   }
 ];
 
