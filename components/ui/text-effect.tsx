@@ -273,8 +273,8 @@ export function TextEffect({
           onAnimationComplete={onAnimationComplete}
           onAnimationStart={onAnimationStart}
           style={style}
+          aria-label={per !== 'line' ? children : undefined}
         >
-          {per !== 'line' ? <span className="sr-only">{children}</span> : null}
           {segments.map((segment, index) => (
             <AnimationComponent
               key={`${per}-${index}-${segment}`}
