@@ -430,6 +430,7 @@ export default function Personal() {
       animate="visible"
     >
       <motion.section
+        id="about"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -438,6 +439,14 @@ export default function Personal() {
           {PROFESSIONAL_SUMMARY.paragraphs.map((paragraph, index) => (
             <p key={index} className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {interpolate(paragraph)}
+              {index === PROFESSIONAL_SUMMARY.paragraphs.length - 1 && (
+                <><br />If you're building something interesting, <a
+                  href="#contact"
+                  className="text-zinc-600 dark:text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+                >
+                  let's talk →
+                </a></>
+              )}
             </p>
           ))}
           <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
@@ -455,6 +464,7 @@ export default function Personal() {
       </motion.section>
 
       <motion.section
+        id="experience"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -473,6 +483,7 @@ export default function Personal() {
       </motion.section>
 
       <motion.section
+        id="education"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -498,6 +509,7 @@ export default function Personal() {
       </motion.section>
 
       <motion.section
+        id="skills"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -527,6 +539,7 @@ export default function Personal() {
       </motion.section>
 
       <motion.section
+        id="projects"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -583,6 +596,7 @@ export default function Personal() {
       )}
 
       <motion.section
+        id="certifications"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -697,21 +711,24 @@ export default function Personal() {
       )}
 
       <motion.section
+        id="contact"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
         className={process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' ? '-mt-12' : ''}
       >
         <h3 className="mb-2 text-lg font-medium">Get in touch</h3>
-        <p className="mb-2 text-sm text-zinc-600 dark:text-zinc-400">
+        <div className="mb-5 space-y-1">
+          {PROFESSIONAL_SUMMARY.availability.map((line, i) => (
+            <p key={i} className="text-sm text-zinc-600 dark:text-zinc-400">{line}</p>
+          ))}
+        </div>
+        <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-500">
           Drop me a line at <a
             className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200"
             href={`mailto:${EMAIL}`}
           >
             {EMAIL}
           </a> or find me online.
-        </p>
-        <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-500">
-          {PROFESSIONAL_SUMMARY.availability}
         </p>
         
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
