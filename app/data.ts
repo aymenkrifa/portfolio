@@ -305,13 +305,16 @@ export const BLOG_POSTS: BlogPost[] = []
 export const PROFESSIONAL_SUMMARY = {
   headline: 'Machine Learning Engineer',
   paragraphs: [
-    'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Led a team of 4 engineers to deliver a 50+ agent LangGraph system, with deep experience in RAG pipelines, multi-agent orchestration, and NLU — from research and experimentation to systems handling 600K+ monthly requests.',
+    'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that escapes containment.'
   ],
   highlights: [
     '{yoe}+ YoE shipping ML systems to production',
     'LLMs, RAG & Agentic Systems',
   ],
-  availability: 'Currently exploring AI/ML engineering roles and open-source opportunities — open to remote or relocation.',
+  availability: [
+    'Currently exploring AI/ML engineering roles, freelance projects, and open-source opportunities.',
+    'Open to remote or relocation.',
+  ],
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
