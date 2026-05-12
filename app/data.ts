@@ -65,17 +65,29 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: ['Python', 'SQL', 'Bash'],
   },
   {
-    name: 'Machine Learning & LLM Systems',
+    name: 'Machine Learning',
     skills: [
       'PyTorch',
       'Hugging Face Transformers',
+      'BERT',
+      'CLIP',
       'scikit-learn',
-      'LLM Evaluation Frameworks',
-      'Prompt Engineering',
-      'Retrieval-Augmented Generation (RAG)',
+      'spaCy',
+      'pandas',
+      'NumPy',
+
+    ],
+  },
+  {
+    name: 'GenAI & LLM Systems',
+    skills: [
       'LangChain',
-      'LangGraph (Graph-based orchestration)',
-      'Multi-Agent Orchestration'
+      'LangGraph', 
+      'OpenAI API',
+      'Azure OpenAI',
+      'Retrieval-Augmented Generation (RAG)',
+      'LLM-as-a-Judge Evaluation',
+      'Prompt Engineering',
     ],
   },
   {
@@ -97,7 +109,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Databases & Storage',
-    skills: ['PostgreSQL', 'ChromaDB', 'Redis'],
+    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'Supabase (pgvector)', 'Elasticsearch'],
   },
   {
     name: 'Cloud Platforms',
@@ -307,10 +319,7 @@ export const PROFESSIONAL_SUMMARY = {
   paragraphs: [
     'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that escapes containment.'
   ],
-  highlights: [
-    '{yoe}+ YoE shipping ML systems to production',
-    'LLMs, RAG & Agentic Systems',
-  ],
+  highlights: [],
   availability: [
     'Currently exploring AI/ML engineering roles, freelance projects, and open-source opportunities.',
     'Open to remote or relocation.',
