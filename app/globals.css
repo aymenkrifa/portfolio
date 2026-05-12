@@ -11,6 +11,10 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   *,
   ::after,
   ::before,
