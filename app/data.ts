@@ -121,7 +121,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Collaboration',
-    skills: ['Jira', 'Confluence', 'Slack', 'Microsoft Teams', 'GitHub'],
+    skills: ['Jira', 'Confluence', 'GitHub', 'Bitbucket'],
   },
   {
     name: 'Languages',
