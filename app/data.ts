@@ -171,7 +171,7 @@ export const PROJECTS: Project[] = [
       'Smart shell tool that seamlessly switches Python virtual environments as you navigate between project directories.',
     link: 'https://www.github.com/aymenkrifa/autoactivator',
     id: 'project1',
-    tags: ['Shell', 'Python'],
+    tags: ['Shell'],
   },
   {
     name: 'Reaper',
