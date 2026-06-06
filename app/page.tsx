@@ -437,14 +437,15 @@ export default function Personal() {
         <h3 className="mb-2 text-lg font-medium">About</h3>
         <div className="space-y-4">
           {PROFESSIONAL_SUMMARY.paragraphs.map((paragraph, index) => (
-            <p key={index} className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p key={index} className="text-pretty text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {interpolate(paragraph)}
               {index === PROFESSIONAL_SUMMARY.paragraphs.length - 1 && (
-                <><br />If you're building something interesting, <a
+                <><br />If you're building something interesting, I'm always up for a good conversation. <a
                   href="#contact"
-                  className="text-zinc-600 dark:text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+                  className="group relative inline-flex items-center font-[450] text-zinc-900 transition-colors dark:text-zinc-100"
                 >
-                  let's talk →
+                  Let's talk →
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
                 </a></>
               )}
             </p>

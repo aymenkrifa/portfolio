@@ -317,7 +317,7 @@ export const BLOG_POSTS: BlogPost[] = []
 export const PROFESSIONAL_SUMMARY = {
   headline: 'Machine Learning Engineer',
   paragraphs: [
-    'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that escapes containment.'
+    'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that outgrows its weekend. Off the clock, usually reading, tinkering, or chasing a new rabbit hole.'
   ],
   highlights: [],
   availability: [
