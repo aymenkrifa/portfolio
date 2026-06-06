@@ -328,16 +328,16 @@ export const PROFESSIONAL_SUMMARY = {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
+    label: 'LinkedIn',
+    link: 'https://www.linkedin.com/in/aymenkrifa',
+  },
+  {
     label: 'GitHub',
     link: 'https://www.github.com/aymenkrifa',
   },
   {
-    label: 'X (Twitter)',
+    label: 'X',
     link: 'https://www.x.com/krifaymen',
-  },
-  {
-    label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/aymenkrifa',
   },
 ]
 
