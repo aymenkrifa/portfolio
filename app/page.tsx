@@ -464,6 +464,48 @@ export default function Personal() {
       </motion.section>
 
       <motion.section
+        id="projects"
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Personal and open-source projects
+        </p>
+        <div className="flex flex-col space-y-4">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                  <ExternalLinkIndicator />
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
         id="experience"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -532,48 +574,6 @@ export default function Personal() {
                     {skill}
                   </span>
                 ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        id="projects"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
-        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Personal and open-source projects
-        </p>
-        <div className="flex flex-col space-y-4">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                  <ExternalLinkIndicator />
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
