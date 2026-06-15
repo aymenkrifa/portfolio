@@ -178,11 +178,11 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col items-end justify-between self-stretch ml-2">
-                <p className="text-zinc-600 dark:text-zinc-400 hidden sm:block">
+              <div className="flex flex-col items-end justify-between self-stretch ml-2 shrink-0">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 hidden sm:block whitespace-nowrap">
                   {job.moreInfoPeriod}
                 </p>
-                <div className="flex items-center space-x-1 text-xs text-zinc-400 dark:text-zinc-500 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 mt-auto">
+                <div className="flex items-center space-x-1 text-xs text-zinc-400 dark:text-zinc-500 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 mt-auto whitespace-nowrap">
                   <span>More details</span>
                   <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-3 w-3">
                     <path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
@@ -298,23 +298,27 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
             <div className="relative flex w-full flex-row justify-between items-start">
               <div>
                 <h4 className="font-normal dark:text-zinc-100">
-                  {education.degree}
+                  {education.degree} in {education.field}
                 </h4>
                 <p className="text-zinc-500 dark:text-zinc-400">
                   {education.institution}
                 </p>
-                <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
-                  {education.field}
-                </p>
+                {education.tags && education.tags.length > 0 && (
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {education.tags.map((tag) => (
+                      <TagBadge key={tag} label={tag} />
+                    ))}
+                  </div>
+                )}
                 <p className="text-sm text-zinc-400 dark:text-zinc-500 mt-1 sm:hidden">
                   {education.start} - {education.end}
                 </p>
               </div>
-              <div className="flex flex-col items-end justify-between self-stretch ml-2">
-                <p className="text-zinc-600 dark:text-zinc-400 hidden sm:block">
+              <div className="flex flex-col items-end justify-between self-stretch ml-2 shrink-0">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 hidden sm:block">
                   {education.start} - {education.end}
                 </p>
-                <div className="flex items-center space-x-1 text-xs text-zinc-400 dark:text-zinc-500 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 mt-auto">
+                <div className="flex items-center space-x-1 text-xs text-zinc-400 dark:text-zinc-500 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200 mt-auto whitespace-nowrap">
                   <span>More details</span>
                   <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-3 w-3">
                     <path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
@@ -547,15 +551,12 @@ export default function Personal() {
             <EducationCard key={education.id} education={education} />
           ))}
         </div>
-        <div className="mt-6">
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50 flex-shrink-0">
-              <Info size={14} className="text-blue-600 dark:text-blue-400" />
-            </div>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              Recent degree was pursued in parallel with full-time work through night classes on campus.
-            </p>
-          </div>
+        <div className="mt-6 rounded-xl border border-blue-100 dark:border-blue-900/50 bg-blue-50/50 dark:bg-blue-900/10 p-4 flex gap-3">
+          <Info size={16} className="text-blue-500 dark:text-blue-400 mt-0.5 shrink-0" />
+          <ul className="flex flex-col gap-1.5 text-sm text-zinc-500 dark:text-zinc-400">
+            <li className="flex gap-2"><span className="shrink-0">•</span><span>Both degrees follow the French LMD system — Licence (Bac+3, Bachelor's equivalent) and Diplôme d'Ingénieur (Bac+5, Master's equivalent).</span></li>
+            <li className="flex gap-2"><span className="shrink-0">•</span><span>The engineering degree was pursued in parallel with full-time work through night classes on campus.</span></li>
+          </ul>
         </div>
       </motion.section>
 
