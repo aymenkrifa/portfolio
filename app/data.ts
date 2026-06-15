@@ -32,6 +32,7 @@ type Education = {
   id: string
   description?: string
   achievements?: string[]
+  tags?: string[]
 }
 
 type BlogPost = {
@@ -288,8 +289,9 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 export const EDUCATION: Education[] = [
   {
     institution: 'École Polytechnique de Sousse',
-    degree: "Engineering Degree (Master's Equivalent)",
+    degree: "Engineering Degree",
     field: 'Computer Science',
+    tags: ["Diplôme d'Ingénieur", "Master's Equivalent"],
     start: '2022',
     end: '2025',
     moreInfoPeriod: 'September 2022 - June 2025',
@@ -304,8 +306,9 @@ export const EDUCATION: Education[] = [
   },
   {
     institution: 'École Polytechnique de Sousse',
-    degree: 'Bachelor of Engineering',
+    degree: 'Licence',
     field: 'Software Engineering',
+    tags: ["Bachelor's Equivalent"],
     start: '2019',
     end: '2022',
     moreInfoPeriod: 'September 2019 - July 2022',
