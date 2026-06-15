@@ -351,6 +351,13 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
               <p className="text-sm text-zinc-500 dark:text-zinc-500">
                 {education.moreInfoPeriod}
               </p>
+              {education.tags && education.tags.length > 0 && (
+                <div className="flex flex-wrap gap-1">
+                  {education.tags.map((tag) => (
+                    <TagBadge key={tag} label={tag} />
+                  ))}
+                </div>
+              )}
               {education.description && (
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-3">
                   {education.description}
