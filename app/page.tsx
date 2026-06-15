@@ -2,7 +2,6 @@
 import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import ExternalLinkIndicator from '@/components/ui/ExternalLinkIndicator'
-import { Info } from '@geist-ui/icons'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
@@ -607,10 +606,6 @@ export default function Personal() {
           {EDUCATION.map((education) => (
             <EducationCard key={education.id} education={education} />
           ))}
-        </div>
-        <div className="mt-6 rounded-xl border border-blue-100 dark:border-blue-900/50 bg-blue-50/50 dark:bg-blue-900/10 p-4 flex gap-3">
-          <Info size={16} className="text-blue-500 dark:text-blue-400 mt-0.5 shrink-0" />
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">The engineering degree was pursued in parallel with full-time work through night classes on campus.</p>
         </div>
       </motion.section>
 

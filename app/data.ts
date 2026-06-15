@@ -301,6 +301,7 @@ export const EDUCATION: Education[] = [
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.8/4.0)' },
       { text: 'EUR-ACE® accredited programme (CTI) — recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452' },
+      { text: 'Pursued in parallel with full-time work through night classes on campus' },
       { text: 'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"' },
       { text: 'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing' },
     ],
