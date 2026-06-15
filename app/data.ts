@@ -331,8 +331,7 @@ export const PROFESSIONAL_SUMMARY = {
   ],
   highlights: [],
   availability: [
-    'Currently exploring AI/ML engineering roles, freelance projects, and open-source opportunities.',
-    'Open to remote or relocation.',
+    'Currently exploring AI/ML engineering roles, freelance projects, and open-source opportunities — open to remote or relocation.',
   ],
 }
 
