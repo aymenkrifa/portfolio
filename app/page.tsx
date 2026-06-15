@@ -124,6 +124,45 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
   return parts.length === 1 ? parts[0] + '.' : `${parts[0]} and ${parts[1]}.`
 }
 
+const SPARKLES = [
+  { id: 1,  left: '0%',  delay: 0,    size: 12, duration: 1.6, color: '#a78bfa' },
+  { id: 2,  left: '10%', delay: 0.5,  size: 9,  duration: 1.8, color: '#34d399' },
+  { id: 3,  left: '20%', delay: 1.1,  size: 14, duration: 1.5, color: '#60a5fa' },
+  { id: 4,  left: '30%', delay: 0.3,  size: 10, duration: 1.9, color: '#f472b6' },
+  { id: 5,  left: '40%', delay: 0.8,  size: 13, duration: 1.7, color: '#fbbf24' },
+  { id: 6,  left: '50%', delay: 1.4,  size: 11, duration: 1.6, color: '#a78bfa' },
+  { id: 7,  left: '60%', delay: 0.2,  size: 14, duration: 1.8, color: '#34d399' },
+  { id: 8,  left: '70%', delay: 0.9,  size: 9,  duration: 1.5, color: '#60a5fa' },
+  { id: 9,  left: '80%', delay: 0.4,  size: 12, duration: 1.9, color: '#f472b6' },
+  { id: 10, left: '90%', delay: 1.2,  size: 10, duration: 1.7, color: '#fbbf24' },
+]
+
+function StarIcon({ size, color }: { size: number; color: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <path d="M12 2 C12 2 13 8 18 9 C13 10 12 16 12 16 C12 16 11 10 6 9 C11 8 12 2 12 2Z" />
+    </svg>
+  )
+}
+
+function Sparkles() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 top-0 h-0 overflow-visible">
+      {SPARKLES.map((s) => (
+        <motion.div
+          key={s.id}
+          className="absolute"
+          style={{ left: s.left, top: 0 }}
+          animate={{ y: [0, -12], opacity: [0, 0, 1, 0], scale: [0.5, 0.5, 1, 0.5] }}
+          transition={{ duration: s.duration, delay: s.delay, repeat: Infinity, repeatDelay: 0.4, ease: 'easeOut', times: [0, 0.15, 0.5, 1] }}
+        >
+          <StarIcon size={s.size} color={s.color} />
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
 function TagBadge({ label }: { label: string }) {
   const styles: Record<string, string> = {
     'Side Venture': 'border-violet-400 text-violet-600 dark:border-violet-600 dark:text-violet-400',
@@ -233,9 +272,10 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                         href={job.cta.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium text-zinc-900 dark:text-zinc-100 underline underline-offset-4 decoration-zinc-400 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-colors"
+                        className="group relative inline-flex items-center font-medium text-zinc-900 transition-colors dark:text-zinc-100"
                       >
                         {job.cta.label}
+                        <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
                       </a>
                     </>
                   )}
