@@ -692,7 +692,7 @@ export default function Personal() {
                       {cert.issuer}
                     </p>
                   </div>
-                  <div className="flex flex-col items-end gap-1 ml-2 shrink-0">
+                  <div className="flex flex-col items-end gap-1 ml-2 shrink-0 self-stretch justify-between">
                     <p className="text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap">{cert.date}</p>
                     {cert.link && (
                       <a
