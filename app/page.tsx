@@ -124,6 +124,26 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
   return parts.length === 1 ? parts[0] + '.' : `${parts[0]} and ${parts[1]}.`
 }
 
+function TagBadge({ label }: { label: string }) {
+  const styles: Record<string, string> = {
+    'Side Venture': 'border-violet-400 text-violet-600 dark:border-violet-600 dark:text-violet-400',
+    'Main Job': 'border-emerald-400 text-emerald-600 dark:border-emerald-600 dark:text-emerald-400',
+  }
+  return (
+    <span className={`inline-block rounded px-2 py-0.5 text-xs font-medium border ${styles[label] ?? 'border-amber-400 text-amber-600 dark:border-amber-600 dark:text-amber-400'}`}>
+      {label}
+    </span>
+  )
+}
+
+function JobTypeBadge({ type }: { type: string }) {
+  return (
+    <span className="inline-block rounded px-2 py-0.5 text-xs font-medium border border-zinc-300 text-zinc-500 dark:border-zinc-600 dark:text-zinc-400">
+      {type}
+    </span>
+  )
+}
+
 function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
   return (
     <MorphingDialog
@@ -142,15 +162,18 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
           <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
             <div className="relative flex w-full flex-row justify-between items-start">
               <div>
-                <h4 className="font-normal dark:text-zinc-100">
+                <h4 className="font-normal dark:text-zinc-100 flex items-center gap-2">
                   {job.title}
+                  {job.tags?.map((tag) => (
+                    <TagBadge key={tag} label={tag} />
+                  ))}
                 </h4>
                 <p className="text-zinc-500 dark:text-zinc-400">
                   {job.company}
                 </p>
-                <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
-                  {job.jobType}
-                </p>
+                <div className="mt-1">
+                  <JobTypeBadge type={job.jobType} />
+                </div>
               </div>
               <div className="flex flex-col items-end space-y-2">
                 <p className="text-zinc-600 dark:text-zinc-400">
@@ -195,9 +218,12 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 {job.company}
                 <ExternalLinkIndicator />
               </a>
-              <p className="text-sm text-zinc-500 dark:text-zinc-500">
-                {job.jobType}
-              </p>
+              <div className="flex flex-wrap gap-1">
+                <JobTypeBadge type={job.jobType} />
+                {job.tags?.map((tag) => (
+                  <TagBadge key={tag} label={tag} />
+                ))}
+              </div>
               <p className="text-sm text-zinc-500 dark:text-zinc-500">
                 {job.moreInfoPeriod} ({calculateExperienceDuration(job.moreInfoPeriod)})
               </p>

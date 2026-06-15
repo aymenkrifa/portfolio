@@ -18,6 +18,7 @@ type WorkExperience = {
   description?: string
   cta?: { label: string; url: string }
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
+  tags?: string[]
 }
 
 type Education = {
@@ -203,6 +204,22 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    company: 'Skinify.ai',
+    title: 'Co-Founder',
+    start: '2024',
+    end: 'Present',
+    moreInfoPeriod: 'May 2024 - Present',
+    link: 'https://skinify.ai',
+    id: 'work_skinify',
+    jobType: 'Part-time',
+    tags: ['Side Venture'],
+    description: 'Co-founding Skinify — an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
+    cta: {
+      label: 'Transform your skin today →',
+      url: 'https://skinify.ai',
+    },
+  },
+  {
     company: 'Quinta (formerly Quicktext)',
     title: 'Machine Learning Engineer',
     start: '2022',
@@ -211,6 +228,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://www.quinta.im',
     id: 'work1',
     jobType: 'Full-time',
+    tags: ['Main Job'],
     bulletPoints: [
       'Led a team of 4 engineers to ship a production LangGraph multi-agent system (50+ specialized agents) that replaced a legacy stack, resolving compound guest requests in a single turn instead of sequential follow-ups.',
       'Reduced hallucinations by 15% across 100K+ monthly queries by deploying a production RAG pipeline with LangChain and ChromaDB to ground LLM responses in proprietary data.',
@@ -220,21 +238,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
       'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
     ],
-  },
-  {
-    company: 'Skinify.ai',
-    title: 'Co-Founder',
-    start: '2024',
-    end: 'Present',
-    moreInfoPeriod: 'May 2024 - Present',
-    link: 'https://skinify.ai',
-    id: 'work_skinify',
-    jobType: 'Part-time',
-    description: 'Co-founding Skinify — an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
-    cta: {
-      label: 'Transform your skin today →',
-      url: 'https://skinify.ai',
-    },
   },
   {
     company: 'Quinta (formerly Quicktext)',
