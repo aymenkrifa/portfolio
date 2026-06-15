@@ -172,7 +172,9 @@ function TagBadge({ label }: { label: string }) {
   }
   return (
     <span className={`inline-block rounded px-2 py-0.5 text-xs font-medium border ${styles[label] ?? 'border-amber-400 text-amber-600 dark:border-amber-600 dark:text-amber-400'}`}>
-      {label}
+      {label.split('®').map((part, i, arr) => (
+        <span key={i}>{part}{i < arr.length - 1 && <sup>®</sup>}</span>
+      ))}
     </span>
   )
 }
