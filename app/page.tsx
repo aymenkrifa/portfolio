@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import ExternalLinkIndicator from '@/components/ui/ExternalLinkIndicator'
 import { Spotlight } from '@/components/ui/spotlight'
+import { GlowEffect } from '@/components/ui/glow-effect'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
   MorphingDialog,
@@ -199,14 +200,12 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
       <MorphingDialogTrigger>
         <div className={`relative overflow-hidden rounded-2xl cursor-pointer w-full group transition-colors duration-200 ${isMainJob ? 'p-[2px]' : 'p-[1px] bg-zinc-300/30 dark:bg-zinc-600/30 hover:bg-zinc-400/30 dark:hover:bg-zinc-500/30'}`}>
           {isMainJob && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="absolute"
-                style={{
-                  width: '150vw', height: '150vw',
-                  background: 'conic-gradient(from 0deg, #10b981, #06b6d4, #6366f1, #10b981)',
-                  animation: 'spin-border 6s linear infinite, hue-spin 4s linear infinite',
-                }}
+            <div className="absolute inset-0 animate-[hue-spin_4s_linear_infinite]">
+              <GlowEffect
+                colors={['#10b981', '#06b6d4', '#6366f1', '#10b981']}
+                mode='rotate'
+                blur='soft'
+                duration={2}
               />
             </div>
           )}
