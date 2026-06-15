@@ -291,7 +291,7 @@ export const EDUCATION: Education[] = [
     institution: 'École Polytechnique de Sousse',
     degree: "Engineering Degree",
     field: 'Computer Science',
-    tags: ["Diplôme d'Ingénieur", "Master's Equivalent"],
+    tags: ["Master's Equivalent"],
     start: '2022',
     end: '2025',
     moreInfoPeriod: 'September 2022 - June 2025',
