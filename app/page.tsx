@@ -610,10 +610,7 @@ export default function Personal() {
         </div>
         <div className="mt-6 rounded-xl border border-blue-100 dark:border-blue-900/50 bg-blue-50/50 dark:bg-blue-900/10 p-4 flex gap-3">
           <Info size={16} className="text-blue-500 dark:text-blue-400 mt-0.5 shrink-0" />
-          <ul className="flex flex-col gap-1.5 text-sm text-zinc-500 dark:text-zinc-400">
-            <li className="flex gap-2"><span className="shrink-0">•</span><span>Both degrees follow the French LMD system — Licence (Bac+3, Bachelor's equivalent) and Diplôme d'Ingénieur (Bac+5, Master's equivalent).</span></li>
-            <li className="flex gap-2"><span className="shrink-0">•</span><span>The engineering degree was pursued in parallel with full-time work through night classes on campus.</span></li>
-          </ul>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">The engineering degree was pursued in parallel with full-time work through night classes on campus.</p>
         </div>
       </motion.section>
 
