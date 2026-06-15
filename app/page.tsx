@@ -165,7 +165,7 @@ function Sparkles() {
 function TagBadge({ label }: { label: string }) {
   const styles: Record<string, string> = {
     'Side Venture': 'border-violet-400 text-violet-600 dark:border-violet-600 dark:text-violet-400',
-    'Main Job': 'border-emerald-400 text-emerald-600 dark:border-emerald-600 dark:text-emerald-400',
+    'Main Job': 'border-blue-400 text-blue-600 dark:border-blue-500 dark:text-blue-400',
     'EUR-ACE® Accredited': 'border-blue-400 text-blue-600 dark:border-blue-500 dark:text-blue-400',
     "Bachelor's Equivalent": 'border-zinc-300 text-zinc-500 dark:border-zinc-600 dark:text-zinc-400',
   }
@@ -187,6 +187,7 @@ function JobTypeBadge({ type }: { type: string }) {
 }
 
 function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
+  const isMainJob = job.tags?.includes('Main Job')
   return (
     <MorphingDialog
       transition={{
@@ -196,7 +197,19 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
       }}
     >
       <MorphingDialogTrigger>
-        <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 cursor-pointer w-full group hover:bg-zinc-400/30 dark:hover:bg-zinc-500/30 transition-colors duration-200">
+        <div className={`relative overflow-hidden rounded-2xl cursor-pointer w-full group transition-colors duration-200 ${isMainJob ? 'p-[2px]' : 'p-[1px] bg-zinc-300/30 dark:bg-zinc-600/30 hover:bg-zinc-400/30 dark:hover:bg-zinc-500/30'}`}>
+          {isMainJob && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div
+                className="absolute"
+                style={{
+                  width: '150vw', height: '150vw',
+                  background: 'conic-gradient(from 0deg, #10b981, #06b6d4, #6366f1, #10b981)',
+                  animation: 'spin-border 6s linear infinite, hue-spin 4s linear infinite',
+                }}
+              />
+            </div>
+          )}
           <Spotlight
             className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
             size={64}

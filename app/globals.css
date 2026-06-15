@@ -30,6 +30,29 @@
   }
 }
 
+@keyframes spin-border {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer-border {
+  0% { transform: translateX(-100%) rotate(0deg); }
+  100% { transform: translateX(100%) rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes hue-spin {
+  to { filter: hue-rotate(360deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.01); }
+}
+
 :root {
   --sh-class: #7aa2f7;
   --sh-sign: #89ddff;
