@@ -621,14 +621,25 @@ export default function Personal() {
                 {category.name}
               </h4>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {category.skills.map((skill) => {
+                  const match = skill.match(/^(.+?)\s*\((.+)\)$/)
+                  if (match) {
+                    const [, lang, level] = match
+                    const phrase = level.toLowerCase() === 'native'
+                      ? `Native ${lang} speaker`
+                      : `${level.charAt(0).toUpperCase() + level.slice(1)} in ${lang}`
+                    return (
+                      <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+                        {phrase}
+                      </span>
+                    )
+                  }
+                  return (
+                    <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+                      {skill}
+                    </span>
+                  )
+                })}
               </div>
             </div>
           ))}
