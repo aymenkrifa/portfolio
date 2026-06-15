@@ -168,6 +168,9 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 <p className="text-zinc-500 dark:text-zinc-400">
                   {job.company}
                 </p>
+                <p className="text-sm text-zinc-400 dark:text-zinc-500 sm:hidden">
+                  {job.start} - {job.end}
+                </p>
                 <div className="mt-1 flex flex-wrap gap-1">
                   <JobTypeBadge type={job.jobType} />
                   {job.tags?.map((tag) => (
@@ -176,7 +179,7 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 </div>
               </div>
               <div className="flex flex-col items-end space-y-2">
-                <p className="text-zinc-600 dark:text-zinc-400">
+                <p className="text-zinc-600 dark:text-zinc-400 hidden sm:block">
                   {job.start} - {job.end}
                 </p>
                 <div className="flex items-center space-x-1 text-xs text-zinc-400 dark:text-zinc-500 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
