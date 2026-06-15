@@ -4,6 +4,7 @@ import { XIcon } from 'lucide-react'
 import ExternalLinkIndicator from '@/components/ui/ExternalLinkIndicator'
 import { Spotlight } from '@/components/ui/spotlight'
 import { GlowEffect } from '@/components/ui/glow-effect'
+import { InView } from '@/components/ui/in-view'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
   MorphingDialog,
@@ -28,24 +29,6 @@ import {
   PROFESSIONAL_SUMMARY,
 } from './data'
 
-const VARIANTS_CONTAINER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-}
-
-const VARIANTS_SECTION = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
-}
-
-const TRANSITION_SECTION = {
-  duration: 0.3,
-}
 
 const MONTH_MAP: Record<string, number> = {
   january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
@@ -505,16 +488,9 @@ export default function Personal() {
   const interpolate = (s: string) => s.replaceAll('{yoe}', String(yoe))
 
   return (
-    <motion.main
-      className="space-y-16"
-      variants={VARIANTS_CONTAINER}
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.section
+    <main className="space-y-16">
+      <InView as="section"
         id="about"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
       >
         <h3 className="mb-2 text-lg font-medium">About</h3>
         <div className="space-y-4">
@@ -542,12 +518,10 @@ export default function Personal() {
             ))}
           </ul>
         </div>
-      </motion.section>
+      </InView>
 
-      <motion.section
+      <InView as="section"
         id="projects"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
       >
         <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
@@ -584,12 +558,10 @@ export default function Personal() {
             </div>
           ))}
         </div>
-      </motion.section>
+      </InView>
 
-      <motion.section
+      <InView as="section"
         id="experience"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
       >
         <h3 className="mb-2 text-lg font-medium">Work Experience</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
@@ -603,12 +575,10 @@ export default function Personal() {
             <WorkExperienceCard key={job.id} job={job} />
           ))}
         </div>
-      </motion.section>
+      </InView>
 
-      <motion.section
+      <InView as="section"
         id="education"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
       >
         <h3 className="mb-2 text-lg font-medium">Education</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
@@ -619,12 +589,10 @@ export default function Personal() {
             <EducationCard key={education.id} education={education} />
           ))}
         </div>
-      </motion.section>
+      </InView>
 
-      <motion.section
+      <InView as="section"
         id="skills"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
       >
         <h3 className="mb-2 text-lg font-medium">Skills</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
@@ -662,12 +630,10 @@ export default function Personal() {
             </div>
           ))}
         </div>
-      </motion.section>
+      </InView>
 
       {process.env.NEXT_PUBLIC_SHOW_GITHUB_CONTRIBUTIONS === 'true' && (
-        <motion.section
-          variants={VARIANTS_SECTION}
-          transition={TRANSITION_SECTION}
+        <InView as="section"
         >
           <h3 className="mb-2 text-lg font-medium">GitHub Contributions</h3>
           <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
@@ -676,13 +642,11 @@ export default function Personal() {
           <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
             <GitHubContributions username="aymenkrifa" />
           </div>
-        </motion.section>
+        </InView>
       )}
 
-      <motion.section
+      <InView as="section"
         id="certifications"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
       >
         <h3 className="mb-2 text-lg font-medium">Certifications</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
@@ -730,11 +694,9 @@ export default function Personal() {
             </div>
           ))}
         </div>
-      </motion.section>
+      </InView>
       {/* 
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
+      <InView as="section"
       >
         <h3 className="mb-3 text-lg font-medium">Blog</h3>
         <div className="flex flex-col space-y-0">
@@ -766,22 +728,18 @@ export default function Personal() {
             ))}
           </AnimatedBackground>
         </div>
-      </motion.section>
+      </InView>
 
       {/* Resume Section */}
       {process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' && (
-        <motion.section
-          variants={VARIANTS_SECTION}
-          transition={TRANSITION_SECTION}
+        <InView as="section"
         >
           <ResumeSection />
-        </motion.section>
+        </InView>
       )}
 
-      <motion.section
+      <InView as="section"
         id="contact"
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
         className={process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' ? '-mt-12' : ''}
       >
         <h3 className="mb-2 text-lg font-medium">Get in Touch</h3>
@@ -813,7 +771,7 @@ export default function Personal() {
             </span>
           ))}
         </p>
-      </motion.section>
-    </motion.main>
+      </InView>
+    </main>
   )
 }
