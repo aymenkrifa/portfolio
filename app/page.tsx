@@ -768,7 +768,7 @@ export default function Personal() {
         transition={TRANSITION_SECTION}
         className={process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' ? '-mt-12' : ''}
       >
-        <h3 className="mb-2 text-lg font-medium">Get in touch</h3>
+        <h3 className="mb-2 text-lg font-medium">Get in Touch</h3>
         <div className="mb-5 space-y-1">
           {PROFESSIONAL_SUMMARY.availability.map((line, i) => (
             <p key={i} className="text-sm text-zinc-600 dark:text-zinc-400">{line}</p>
@@ -776,10 +776,11 @@ export default function Personal() {
         </div>
         <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-500">
           Drop me a line at <a
-            className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200"
+            className="group relative inline-flex items-center text-zinc-900 dark:text-zinc-100 transition-colors duration-200"
             href={`mailto:${EMAIL}`}
           >
             {EMAIL}
+            <span className="absolute bottom-0 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-100"></span>
           </a> or find me online.
         </p>
         
