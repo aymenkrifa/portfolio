@@ -87,7 +87,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'LangGraph',
       'OpenAI API',
       'Azure OpenAI',
-      'Retrieval-Augmented Generation (RAG)',
+      'Retrieval-Augmented Generation',
       'LLM-as-a-Judge Evaluation',
       'Prompt Engineering',
     ],
