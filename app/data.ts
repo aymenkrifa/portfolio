@@ -207,7 +207,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Skinify.ai',
     title: 'Co-Founder',
-    start: '2024',
+    start: 'May 2024',
     end: 'Present',
     moreInfoPeriod: 'May 2024 - Present',
     link: 'https://skinify.ai',
@@ -223,7 +223,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Quinta (formerly Quicktext)',
     title: 'Machine Learning Engineer',
-    start: '2022',
+    start: 'July 2022',
     end: 'Present',
     moreInfoPeriod: 'July 2022 - Present',
     link: 'https://www.quinta.im',
@@ -243,8 +243,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Quinta (formerly Quicktext)',
     title: 'Machine Learning Engineer Intern',
-    start: 'Feb.',
-    end: 'Jul. 2022',
+    start: 'February',
+    end: 'July 2022',
     moreInfoPeriod: 'February 2022 - July 2022',
     link: 'https://www.quinta.im',
     id: 'work2',
@@ -257,8 +257,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Whitecape Technologies',
     title: 'Software Engineer Intern',
-    start: 'Sep.',
-    end: 'Oct. 2021',
+    start: 'September',
+    end: 'October 2021',
     moreInfoPeriod: 'September 2021 - October 2021',
     link: 'https://www.whitecapetech.com',
     id: 'work3',
@@ -273,8 +273,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Enova Robotics',
     title: 'Software Engineer Intern',
-    start: 'Aug.',
-    end: 'Sep. 2020',
+    start: 'August',
+    end: 'September 2020',
     moreInfoPeriod: 'August 2020 - September 2020',
     link: 'https://www.enovarobotics.eu',
     id: 'work4',
