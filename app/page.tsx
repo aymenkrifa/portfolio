@@ -774,23 +774,29 @@ export default function Personal() {
             <p key={i} className="text-sm text-zinc-600 dark:text-zinc-400">{line}</p>
           ))}
         </div>
-        <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-500">
+        <p className="text-sm text-zinc-500 dark:text-zinc-500">
           Drop me a line at <a
             className="group relative inline-flex items-center text-zinc-900 dark:text-zinc-100 transition-colors duration-200"
             href={`mailto:${EMAIL}`}
           >
             {EMAIL}
             <span className="absolute bottom-0 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-100"></span>
-          </a> or find me online.
-        </p>
-        
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-          {SOCIAL_LINKS.map((link) => (
-            <MagneticSocialLink key={link.label} link={link.link}>
-              {link.label}
-            </MagneticSocialLink>
+          </a> or find me on{' '}
+          {SOCIAL_LINKS.map((link, i) => (
+            <span key={link.label}>
+              <a
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center text-zinc-900 dark:text-zinc-100 transition-colors duration-200"
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-100"></span>
+              </a>
+              {i < SOCIAL_LINKS.length - 2 ? ', ' : i < SOCIAL_LINKS.length - 1 ? ', or ' : '.'}
+            </span>
           ))}
-        </div>
+        </p>
       </motion.section>
     </motion.main>
   )
