@@ -62,7 +62,7 @@ type Certification = {
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Programming',
-    skills: ['Python', 'SQL', 'Bash'],
+    skills: ['Python', 'SQL', 'Bash', 'Rust (dabbling)'],
   },
   {
     name: 'Machine Learning',
@@ -82,7 +82,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     name: 'GenAI & LLM Systems',
     skills: [
       'LangChain',
-      'LangGraph', 
+      'LangGraph',
       'OpenAI API',
       'Azure OpenAI',
       'Retrieval-Augmented Generation (RAG)',
@@ -109,7 +109,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Databases & Storage',
-    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'Supabase (pgvector)', 'Elasticsearch'],
+    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'Supabase', 'Elasticsearch'],
   },
   {
     name: 'Cloud Platforms',
@@ -118,6 +118,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Development Environment',
     skills: ['Linux', 'Git', 'Jupyter'],
+  },
+  {
+    name: 'AI Tools',
+    skills: ['Claude Code', 'Devin (formerly Windsurf)', 'GitHub Copilot', 'kenn-io/kata', 'kenn-io/roborev'],
   },
   {
     name: 'Collaboration',
