@@ -769,7 +769,7 @@ export default function Personal() {
         className={process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' ? '-mt-12' : ''}
       >
         <h3 className="mb-2 text-lg font-medium">Get in Touch</h3>
-        <div className="mb-5 space-y-1">
+        <div className="mb-2 space-y-1">
           {PROFESSIONAL_SUMMARY.availability.map((line, i) => (
             <p key={i} className="text-sm text-pretty text-zinc-600 dark:text-zinc-400">{line}</p>
           ))}
