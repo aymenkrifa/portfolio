@@ -346,7 +346,7 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
                 {education.tags && education.tags.length > 0 && (
                   <div className="mt-1 flex flex-wrap gap-1">
                     {education.tags.map((tag) => (
-                      <TagBadge key={tag} label={tag} />
+                      <JobTypeBadge key={tag} type={tag} />
                     ))}
                   </div>
                 )}
@@ -394,7 +394,7 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
               {education.tags && education.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1">
                   {education.tags.map((tag) => (
-                    <TagBadge key={tag} label={tag} />
+                    <JobTypeBadge key={tag} type={tag} />
                   ))}
                 </div>
               )}
