@@ -630,14 +630,14 @@ export default function Personal() {
                         ? `Native ${lang} speaker`
                         : `${level.charAt(0).toUpperCase() + level.slice(1)} in ${lang}`
                       return (
-                        <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+                        <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
                           {phrase}
                         </span>
                       )
                     }
                   }
                   return (
-                    <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+                    <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
                       {skill}
                     </span>
                   )
