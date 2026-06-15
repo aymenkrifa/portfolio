@@ -167,6 +167,8 @@ function TagBadge({ label }: { label: string }) {
   const styles: Record<string, string> = {
     'Side Venture': 'border-violet-400 text-violet-600 dark:border-violet-600 dark:text-violet-400',
     'Main Job': 'border-emerald-400 text-emerald-600 dark:border-emerald-600 dark:text-emerald-400',
+    'EUR-ACE® Accredited': 'border-blue-400 text-blue-600 dark:border-blue-500 dark:text-blue-400',
+    "Bachelor's Equivalent": 'border-zinc-300 text-zinc-500 dark:border-zinc-600 dark:text-zinc-400',
   }
   return (
     <span className={`inline-block rounded px-2 py-0.5 text-xs font-medium border ${styles[label] ?? 'border-amber-400 text-amber-600 dark:border-amber-600 dark:text-amber-400'}`}>
@@ -346,7 +348,7 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
                 {education.tags && education.tags.length > 0 && (
                   <div className="mt-1 flex flex-wrap gap-1">
                     {education.tags.map((tag) => (
-                      <JobTypeBadge key={tag} type={tag} />
+                      <TagBadge key={tag} label={tag} />
                     ))}
                   </div>
                 )}
@@ -394,7 +396,7 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
               {education.tags && education.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1">
                   {education.tags.map((tag) => (
-                    <JobTypeBadge key={tag} type={tag} />
+                    <TagBadge key={tag} label={tag} />
                   ))}
                 </div>
               )}
@@ -414,7 +416,15 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
                     <div key={index} className="flex items-start space-x-3">
                       <div className="mt-2.5 h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 flex-shrink-0"></div>
                       <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                        {achievement}
+                        {achievement.text.split('®').map((part, i, arr) => (
+                          <span key={i}>{part}{i < arr.length - 1 && <sup>®</sup>}</span>
+                        ))}
+                        {achievement.link && (
+                          <>{' '}<a href={achievement.link} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center whitespace-nowrap text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
+                            View accreditation page →
+                            <span className="absolute bottom-0 left-0 block h-[1px] w-full max-w-0 bg-zinc-500 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-400"></span>
+                          </a></>
+                        )}
                       </p>
                     </div>
                   ))}

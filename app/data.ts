@@ -31,7 +31,7 @@ type Education = {
   link: string
   id: string
   description?: string
-  achievements?: string[]
+  achievements?: { text: string; link?: string }[]
   tags?: string[]
 }
 
@@ -289,19 +289,20 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 export const EDUCATION: Education[] = [
   {
     institution: 'École Polytechnique de Sousse',
-    degree: "Engineering Degree",
-    field: 'Computer Science',
-    tags: ["Master's Equivalent"],
+    degree: "Master's Degree",
+    field: 'Computer Engineering',
+    tags: ['EUR-ACE® Accredited'],
     start: '2022',
     end: '2025',
     moreInfoPeriod: 'September 2022 - June 2025',
     link: 'https://www.polytecsousse.tn',
     id: 'edu1',
-    description: 'Specialized in Machine Learning and Artificial Intelligence',
+    description: 'Specialized in Artificial Intelligence',
     achievements: [
-      'Graduated with High Honors (GPA: 3.8/4.0)',
-      'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"',
-      'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing',
+      { text: 'Graduated with High Honors (GPA: 3.8/4.0)' },
+      { text: 'EUR-ACE® accredited programme (CTI) — recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452' },
+      { text: 'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"' },
+      { text: 'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing' },
     ],
   },
   {
@@ -315,9 +316,9 @@ export const EDUCATION: Education[] = [
     link: 'https://www.polytecsousse.tn',
     id: 'edu2',
     achievements: [
-      'Graduated with High Honors (GPA: 3.9/4.0)',
-      'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"',
-      'Relevant Coursework: Algorithms, Probability and Statistics, Machine Learning, Mathematics'
+      { text: 'Graduated with High Honors (GPA: 3.9/4.0)' },
+      { text: 'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"' },
+      { text: 'Relevant Coursework: Algorithms, Probability and Statistics, Machine Learning, Mathematics' },
     ],
   },
 ]
