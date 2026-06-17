@@ -14,7 +14,7 @@ export function Footer() {
         </a>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-xs text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
+          className="cursor-pointer text-xs text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
         >
           <span className="flex items-center gap-1">
             <ChevronUpIcon className="h-3 w-3" />
