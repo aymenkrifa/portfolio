@@ -125,7 +125,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'PostgreSQL' },
       { name: 'ChromaDB' },
       { name: 'Redis' },
-      { name: 'Supabase', exploring: true },
+      { name: 'Supabase' },
       { name: 'Elasticsearch' },
     ],
   },
