@@ -289,8 +289,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 export const EDUCATION: Education[] = [
   {
     institution: 'École Polytechnique de Sousse',
-    degree: "Master's Degree",
-    field: 'Computer Engineering',
+    degree: 'Master of Engineering',
+    field: 'Computer Science',
     tags: ['EUR-ACE® Accredited'],
     start: '2022',
     end: '2025',
