@@ -47,9 +47,15 @@ type SocialLink = {
   link: string
 }
 
+type Skill = {
+  name: string
+  exploring?: boolean
+  level?: string
+}
+
 type SkillCategory = {
   name: string
-  skills: string[]
+  skills: Skill[]
 }
 
 type Certification = {
@@ -64,75 +70,100 @@ type Certification = {
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Programming',
-    skills: ['Python', 'SQL', 'Bash', 'Rust (dabbling)'],
+    skills: [
+      { name: 'Python' },
+      { name: 'SQL' },
+      { name: 'Bash' },
+      { name: 'Rust', exploring: true },
+    ],
   },
   {
     name: 'Machine Learning',
     skills: [
-      'PyTorch',
-      'Hugging Face Transformers',
-      'BERT',
-      'CLIP',
-      'scikit-learn',
-      'spaCy',
-      'pandas',
-      'NumPy',
-
+      { name: 'PyTorch' },
+      { name: 'Hugging Face Transformers' },
+      { name: 'BERT' },
+      { name: 'CLIP' },
+      { name: 'scikit-learn' },
+      { name: 'spaCy' },
+      { name: 'pandas' },
+      { name: 'NumPy' },
     ],
   },
   {
     name: 'GenAI & LLM Systems',
     skills: [
-      'LangChain',
-      'LangGraph',
-      'OpenAI API',
-      'Azure OpenAI',
-      'Retrieval-Augmented Generation',
-      'LLM-as-a-Judge Evaluation',
-      'Prompt Engineering',
+      { name: 'LangChain' },
+      { name: 'LangGraph' },
+      { name: 'OpenAI API' },
+      { name: 'Azure OpenAI' },
+      { name: 'Retrieval-Augmented Generation' },
+      { name: 'LLM-as-a-Judge Evaluation' },
+      { name: 'Prompt Engineering' },
     ],
   },
   {
     name: 'MLOps & Infrastructure',
     skills: [
-      'Docker',
-      'Docker Compose',
-      'Kubernetes',
-      'MLflow',
-      'LangSmith',
-      'DVC',
-      'GitHub Actions',
-      'Datadog',
+      { name: 'Docker' },
+      { name: 'Docker Compose' },
+      { name: 'Kubernetes' },
+      { name: 'MLflow' },
+      { name: 'LangSmith' },
+      { name: 'DVC' },
+      { name: 'GitHub Actions' },
+      { name: 'Datadog' },
     ],
   },
   {
     name: 'Backend & APIs',
-    skills: ['FastAPI', 'Flask', 'REST APIs'],
+    skills: [{ name: 'FastAPI' }, { name: 'Flask' }, { name: 'REST APIs' }],
   },
   {
     name: 'Databases & Storage',
-    skills: ['PostgreSQL', 'ChromaDB', 'Redis', 'Supabase', 'Elasticsearch'],
+    skills: [
+      { name: 'PostgreSQL' },
+      { name: 'ChromaDB' },
+      { name: 'Redis' },
+      { name: 'Supabase', exploring: true },
+      { name: 'Elasticsearch' },
+    ],
   },
   {
     name: 'Cloud Platforms',
-    skills: ['AWS', 'Azure (OpenAI Service)'],
+    skills: [{ name: 'AWS' }, { name: 'Azure (OpenAI Service)' }],
   },
   {
     name: 'Development Environment',
-    skills: ['Linux', 'Git', 'Jupyter'],
+    skills: [{ name: 'Linux' }, { name: 'Git' }, { name: 'Jupyter' }],
   },
   {
     name: 'AI Tools',
-    skills: ['Claude Code', 'Devin (formerly Windsurf)', 'GitHub Copilot', 'kenn-io/kata', 'kenn-io/roborev'],
+    skills: [
+      { name: 'Claude Code' },
+      { name: 'Devin (formerly Windsurf)' },
+      { name: 'GitHub Copilot' },
+      { name: 'kenn-io/kata', exploring: true },
+      { name: 'kenn-io/roborev', exploring: true },
+    ],
   },
   {
     name: 'Collaboration',
-    skills: ['Jira', 'Confluence', 'GitHub', 'Bitbucket'],
+    skills: [
+      { name: 'Jira' },
+      { name: 'Confluence' },
+      { name: 'GitHub' },
+      { name: 'Bitbucket' },
+    ],
   },
   {
     name: 'Languages',
-    skills: ['English (fluent)', 'French (conversational)', 'Arabic (native)'],
-  }
+    skills: [
+      { name: 'English', level: 'fluent' },
+      { name: 'French', level: 'conversational' },
+      { name: 'Arabic', level: 'native' },
+    ],
+  },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
@@ -250,8 +281,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work2',
     jobType: 'Internship',
     bulletPoints: [
-      'Built data cleaning pipeline processing 15M+ data points and trained trip category prediction model using random forests and scikit-learn, achieving 70% accuracy in classifying user travel preferences',
-      'Deployed Flask REST API serving real-time predictions, integrating ML recommendations into production web application for automated trip categorization'
+      'Built data cleaning pipeline processing 15M+ data points and trained trip category prediction model using random forests and scikit-learn, achieving 70% accuracy in classifying user travel preferences.',
+      'Deployed Flask REST API serving real-time predictions, integrating ML recommendations into production web application for automated trip categorization.'
     ],
   },
   {

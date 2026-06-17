@@ -87,9 +87,14 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
   if (fullTimeCount > 0 && fullTimeMonths > 0) {
     const years = Math.floor(fullTimeMonths / 12)
     const rem = fullTimeMonths % 12
-    const displayYears = rem >= 6 ? years + 1 : years
-    if (displayYears >= 1) {
-      parts.push(`${displayYears}+ years of full-time experience`)
+    let yearsStr: string
+    if (rem >= 10) {
+      yearsStr = `Nearly ${years + 1} years`
+    } else {
+      yearsStr = `${years}+ years`
+    }
+    if (years >= 1 || rem >= 10) {
+      parts.push(`${yearsStr} of full-time experience`)
     } else {
       parts.push(`${fullTimeMonths} month${fullTimeMonths > 1 ? 's' : ''} of full-time experience`)
     }
@@ -106,6 +111,7 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
 
   return parts.length === 1 ? parts[0] + '.' : `${parts[0]} and ${parts[1]}.`
 }
+
 
 const SPARKLES = [
   { id: 1,  left: '0%',  delay: 0,    size: 12, duration: 1.6, color: '#a78bfa' },
@@ -525,7 +531,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Personal and open-source projects
+          Personal and open-source projects.
         </p>
         <div className="flex flex-col space-y-4">
           {PROJECTS.map((project) => (
@@ -582,7 +588,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Education</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Academic background and qualifications
+          Academic background and qualifications.
         </p>
         <div className="flex flex-col space-y-2">
           {EDUCATION.map((education) => (
@@ -596,7 +602,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Skills</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Technologies and tools I work/worked with throughout the years.
+          Technologies and tools I work with across my career, and some I'm exploring.
         </p>
         <div className="space-y-6">
           {SKILL_CATEGORIES.map((category) => (
@@ -605,24 +611,23 @@ export default function Personal() {
                 {category.name}
               </h4>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => {
-                  if (category.name === 'Languages') {
-                    const match = skill.match(/^(.+?)\s*\((.+)\)$/)
-                    if (match) {
-                      const [, lang, level] = match
-                      const phrase = level.toLowerCase() === 'native'
-                        ? `Native ${lang} speaker`
-                        : `${level.charAt(0).toUpperCase() + level.slice(1)} in ${lang}`
-                      return (
-                        <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
-                          {phrase}
-                        </span>
-                      )
-                    }
+                {[...category.skills].sort((a, b) => (a.exploring ? 1 : 0) - (b.exploring ? 1 : 0)).map((skill) => {
+                  if (skill.level) {
+                    const phrase = skill.level === 'native'
+                      ? `Native ${skill.name} speaker`
+                      : `${skill.level.charAt(0).toUpperCase() + skill.level.slice(1)} in ${skill.name}`
+                    return (
+                      <span key={skill.name} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
+                        {phrase}
+                      </span>
+                    )
                   }
                   return (
-                    <span key={skill} className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
-                      {skill}
+                    <span key={skill.name} className="inline-flex items-center gap-1.5 rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
+                      {skill.name}
+                      {skill.exploring && (
+                        <span className="text-xs text-zinc-400 dark:text-zinc-500">· exploring</span>
+                      )}
                     </span>
                   )
                 })}
