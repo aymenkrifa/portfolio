@@ -223,7 +223,7 @@ export const PROJECTS: Project[] = [
     description: 'Real-time, highly-opinionated, web-based Kubernetes dashboard for managing deployments, pods, and cluster resources.',
     link: 'https://www.github.com/aymenkrifa/KExplorer',
     id: 'project3',
-    tags: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'Kubernetes', 'Python', 'FastAPI'],
+    tags: ['Python', 'FastAPI', 'Kubernetes', 'TypeScript', 'React', 'Tailwind CSS', 'Vite'],
   },
   {
     name: 'Chroma Explorer',
