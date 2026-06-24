@@ -350,7 +350,7 @@ export const EDUCATION: Education[] = [
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.9/4.0)' },
       { text: 'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"' },
-      { text: 'Relevant Coursework: Algorithms, Probability and Statistics, Machine Learning, Mathematics' },
+      { text: 'Relevant Coursework: Algorithms, Probability and Statistics, Machine Learning, Linear Algebra' },
     ],
   },
 ]
