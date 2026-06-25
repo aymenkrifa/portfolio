@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
+import { EmbedIframe } from '@/components/ui/embed-iframe'
 import ResumeSection from '@/components/resume-section'
 import { GitHubContributions } from '@/components/github-contributions'
 import {
@@ -302,6 +303,35 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 </div>
               </div>
             ) : null}
+            {job.media && job.media.some((m) => m.visible) && (
+              <div className="space-y-3">
+                <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">Media</h4>
+                <div className="space-y-4">
+                  {job.media.filter((m) => m.visible).map((item) => (
+                    <div key={item.url}>
+                      {item.embed ? (
+                        <div className="space-y-2">
+                          <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700">
+                            <EmbedIframe src={item.embed} title={item.label} />
+                          </div>
+                          <p className="text-xs text-zinc-400 dark:text-zinc-500 text-center">{item.label}</p>
+                        </div>
+                      ) : (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 px-3 py-1 text-sm text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                        >
+                          {item.label}
+                          <ExternalLinkIndicator className="h-3 w-3" />
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </MorphingDialogContent>
         <MorphingDialogClose
@@ -422,13 +452,32 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
                           <span key={i}>{part}{i < arr.length - 1 && <sup>®</sup>}</span>
                         ))}
                         {achievement.link && (
-                          <>{' '}<a href={achievement.link} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center whitespace-nowrap text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
+                          <>{' '}<a href={achievement.link} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center whitespace-nowrap font-medium text-zinc-900 transition-colors dark:text-zinc-100">
                             View accreditation page →
-                            <span className="absolute bottom-0 left-0 block h-[1px] w-full max-w-0 bg-zinc-500 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-400"></span>
+                            <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
                           </a></>
                         )}
                       </p>
                     </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {education.media && education.media.some((m) => m.visible) && (
+              <div className="space-y-3">
+                <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">Media</h4>
+                <div className="flex flex-wrap gap-2">
+                  {education.media.filter((m) => m.visible).map((item) => (
+                    <a
+                      key={item.url}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 px-3 py-1 text-sm text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                    >
+                      {item.label}
+                      <ExternalLinkIndicator className="h-3 w-3" />
+                    </a>
                   ))}
                 </div>
               </div>

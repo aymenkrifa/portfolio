@@ -7,6 +7,13 @@ type Project = {
   visible: boolean
 }
 
+type MediaLink = {
+  label: string
+  url: string
+  embed?: string
+  visible: boolean
+}
+
 type WorkExperience = {
   company: string
   title: string
@@ -20,6 +27,7 @@ type WorkExperience = {
   cta?: { label: string; url: string }
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
   tags?: string[]
+  media?: MediaLink[]
   visible: boolean
 }
 
@@ -35,6 +43,7 @@ type Education = {
   description?: string
   achievements?: { text: string; link?: string }[]
   tags?: string[]
+  media?: MediaLink[]
   visible: boolean
 }
 
@@ -283,6 +292,11 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
       'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
     ],
+    media: [
+      { label: 'Q-I', url: 'https://www.quinta.im/q-i/', visible: false },
+      { label: 'Q-Data', url: 'https://www.quinta.im/q-data/', visible: false },
+      { label: 'Q-Mail', url: 'https://www.quinta.im/q-mail/', visible: false },
+    ],
     visible: true,
   },
   {
@@ -327,6 +341,13 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     bulletPoints: [
       "Contributed to the early development of an object detection module in C++ and OpenCV for autonomous security robots' self-charging feature.",
       'Collaborated with the engineering team on requirements and initial implementation.',
+    ],
+    media: [
+      {
+        label: 'Enova Robotics new self-charging feature announcement', visible: true,
+        url: 'https://www.linkedin.com/posts/news-securityservices-robotics-share-6729018118783479808-2Ao8',
+        embed: 'https://www.linkedin.com/embed/feed/update/urn:li:share:6729018118783479808',
+      },
     ],
     visible: true,
   },
