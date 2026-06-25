@@ -177,7 +177,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'November 2024',
     credentialId: 'afc9890d64a572bfb23614fa6eaae2a18afedfca',
     link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/afc9890d64a572bfb23614fa6eaae2a18afedfca',
-    id: 'cert1',
+    id: 'datacamp-mle',
     visible: true,
   },
   {
@@ -186,7 +186,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'March 2022',
     credentialId: 'BVTWPKS2GGUW',
     link: 'https://www.coursera.org/account/accomplishments/professional-cert/BVTWPKS2GGUW',
-    id: 'cert2',
+    id: 'google-data-analytics',
     visible: true,
   },
   {
@@ -195,7 +195,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'July 2022',
     credentialId: '56954fa5219fd1e348b6f93ccb25e55981fc8f69',
     link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/56954fa5219fd1e348b6f93ccb25e55981fc8f69',
-    id: 'cert3',
+    id: 'datacamp-data-scientist',
     visible: true,
   },
   {
@@ -204,7 +204,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'December 2020',
     credentialId: '8QLPUR9CTQLE',
     link: 'https://www.coursera.org/account/accomplishments/verify/8QLPUR9CTQLE',
-    id: 'cert4',
+    id: 'stanford-ml',
     visible: true,
   },
 ]
@@ -215,7 +215,7 @@ export const PROJECTS: Project[] = [
     description:
       'Smart shell tool that seamlessly switches Python virtual environments as you navigate between project directories.',
     link: 'https://www.github.com/aymenkrifa/autoactivator',
-    id: 'project1',
+    id: 'autoactivator',
     tags: ['Shell'],
     visible: true,
   },
@@ -224,7 +224,7 @@ export const PROJECTS: Project[] = [
     description:
       'A Linux TUI for listing, monitoring, and killing listening ports using Rust.',
     link: 'https://www.github.com/aymenkrifa/reaper',
-    id: 'project2',
+    id: 'reaper',
     tags: ['Rust', 'Ratatui'],
     visible: true,
   },
@@ -232,7 +232,7 @@ export const PROJECTS: Project[] = [
     name: 'KExplorer',
     description: 'Real-time, highly-opinionated, web-based Kubernetes dashboard for managing deployments, pods, and cluster resources.',
     link: 'https://www.github.com/aymenkrifa/KExplorer',
-    id: 'project3',
+    id: 'kexplorer',
     tags: ['Python', 'FastAPI', 'Kubernetes', 'TypeScript', 'React', 'Tailwind CSS', 'Vite'],
     visible: true,
   },
@@ -240,7 +240,7 @@ export const PROJECTS: Project[] = [
     name: 'Chroma Explorer',
     description: 'Desktop GUI for exploring and managing ChromaDB vector databases. A Linux-focused fork with support for legacy Chroma 0.x servers.',
     link: 'https://www.github.com/aymenkrifa/chroma-explorer',
-    id: 'project4',
+    id: 'chroma-explorer',
     tags: ['TypeScript', 'React', 'Electron', 'Tailwind CSS', 'ChromaDB'],
     visible: true,
   },
@@ -271,7 +271,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     moreInfoPeriod: 'July 2022 - Present',
     link: 'https://www.quinta.im',
-    id: 'work1',
+    id: 'quinta-ml',
     jobType: 'Full-time',
     tags: ['Main Job'],
     bulletPoints: [
@@ -292,7 +292,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'July 2022',
     moreInfoPeriod: 'February 2022 - July 2022',
     link: 'https://www.quinta.im',
-    id: 'work2',
+    id: 'quinta-intern',
     jobType: 'Internship',
     bulletPoints: [
       'Built data cleaning pipeline processing 15M+ data points and trained trip category prediction model using random forests and scikit-learn, achieving 70% accuracy in classifying user travel preferences.',
@@ -307,7 +307,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'October 2021',
     moreInfoPeriod: 'September 2021 - October 2021',
     link: 'https://www.whitecapetech.com',
-    id: 'work3',
+    id: 'whitecape-intern',
     jobType: 'Internship',
     bulletPoints: [
       'Built an HR management web application to streamline internal operations.',
@@ -322,7 +322,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'September 2020',
     moreInfoPeriod: 'August 2020 - September 2020',
     link: 'https://www.enovarobotics.eu',
-    id: 'work4',
+    id: 'enova-intern',
     jobType: 'Internship',
     bulletPoints: [
       "Contributed to the early development of an object detection module in C++ and OpenCV for autonomous security robots' self-charging feature.",
@@ -342,7 +342,7 @@ export const EDUCATION: Education[] = [
     end: '2025',
     moreInfoPeriod: 'September 2022 - June 2025',
     link: 'https://www.polytecsousse.tn',
-    id: 'edu1',
+    id: 'master-computer-science',
     description: 'Specialized in Artificial Intelligence',
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.8/4.0)' },
@@ -362,7 +362,7 @@ export const EDUCATION: Education[] = [
     end: '2022',
     moreInfoPeriod: 'September 2019 - July 2022',
     link: 'https://www.polytecsousse.tn',
-    id: 'edu2',
+    id: 'licence-software-engineering',
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.9/4.0)' },
       { text: 'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"' },
