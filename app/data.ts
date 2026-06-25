@@ -295,10 +295,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work3',
     jobType: 'Internship',
     bulletPoints: [
-      'Utilized modern web technologies, including React and Node.js, to develop dynamic and responsive web applications.',
-      'Implemented RESTful APIs and integrated third-party services to enhance application functionality.',
-      'Participated in agile development processes, collaborating with cross-functional teams to deliver high-quality software solutions.',
-      'Created user-friendly interfaces with a focus on accessibility and performance optimization.',
+      'Built an HR management web application to streamline internal operations.',
+      'Worked directly with the HR team to define requirements and shape the UI.',
     ],
   },
   {
@@ -311,8 +309,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work4',
     jobType: 'Internship',
     bulletPoints: [
-      "Contributed to an object detection project for the autonomous and self-driving security robots' self-charging feature using C++ and OpenCV, successfully enhancing the robot's capabilities by ensuring accurate detection of the charging station port.",
-      'Collaborated with engineering team, ensuring effective communication and timely task completion.',
+      "Contributed to the early development of an object detection module in C++ and OpenCV for autonomous security robots' self-charging feature.",
+      'Collaborated with the engineering team on requirements and initial implementation.',
     ],
   },
 ]
@@ -364,7 +362,7 @@ export const PROFESSIONAL_SUMMARY = {
   ],
   highlights: [],
   availability: [
-    'Currently exploring AI/ML roles, freelance projects, and open-source opportunities — open to remote or relocation.',
+    'Always open to interesting problems — freelance, open-source, or otherwise.',
   ],
 }
 
