@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     template: '%s | Aymen Krifa'
   },
   description:  'Aymen Krifa is a Machine Learning Engineer and this is his personal website built with Next.js 15, React 19 and Motion-Primitives.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
+  },
+  manifest: '/site.webmanifest',
 };
 
 const geist = Geist({
