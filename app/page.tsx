@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import ExternalLinkIndicator from '@/components/ui/ExternalLinkIndicator'
@@ -126,6 +127,18 @@ const SPARKLES = [
   { id: 9,  left: '80%', delay: 0.4,  size: 12, duration: 1.9, color: '#f472b6' },
   { id: 10, left: '90%', delay: 1.2,  size: 10, duration: 1.7, color: '#fbbf24' },
 ]
+
+function renderInlineCode(text: string) {
+  const parts = text.split(/(`[^`]+`|\[[^\]]+\]\([^)]+\))/)
+  return parts.map((part, i) => {
+    if (part.startsWith('`') && part.endsWith('`'))
+      return <code key={i} className="rounded bg-zinc-100 px-1 py-0.5 text-xs font-mono text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">{part.slice(1, -1)}</code>
+    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (linkMatch)
+      return <a key={i} href={linkMatch[2]} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">{linkMatch[1]}</a>
+    return part
+  })
+}
 
 function StarIcon({ size, color }: { size: number; color: string }) {
   return (
@@ -597,7 +610,7 @@ export default function Personal() {
                   <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
                 </a>
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
+                  {renderInlineCode(project.description)}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (

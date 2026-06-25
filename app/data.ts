@@ -222,7 +222,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'AutoActivator',
     description:
-      'Smart shell tool that seamlessly switches Python virtual environments as you navigate between project directories.',
+      'Automatically activates the right Python virtual environment when you enter a project and deactivates it when you leave — no more tracking which one is active as you move between projects; it just handles it, near-instantly ([See benchmarks →](https://github.com/aymenkrifa/autoactivator#how-it-works))',
     link: 'https://www.github.com/aymenkrifa/autoactivator',
     id: 'autoactivator',
     tags: ['Shell'],
@@ -231,7 +231,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'Reaper',
     description:
-      'A Linux TUI for listing, monitoring, and killing listening ports using Rust.',
+      'A Rust TUI for browsing and killing listening ports, built after one too many times forgetting the right `lsof` flags — and also an excuse to explore Rust.',
     link: 'https://www.github.com/aymenkrifa/reaper',
     id: 'reaper',
     tags: ['Rust', 'Ratatui'],
@@ -239,7 +239,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'KExplorer',
-    description: 'Real-time, highly-opinionated, web-based Kubernetes dashboard for managing deployments, pods, and cluster resources.',
+    description: 'Everything Lens and k9s spread across multiple views, in a single highly opinionated web-based Kubernetes dashboard — with pod grouping by project on top.',
     link: 'https://www.github.com/aymenkrifa/KExplorer',
     id: 'kexplorer',
     tags: ['Python', 'FastAPI', 'Kubernetes', 'TypeScript', 'React', 'Tailwind CSS', 'Vite'],
@@ -247,7 +247,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Chroma Explorer',
-    description: 'Desktop GUI for exploring and managing ChromaDB vector databases. A Linux-focused fork with support for legacy Chroma 0.x servers.',
+    description: 'Forked to keep working against Chroma 0.x servers when 1.x migration was not an option. Rewinds the JavaScript client to the legacy `/api/v1` API while keeping the full GUI.',
     link: 'https://www.github.com/aymenkrifa/chroma-explorer',
     id: 'chroma-explorer',
     tags: ['TypeScript', 'React', 'Electron', 'Tailwind CSS', 'ChromaDB'],
