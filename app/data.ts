@@ -266,7 +266,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work_skinify',
     jobType: 'Part-time',
     tags: ['Side Venture'],
-    description: 'Co-founding Skinify — an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
+    description: 'Co-founding Skinify, an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
     cta: {
       label: 'Visit Skinify →',
       url: 'https://skinify.ai',
@@ -367,7 +367,7 @@ export const EDUCATION: Education[] = [
     description: 'Specialized in Artificial Intelligence',
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.8/4.0)' },
-      { text: 'EUR-ACE® accredited programme (CTI) — recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452' },
+      { text: 'EUR-ACE® accredited programme (CTI), recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452' },
       { text: 'Pursued in parallel with full-time work through night classes on campus' },
       { text: 'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"' },
       { text: 'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing' },
