@@ -4,6 +4,7 @@ type Project = {
   link: string
   id: string
   tags: string[]
+  visible?: boolean
 }
 
 type WorkExperience = {
@@ -19,6 +20,7 @@ type WorkExperience = {
   cta?: { label: string; url: string }
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
   tags?: string[]
+  visible?: boolean
 }
 
 type Education = {
@@ -33,6 +35,7 @@ type Education = {
   description?: string
   achievements?: { text: string; link?: string }[]
   tags?: string[]
+  visible?: boolean
 }
 
 type BlogPost = {
@@ -65,6 +68,7 @@ type Certification = {
   credentialId?: string
   link?: string
   id: string
+  visible?: boolean
 }
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
