@@ -4,7 +4,7 @@ type Project = {
   link: string
   id: string
   tags: string[]
-  visible?: boolean
+  visible: boolean
 }
 
 type WorkExperience = {
@@ -20,7 +20,7 @@ type WorkExperience = {
   cta?: { label: string; url: string }
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
   tags?: string[]
-  visible?: boolean
+  visible: boolean
 }
 
 type Education = {
@@ -35,7 +35,7 @@ type Education = {
   description?: string
   achievements?: { text: string; link?: string }[]
   tags?: string[]
-  visible?: boolean
+  visible: boolean
 }
 
 type BlogPost = {
@@ -68,7 +68,7 @@ type Certification = {
   credentialId?: string
   link?: string
   id: string
-  visible?: boolean
+  visible: boolean
 }
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
@@ -178,6 +178,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialId: 'afc9890d64a572bfb23614fa6eaae2a18afedfca',
     link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/afc9890d64a572bfb23614fa6eaae2a18afedfca',
     id: 'cert1',
+    visible: true,
   },
   {
     name: 'Google Data Analytics Specialization',
@@ -186,6 +187,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialId: 'BVTWPKS2GGUW',
     link: 'https://www.coursera.org/account/accomplishments/professional-cert/BVTWPKS2GGUW',
     id: 'cert2',
+    visible: true,
   },
   {
     name: 'Associate Data Scientist',
@@ -194,6 +196,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialId: '56954fa5219fd1e348b6f93ccb25e55981fc8f69',
     link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/56954fa5219fd1e348b6f93ccb25e55981fc8f69',
     id: 'cert3',
+    visible: true,
   },
   {
     name: 'Machine Learning',
@@ -202,6 +205,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialId: '8QLPUR9CTQLE',
     link: 'https://www.coursera.org/account/accomplishments/verify/8QLPUR9CTQLE',
     id: 'cert4',
+    visible: true,
   },
 ]
 
@@ -213,6 +217,7 @@ export const PROJECTS: Project[] = [
     link: 'https://www.github.com/aymenkrifa/autoactivator',
     id: 'project1',
     tags: ['Shell'],
+    visible: true,
   },
   {
     name: 'Reaper',
@@ -221,6 +226,7 @@ export const PROJECTS: Project[] = [
     link: 'https://www.github.com/aymenkrifa/reaper',
     id: 'project2',
     tags: ['Rust', 'Ratatui'],
+    visible: true,
   },
   {
     name: 'KExplorer',
@@ -228,6 +234,7 @@ export const PROJECTS: Project[] = [
     link: 'https://www.github.com/aymenkrifa/KExplorer',
     id: 'project3',
     tags: ['Python', 'FastAPI', 'Kubernetes', 'TypeScript', 'React', 'Tailwind CSS', 'Vite'],
+    visible: true,
   },
   {
     name: 'Chroma Explorer',
@@ -235,6 +242,7 @@ export const PROJECTS: Project[] = [
     link: 'https://www.github.com/aymenkrifa/chroma-explorer',
     id: 'project4',
     tags: ['TypeScript', 'React', 'Electron', 'Tailwind CSS', 'ChromaDB'],
+    visible: true,
   },
 ]
 
@@ -254,6 +262,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       label: 'Visit Skinify →',
       url: 'https://skinify.ai',
     },
+    visible: true,
   },
   {
     company: 'Quinta (formerly Quicktext)',
@@ -274,6 +283,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
       'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
     ],
+    visible: true,
   },
   {
     company: 'Quinta (formerly Quicktext)',
@@ -288,6 +298,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Built data cleaning pipeline processing 15M+ data points and trained trip category prediction model using random forests and scikit-learn, achieving 70% accuracy in classifying user travel preferences.',
       'Deployed Flask REST API serving real-time predictions, integrating ML recommendations into production web application for automated trip categorization.'
     ],
+    visible: true,
   },
   {
     company: 'Whitecape Technologies',
@@ -302,6 +313,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Built an HR management web application to streamline internal operations.',
       'Worked directly with the HR team to define requirements and shape the UI.',
     ],
+    visible: true,
   },
   {
     company: 'Enova Robotics',
@@ -316,6 +328,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Contributed to the early development of an object detection module in C++ and OpenCV for autonomous security robots' self-charging feature.",
       'Collaborated with the engineering team on requirements and initial implementation.',
     ],
+    visible: true,
   },
 ]
 
@@ -338,6 +351,7 @@ export const EDUCATION: Education[] = [
       { text: 'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"' },
       { text: 'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing' },
     ],
+    visible: true,
   },
   {
     institution: 'École Polytechnique de Sousse',
@@ -354,6 +368,7 @@ export const EDUCATION: Education[] = [
       { text: 'Thesis: "Dynamic Website Users Profiling & Suggesting Predictor"' },
       { text: 'Relevant Coursework: Algorithms, Probability and Statistics, Machine Learning, Linear Algebra' },
     ],
+    visible: true,
   },
 ]
 
