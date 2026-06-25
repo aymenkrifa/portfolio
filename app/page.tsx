@@ -534,7 +534,7 @@ export default function Personal() {
           Personal and open-source projects.
         </p>
         <div className="flex flex-col space-y-4">
-          {PROJECTS.map((project) => (
+          {PROJECTS.filter((p) => p.visible !== false).map((project) => (
             <div key={project.name} className="space-y-2">
               <div className="px-1">
                 <a
@@ -572,12 +572,12 @@ export default function Personal() {
         <h3 className="mb-2 text-lg font-medium">Work Experience</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
           {(() => {
-            const { fullTimeMonths, internshipMonths, fullTimeCount, internshipCount } = calculateTotalExperience(WORK_EXPERIENCE)
+            const { fullTimeMonths, internshipMonths, fullTimeCount, internshipCount } = calculateTotalExperience(WORK_EXPERIENCE.filter((j) => j.visible !== false))
             return formatTotalExperience(fullTimeMonths, internshipMonths, fullTimeCount, internshipCount)
           })()}
         </p>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
+          {WORK_EXPERIENCE.filter((j) => j.visible !== false).map((job) => (
             <WorkExperienceCard key={job.id} job={job} />
           ))}
         </div>
@@ -591,7 +591,7 @@ export default function Personal() {
           Academic background and qualifications.
         </p>
         <div className="flex flex-col space-y-2">
-          {EDUCATION.map((education) => (
+          {EDUCATION.filter((e) => e.visible !== false).map((education) => (
             <EducationCard key={education.id} education={education} />
           ))}
         </div>
@@ -658,7 +658,7 @@ export default function Personal() {
           Professional certifications and completed courses.
         </p>
         <div className="flex flex-col space-y-2">
-          {CERTIFICATIONS.map((cert) => (
+          {CERTIFICATIONS.filter((c) => c.visible !== false).map((cert) => (
             <div
               key={cert.id}
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 w-full"
