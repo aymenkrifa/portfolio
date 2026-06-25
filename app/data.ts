@@ -247,7 +247,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     tags: ['Side Venture'],
     description: 'Co-founding Skinify — an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
     cta: {
-      label: 'Transform your skin today →',
+      label: 'Visit Skinify →',
       url: 'https://skinify.ai',
     },
   },
