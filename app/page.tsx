@@ -552,7 +552,11 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
-  const yoe = getFullTimeYearsRounded(WORK_EXPERIENCE)
+  const showSkinify = process.env.NEXT_PUBLIC_SHOW_SKINIFY === 'true'
+  const visibleWork = WORK_EXPERIENCE.filter(
+    (j) => j.visible !== false && (showSkinify || j.id !== 'work_skinify'),
+  )
+  const yoe = getFullTimeYearsRounded(visibleWork)
   const interpolate = (s: string) => s.replaceAll('{yoe}', String(yoe))
 
   return (
@@ -634,12 +638,12 @@ export default function Personal() {
         <h3 className="mb-2 text-lg font-medium">Work Experience</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
           {(() => {
-            const { fullTimeMonths, internshipMonths, fullTimeCount, internshipCount } = calculateTotalExperience(WORK_EXPERIENCE.filter((j) => j.visible !== false))
+            const { fullTimeMonths, internshipMonths, fullTimeCount, internshipCount } = calculateTotalExperience(visibleWork)
             return formatTotalExperience(fullTimeMonths, internshipMonths, fullTimeCount, internshipCount)
           })()}
         </p>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.filter((j) => j.visible !== false).map((job) => (
+          {visibleWork.map((job) => (
             <WorkExperienceCard key={job.id} job={job} />
           ))}
         </div>

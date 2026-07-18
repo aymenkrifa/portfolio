@@ -95,12 +95,26 @@ The component in `components/github-contributions.tsx` automatically:
 - Falls back to the image-based service if the API fails
 - Updates dynamically based on your activity
 
-8. **Additional Features**
+8. **Section Flags (Optional)**
+
+Some sections are gated behind environment variables in `.env.local`. Each is hidden unless the value is exactly `true`:
+
+   ```bash
+   NEXT_PUBLIC_SHOW_GITHUB_CONTRIBUTIONS=true
+   NEXT_PUBLIC_SHOW_RESUME=true
+   NEXT_PUBLIC_SHOW_SKINIFY=true
+   ```
+
+`NEXT_PUBLIC_SHOW_SKINIFY` toggles the Skinify.ai side-venture entry in Work Experience. It is a part-time role, which the experience calculators exclude, so hiding it does not change the years-of-experience figures.
+
+These are inlined at build time, so restart the dev server after changing them.
+
+9. **Additional Features**
 
 Want to add more animated components?
 Check out [Motion-Primitives](https://motion-primitives.com/) for additional animation components and templates. If you want something else DM on [X](https://x.com/Ibelick).
 
-9.  **Deployment**
+10. **Deployment**
 
 You can deploy your site to any hosting platform that supports Next.js. For the easiest deployment experience, consider using Vercel:
 
