@@ -2,6 +2,7 @@ type Project = {
   name: string
   description: string
   link: string
+  site?: string
   id: string
   tags: string[]
   visible: boolean
@@ -219,6 +220,16 @@ export const CERTIFICATIONS: Certification[] = [
 ]
 
 export const PROJECTS: Project[] = [
+  {
+    name: 'Pharos',
+    description:
+      'A GNOME Shell extension that keeps Claude usage limits in the top panel as a lighthouse beacon, tracking the 5-hour and 7-day windows together so you see a limit coming instead of hitting it mid-task.',
+    link: 'https://www.github.com/aymenkrifa/Pharos',
+    site: 'https://pharos.aymenkrifa.com',
+    id: 'pharos',
+    tags: ['GNOME Shell', 'JavaScript'],
+    visible: true,
+  },
   {
     name: 'AutoActivator',
     description:

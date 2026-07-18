@@ -605,7 +605,7 @@ export default function Personal() {
               <div className="px-1">
                 <a
                   className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
+                  href={project.site ?? project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
