@@ -233,8 +233,8 @@ export const PROJECTS: Project[] = [
   {
     name: 'AutoActivator',
     description:
-      'Automatically activates the right Python virtual environment when you enter a project and deactivates it when you leave — no more tracking which one is active as you move between projects; it just handles it, near-instantly ([See benchmarks →](https://github.com/aymenkrifa/autoactivator#how-it-works))',
-    link: 'https://www.github.com/aymenkrifa/autoactivator',
+      'Automatically activates the right Python virtual environment when you enter a project and deactivates it when you leave — no more tracking which one is active as you move between projects; it just handles it, near-instantly ([See benchmarks →](https://autoactivator.aymenkrifa.com/#how))',
+    link: 'https://autoactivator.aymenkrifa.com',
     id: 'autoactivator',
     tags: ['Shell'],
     visible: true,
