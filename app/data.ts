@@ -244,6 +244,7 @@ export const PROJECTS: Project[] = [
     description:
       'A Rust TUI for browsing and killing listening ports, built after one too many times forgetting the right `lsof` flags — and also an excuse to explore Rust.',
     link: 'https://www.github.com/aymenkrifa/reaper',
+    site: 'https://reaper.aymenkrifa.com',
     id: 'reaper',
     tags: ['Rust', 'Ratatui'],
     visible: true,
