@@ -191,21 +191,21 @@ export const CERTIFICATIONS: Certification[] = [
     visible: true,
   },
   {
-    name: 'Google Data Analytics Specialization',
-    issuer: 'Google',
-    date: 'March 2022',
-    credentialId: 'BVTWPKS2GGUW',
-    link: 'https://www.coursera.org/account/accomplishments/professional-cert/BVTWPKS2GGUW',
-    id: 'google-data-analytics',
-    visible: true,
-  },
-  {
     name: 'Associate Data Scientist',
     issuer: 'DataCamp',
     date: 'July 2022',
     credentialId: '56954fa5219fd1e348b6f93ccb25e55981fc8f69',
     link: 'https://www.datacamp.com/completed/statement-of-accomplishment/track/56954fa5219fd1e348b6f93ccb25e55981fc8f69',
     id: 'datacamp-data-scientist',
+    visible: true,
+  },
+  {
+    name: 'Google Data Analytics Specialization',
+    issuer: 'Google',
+    date: 'March 2022',
+    credentialId: 'BVTWPKS2GGUW',
+    link: 'https://www.coursera.org/account/accomplishments/professional-cert/BVTWPKS2GGUW',
+    id: 'google-data-analytics',
     visible: true,
   },
   {
@@ -251,7 +251,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'KExplorer',
-    description: 'Everything Lens and k9s spread across multiple views, in a single highly opinionated web-based Kubernetes dashboard — with pod grouping by project on top.',
+    description: 'Brings everything Lens and k9s spread across multiple views into a single, highly opinionated web-based Kubernetes dashboard — with pod grouping by project on top.',
     link: 'https://www.github.com/aymenkrifa/KExplorer',
     id: 'kexplorer',
     tags: ['Python', 'FastAPI', 'Kubernetes', 'TypeScript', 'React', 'Tailwind CSS', 'Vite'],
@@ -259,7 +259,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Chroma Explorer',
-    description: 'Forked to keep working against Chroma 0.x servers when 1.x migration was not an option. Rewinds the JavaScript client to the legacy `/api/v1` API while keeping the full GUI.',
+    description: 'A desktop GUI for browsing ChromaDB collections, forked to keep working against Chroma 0.x servers when 1.x migration was not an option. Rewinds the JavaScript client to the legacy `/api/v1` API.',
     link: 'https://www.github.com/aymenkrifa/chroma-explorer',
     id: 'chroma-explorer',
     tags: ['TypeScript', 'React', 'Electron', 'Tailwind CSS', 'ChromaDB'],
@@ -268,6 +268,34 @@ export const PROJECTS: Project[] = [
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
+  {
+    company: 'Quinta (formerly Quicktext)',
+    title: 'Machine Learning Engineer',
+    start: 'July 2022',
+    end: 'Present',
+    moreInfoPeriod: 'July 2022 - Present',
+    link: 'https://www.quinta.im',
+    id: 'quinta-ml',
+    jobType: 'Full-time',
+    tags: ['Main Job'],
+    description:
+      'Quinta builds AI-powered guest communication for hotels — chat, email, and voice across the booking journey.',
+    bulletPoints: [
+      'Led a team of 4 engineers to ship a production LangGraph multi-agent system (50+ specialized agents) that replaced a legacy stack, resolving compound guest requests in a single turn instead of sequential follow-ups.',
+      'Reduced hallucinations by 15% across 100K+ monthly queries by deploying a production RAG pipeline with LangChain and ChromaDB to ground LLM responses in proprietary data.',
+      'Re-architected a BERT intent classifier from single-label to multi-label with NTR-Focal Loss and Macro-F1 evaluation, cutting misclassification by 25% and enabling compound intent detection across 250K+ monthly inference calls.',
+      'Engineered an LLM-as-a-Judge evaluation pipeline with custom Chain-of-Thought metrics (faithfulness, completeness, link accuracy), improving answer faithfulness by 18% and relevance by 32% via iterative tuning.',
+      'Co-architected an AI voice concierge (Ultravox + Twilio) supporting 24+ languages, solving voice-native property routing via HNSW embedding similarity over fuzzy STT-transcribed hotel names.',
+      'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
+      'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
+    ],
+    media: [
+      { label: 'Q-I', url: 'https://www.quinta.im/q-i/', visible: false },
+      { label: 'Q-Data', url: 'https://www.quinta.im/q-data/', visible: false },
+      { label: 'Q-Mail', url: 'https://www.quinta.im/q-mail/', visible: false },
+    ],
+    visible: true,
+  },
   {
     company: 'Skinify.ai',
     title: 'Co-Founder',
@@ -283,32 +311,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       label: 'Visit Skinify →',
       url: 'https://skinify.ai',
     },
-    visible: true,
-  },
-  {
-    company: 'Quinta (formerly Quicktext)',
-    title: 'Machine Learning Engineer',
-    start: 'July 2022',
-    end: 'Present',
-    moreInfoPeriod: 'July 2022 - Present',
-    link: 'https://www.quinta.im',
-    id: 'quinta-ml',
-    jobType: 'Full-time',
-    tags: ['Main Job'],
-    bulletPoints: [
-      'Led a team of 4 engineers to ship a production LangGraph multi-agent system (50+ specialized agents) that replaced a legacy stack, resolving compound guest requests in a single turn instead of sequential follow-ups.',
-      'Reduced hallucinations by 15% across 100K+ monthly queries by deploying a production RAG pipeline with LangChain and ChromaDB to ground LLM responses in proprietary data.',
-      'Re-architected a BERT intent classifier from single-label to multi-label with NTR-Focal Loss and Macro-F1 evaluation, cutting misclassification by 25% and enabling compound intent detection across 250K+ monthly inference calls.',
-      'Engineered an LLM-as-a-Judge evaluation pipeline with custom Chain-of-Thought metrics (faithfulness, completeness, link accuracy), improving answer faithfulness by 18% and relevance by 32% via iterative tuning.',
-      'Co-architected an AI voice concierge (Ultravox + Twilio) supporting 24+ languages, solving voice-native property routing via HNSW embedding similarity over fuzzy STT-transcribed hotel names.',
-      'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
-      'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
-    ],
-    media: [
-      { label: 'Q-I', url: 'https://www.quinta.im/q-i/', visible: false },
-      { label: 'Q-Data', url: 'https://www.quinta.im/q-data/', visible: false },
-      { label: 'Q-Mail', url: 'https://www.quinta.im/q-mail/', visible: false },
-    ],
     visible: true,
   },
   {
@@ -380,7 +382,6 @@ export const EDUCATION: Education[] = [
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.8/4.0)' },
       { text: 'EUR-ACE® accredited programme (CTI), recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452' },
-      { text: 'Pursued in parallel with full-time work through night classes on campus' },
       { text: 'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"' },
       { text: 'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing' },
     ],
@@ -408,13 +409,13 @@ export const EDUCATION: Education[] = [
 export const BLOG_POSTS: BlogPost[] = []
 
 export const PROFESSIONAL_SUMMARY = {
-  headline: 'Machine Learning Engineer',
   paragraphs: [
-    'Machine Learning Engineer with {yoe} years shipping production GenAI and ML systems at scale. Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that outgrows its weekend. Off the clock, usually reading, tinkering, or chasing a new rabbit hole.'
+    "I've spent the last {yoe} years shipping production GenAI for hospitality at Quinta — multi-agent systems, RAG pipelines, and voice AI that together handle hundreds of thousands of guest queries every month.",
+    'Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that outgrows its weekend. Earned my engineering degree in night classes while working full-time. Off the clock, usually reading, tinkering, or chasing a new rabbit hole.',
   ],
   highlights: [],
   availability: [
-    'Always open to interesting problems — freelance, open-source, or otherwise.',
+    "Whether it's a role, a freelance project, or an open-source idea — my inbox is open.",
   ],
 }
 

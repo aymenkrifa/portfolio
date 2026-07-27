@@ -102,16 +102,12 @@ function formatTotalExperience(fullTimeMonths: number, internshipMonths: number,
     }
   }
 
-  if (internshipCount > 0) {
-    parts.push(`${internshipCount} internship${internshipCount > 1 ? 's' : ''}`)
-  }
-
   if (parts.length === 0) {
     const total = fullTimeCount + internshipCount
     return `${total} position${total > 1 ? 's' : ''} across different companies.`
   }
 
-  return parts.length === 1 ? parts[0] + '.' : `${parts[0]} and ${parts[1]}.`
+  return parts[0] + '.'
 }
 
 
@@ -276,7 +272,7 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                 {job.moreInfoPeriod} ({calculateExperienceDuration(job.moreInfoPeriod)})
               </p>
             </div>
-            {job.description ? (
+            {job.description && (
               <div className="space-y-3">
                 <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">
                   Overview
@@ -299,7 +295,8 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                   )}
                 </p>
               </div>
-            ) : job.bulletPoints && job.bulletPoints.length > 0 ? (
+            )}
+            {job.bulletPoints && job.bulletPoints.length > 0 && (
               <div className="space-y-3">
                 <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">
                   Key Responsibilities & Achievements
@@ -315,7 +312,7 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                   ))}
                 </div>
               </div>
-            ) : null}
+            )}
             {job.media && job.media.some((m) => m.visible) && (
               <div className="space-y-3">
                 <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-200">Media</h4>
@@ -593,46 +590,6 @@ export default function Personal() {
       </InView>
 
       <InView as="section"
-        id="projects"
-      >
-        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
-        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Personal and open-source projects.
-        </p>
-        <div className="flex flex-col space-y-4">
-          {PROJECTS.filter((p) => p.visible !== false).map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.site ?? project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {project.name}
-                  <ExternalLinkIndicator />
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {renderInlineCode(project.description)}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </InView>
-
-      <InView as="section"
         id="experience"
       >
         <h3 className="mb-2 text-lg font-medium">Work Experience</h3>
@@ -650,25 +607,11 @@ export default function Personal() {
       </InView>
 
       <InView as="section"
-        id="education"
-      >
-        <h3 className="mb-2 text-lg font-medium">Education</h3>
-        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Academic background and qualifications.
-        </p>
-        <div className="flex flex-col space-y-2">
-          {EDUCATION.filter((e) => e.visible !== false).map((education) => (
-            <EducationCard key={education.id} education={education} />
-          ))}
-        </div>
-      </InView>
-
-      <InView as="section"
         id="skills"
       >
         <h3 className="mb-2 text-lg font-medium">Skills</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Technologies and tools I work with across my career, and some I'm exploring.
+          Technologies and tools I work with day to day, and some I'm exploring.
         </p>
         <div className="space-y-6">
           {SKILL_CATEGORIES.map((category) => (
@@ -719,6 +662,60 @@ export default function Personal() {
         </div>
       </InView>
 
+      <InView as="section"
+        id="projects"
+      >
+        <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Personal and open-source projects.
+        </p>
+        <div className="flex flex-col space-y-4">
+          {PROJECTS.filter((p) => p.visible !== false).map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-flex items-center gap-2 font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.site ?? project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                  <ExternalLinkIndicator />
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {renderInlineCode(project.description)}
+                </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </InView>
+
+      <InView as="section"
+        id="education"
+      >
+        <h3 className="mb-2 text-lg font-medium">Education</h3>
+        <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Two engineering degrees, completed with high honors.
+        </p>
+        <div className="flex flex-col space-y-2">
+          {EDUCATION.filter((e) => e.visible !== false).map((education) => (
+            <EducationCard key={education.id} education={education} />
+          ))}
+        </div>
+      </InView>
+
       {process.env.NEXT_PUBLIC_SHOW_GITHUB_CONTRIBUTIONS === 'true' && (
         <InView as="section"
         >
@@ -737,7 +734,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Certifications</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Professional certifications and completed courses.
+          Machine learning and data credentials, collected along the way.
         </p>
         <div className="flex flex-col space-y-2">
           {CERTIFICATIONS.filter((c) => c.visible !== false).map((cert) => (
