@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Constructed per request, not at module scope: the Resend constructor throws
+// on a missing key, which would fail `next build` wherever the key isn't set.
 
 export async function POST(request: NextRequest) {
   try {
@@ -64,6 +65,17 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+
+    const apiKey = process.env.RESEND_API_KEY
+
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: 'Email service is not configured' },
+        { status: 500 }
+      )
+    }
+
+    const resend = new Resend(apiKey)
 
     const { data, error } = await resend.emails.send({
       from: from_email,
