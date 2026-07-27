@@ -64,6 +64,7 @@ type Skill = {
   name: string
   exploring?: boolean
   level?: string
+  link?: string
 }
 
 type SkillCategory = {
@@ -109,8 +110,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: 'LangChain' },
       { name: 'LangGraph' },
-      { name: 'OpenAI API' },
-      { name: 'Azure OpenAI' },
+      { name: 'OpenAI SDK' },
       { name: 'Retrieval-Augmented Generation' },
       { name: 'LLM-as-a-Judge Evaluation' },
       { name: 'Prompt Engineering' },
@@ -145,7 +145,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Cloud Platforms',
-    skills: [{ name: 'AWS' }, { name: 'Azure (Microsoft AI Foundry)' }],
+    skills: [{ name: 'AWS' }, { name: 'Azure (Microsoft Foundry)' }],
   },
   {
     name: 'Development Environment',
@@ -155,10 +155,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     name: 'AI Tools',
     skills: [
       { name: 'Claude Code' },
-      { name: 'Devin (formerly Windsurf)' },
+      { name: 'Devin Desktop (formerly Windsurf)' },
       { name: 'GitHub Copilot' },
-      { name: 'kenn-io/kata', exploring: true },
-      { name: 'kenn-io/roborev', exploring: true },
+      { name: 'kata', link: 'https://katatracker.com', exploring: true },
+      { name: 'roborev', link: 'https://roborev.io', exploring: true },
     ],
   },
   {

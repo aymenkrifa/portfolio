@@ -688,6 +688,22 @@ export default function Personal() {
                       </span>
                     )
                   }
+                  if (skill.link) {
+                    return (
+                      <a
+                        key={skill.name}
+                        href={skill.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                      >
+                        {skill.name}
+                        {skill.exploring && (
+                          <span className="text-xs text-zinc-400 dark:text-zinc-500">· exploring</span>
+                        )}
+                      </a>
+                    )
+                  }
                   return (
                     <span key={skill.name} className="inline-flex items-center gap-1.5 rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
                       {skill.name}
