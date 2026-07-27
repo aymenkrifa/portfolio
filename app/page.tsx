@@ -230,6 +230,11 @@ function WorkExperienceCard({ job }: { job: typeof WORK_EXPERIENCE[0] }) {
                     <TagBadge key={tag} label={tag} />
                   ))}
                 </div>
+                {job.teaser && (
+                  <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">
+                    {job.teaser}
+                  </p>
+                )}
               </div>
               <div className="flex flex-col items-end justify-between self-stretch ml-2 shrink-0">
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 hidden sm:block whitespace-nowrap">
@@ -734,7 +739,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Certifications</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Machine learning and data credentials, collected along the way.
+          Machine learning and data credentials.
         </p>
         <div className="flex flex-col space-y-2">
           {CERTIFICATIONS.filter((c) => c.visible !== false).map((cert) => (

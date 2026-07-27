@@ -17,7 +17,7 @@ export function Header() {
           className="text-zinc-600 dark:text-zinc-500"
           delay={0.5}
         >
-          Machine Learning Engineer
+          Machine Learning Engineer · LLM agents, RAG & voice AI
         </TextEffect>
       </div>
       <ThemeSwitch />

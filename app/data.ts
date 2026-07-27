@@ -28,6 +28,7 @@ type WorkExperience = {
   cta?: { label: string; url: string }
   jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Contract'
   tags?: string[]
+  teaser?: string
   media?: MediaLink[]
   visible: boolean
 }
@@ -136,8 +137,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Databases & Storage',
     skills: [
-      { name: 'PostgreSQL' },
+      { name: 'Vector Databases' },
       { name: 'ChromaDB' },
+      { name: 'PostgreSQL' },
       { name: 'Redis' },
       { name: 'Supabase' },
       { name: 'Elasticsearch' },
@@ -223,7 +225,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'Pharos',
     description:
-      'A GNOME Shell extension that keeps Claude usage limits in the top panel as a lighthouse beacon, tracking the 5-hour and 7-day windows together so you see a limit coming instead of hitting it mid-task.',
+      'A GNOME Shell extension that tracks Claude usage limits in the top panel, showing the 5-hour and 7-day windows together so you see a limit coming instead of hitting it mid-task. The indicator is a tiny lighthouse.',
     link: 'https://www.github.com/aymenkrifa/Pharos',
     site: 'https://pharos.aymenkrifa.com',
     id: 'pharos',
@@ -233,8 +235,9 @@ export const PROJECTS: Project[] = [
   {
     name: 'AutoActivator',
     description:
-      'Automatically activates the right Python virtual environment when you enter a project and deactivates it when you leave — no more tracking which one is active as you move between projects; it just handles it, near-instantly ([See benchmarks →](https://autoactivator.aymenkrifa.com/#how))',
-    link: 'https://autoactivator.aymenkrifa.com',
+      'A shell tool that activates the right Python virtual environment when you `cd` into a project and deactivates it when you leave — near-instantly ([See benchmarks →](https://autoactivator.aymenkrifa.com/#how)).',
+    link: 'https://www.github.com/aymenkrifa/autoactivator',
+    site: 'https://autoactivator.aymenkrifa.com',
     id: 'autoactivator',
     tags: ['Shell'],
     visible: true,
@@ -251,7 +254,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'KExplorer',
-    description: 'Brings everything Lens and k9s spread across multiple views into a single, highly opinionated web-based Kubernetes dashboard — with pod grouping by project on top.',
+    description: 'A highly opinionated, web-based Kubernetes dashboard that pulls everything Lens and k9s spread across multiple views onto one screen, with pod grouping by project on top.',
     link: 'https://www.github.com/aymenkrifa/KExplorer',
     id: 'kexplorer',
     tags: ['Python', 'FastAPI', 'Kubernetes', 'TypeScript', 'React', 'Tailwind CSS', 'Vite'],
@@ -278,16 +281,18 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'quinta-ml',
     jobType: 'Full-time',
     tags: ['Main Job'],
+    teaser:
+      'Led a team of 4 to ship a 50+ agent LangGraph system; RAG, voice AI, and LLM evals.',
     description:
       'Quinta builds AI-powered guest communication for hotels — chat, email, and voice across the booking journey.',
     bulletPoints: [
       'Led a team of 4 engineers to ship a production LangGraph multi-agent system (50+ specialized agents) that replaced a legacy stack, resolving compound guest requests in a single turn instead of sequential follow-ups.',
-      'Reduced hallucinations by 15% across 100K+ monthly queries by deploying a production RAG pipeline with LangChain and ChromaDB to ground LLM responses in proprietary data.',
+      'Deployed a production RAG pipeline with LangChain and ChromaDB that grounds LLM responses in proprietary data, cutting hallucinations by 15% across 100K+ monthly queries.',
       'Re-architected a BERT intent classifier from single-label to multi-label with NTR-Focal Loss and Macro-F1 evaluation, cutting misclassification by 25% and enabling compound intent detection across 250K+ monthly inference calls.',
-      'Engineered an LLM-as-a-Judge evaluation pipeline with custom Chain-of-Thought metrics (faithfulness, completeness, link accuracy), improving answer faithfulness by 18% and relevance by 32% via iterative tuning.',
-      'Co-architected an AI voice concierge (Ultravox + Twilio) supporting 24+ languages, solving voice-native property routing via HNSW embedding similarity over fuzzy STT-transcribed hotel names.',
+      'Engineered an LLM-as-a-Judge evaluation pipeline with custom Chain-of-Thought metrics (faithfulness, completeness, link accuracy), then used it to drive iterative tuning that improved answer faithfulness by 18% and relevance by 32%.',
+      'Co-architected an AI voice concierge on Ultravox and Twilio, supporting 24+ languages. The hard problem: guests say a hotel name, speech-to-text garbles it, and the call still has to reach the right property — solved with HNSW embedding similarity over the fuzzy transcriptions.',
       'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
-      'Mentored 7 ML engineers to full productivity and led technical interviewing for the ML team.',
+      'Mentored 7 ML engineers and led technical interviewing for the ML team.',
     ],
     media: [
       { label: 'Q-I', url: 'https://www.quinta.im/q-i/', visible: false },
@@ -306,7 +311,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work_skinify',
     jobType: 'Part-time',
     tags: ['Side Venture'],
-    description: 'Co-founding Skinify, an AI-powered platform reshaping how people discover skincare products that truly fit their skin.',
+    description: 'Skinify is an AI platform that helps people find skincare products that actually fit their skin. I co-founded it and build on it nights and weekends, alongside my full-time work at Quinta.',
     cta: {
       label: 'Visit Skinify →',
       url: 'https://skinify.ai',
@@ -410,12 +415,12 @@ export const BLOG_POSTS: BlogPost[] = []
 
 export const PROFESSIONAL_SUMMARY = {
   paragraphs: [
-    "I've spent the last {yoe} years shipping production GenAI for hospitality at Quinta — multi-agent systems, RAG pipelines, and voice AI that together handle hundreds of thousands of guest queries every month.",
-    'Mostly builds things — AI systems at work, dev tools on the side, and the occasional side project that outgrows its weekend. Earned my engineering degree in night classes while working full-time. Off the clock, usually reading, tinkering, or chasing a new rabbit hole.',
+    "I've spent the last {yoe} years at Quinta building conversational AI for hotel guest communication. The early work was classic ML — intent classification, language detection; these days it's production GenAI: I led a team of 4 to ship our LangGraph multi-agent system, deployed the RAG pipeline that grounds LLM responses across 100K+ monthly guest queries, and co-architected our AI voice concierge. An LLM-as-a-Judge evaluation pipeline I built keeps the answers honest.",
+    "I mostly build things: AI systems at work, dev tools when a workflow annoys me enough, and the occasional side project that outgrows its weekend. I earned my master's in computer science in night classes while working full-time. Off the clock, I'm usually a few layers deep in some new rabbit hole.",
   ],
   highlights: [],
   availability: [
-    "Whether it's a role, a freelance project, or an open-source idea — my inbox is open.",
+    'Got an open-source idea, a question about something I built, or just want to talk shop about LLM systems? My inbox is open.',
   ],
 }
 
