@@ -623,8 +623,7 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Personal and open-source projects — the ML systems I build at work
-          aren&apos;t mine to publish.
+          Personal and open-source projects I've worked on.
         </p>
         <div className="flex flex-col space-y-4">
           {PROJECTS.filter((p) => p.visible !== false).map((project) => (
