@@ -67,6 +67,7 @@ const personJsonLd = {
   worksFor: {
     '@type': 'Organization',
     name: 'Quinta',
+    alternateName: 'Quicktext',
     url: 'https://www.quinta.im',
   },
   alumniOf: {
@@ -78,7 +79,11 @@ const personJsonLd = {
     'Machine Learning',
     'Generative AI',
     'Large Language Models',
+    'Multi-Agent Systems',
     'Retrieval-Augmented Generation',
+    'LLM Evaluation',
+    'Conversational AI',
+    'Voice AI',
     'MLOps',
     'Natural Language Processing',
   ],
