@@ -287,11 +287,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Centralized legacy language detection into a FastText and FastAPI microservice used across core systems, handling 600K+ monthly requests with a 20% accuracy gain.',
       'Mentored 7 ML engineers and led technical interviewing for the ML team.',
     ],
-    media: [
-      { label: 'Q-I', url: 'https://www.quinta.im/q-i/', visible: false },
-      { label: 'Q-Data', url: 'https://www.quinta.im/q-data/', visible: false },
-      { label: 'Q-Mail', url: 'https://www.quinta.im/q-mail/', visible: false },
-    ],
     visible: true,
   },
   {

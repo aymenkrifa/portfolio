@@ -623,7 +623,8 @@ export default function Personal() {
       >
         <h3 className="mb-2 text-lg font-medium">Selected Projects</h3>
         <p className="mb-5 text-sm text-zinc-600 dark:text-zinc-400">
-          Personal and open-source projects.
+          Personal and open-source projects — the ML systems I build at work
+          aren&apos;t mine to publish.
         </p>
         <div className="flex flex-col space-y-4">
           {PROJECTS.filter((p) => p.visible !== false).map((project) => (
@@ -656,7 +657,7 @@ export default function Personal() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                      className="inline-flex items-center gap-1 rounded-md bg-zinc-100 px-2.5 py-1 text-sm text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
                     >
                       Code
                       <ExternalLinkIndicator className="h-3 w-3" />
@@ -746,41 +747,6 @@ export default function Personal() {
           ))}
         </div>
       </InView>
-      {/* 
-      <InView as="section"
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
-        </div>
-      </InView>
-
       {/* Resume Section */}
       {process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' && (
         <InView as="section"
