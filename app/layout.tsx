@@ -5,22 +5,45 @@ import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
+import { WEBSITE_URL } from '@/lib/constants'
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#ffffff',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#09090b' },
+  ],
 }
 
+const TITLE = 'Aymen Krifa — Machine Learning Engineer'
+const DESCRIPTION =
+  'Machine Learning Engineer shipping production GenAI and ML systems — multi-agent LLM pipelines, RAG, and voice AI — plus open-source dev tools on the side.'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(WEBSITE_URL),
   alternates: {
     canonical: '/'
   },
   title: {
-    default: 'Aymen Krifa - Personal Website',
+    default: TITLE,
     template: '%s | Aymen Krifa'
   },
-  description:  'Aymen Krifa is a Machine Learning Engineer and this is his personal website built with Next.js 15, React 19 and Motion-Primitives.',
+  description: DESCRIPTION,
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Aymen Krifa',
+    locale: 'en_US',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+    creator: '@krifaymen',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
