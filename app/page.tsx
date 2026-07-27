@@ -700,6 +700,17 @@ export default function Personal() {
                       {tag}
                     </span>
                   ))}
+                  {project.site && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-md border border-zinc-200 px-2.5 py-1 text-sm text-zinc-500 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
+                    >
+                      Code
+                      <ExternalLinkIndicator className="h-3 w-3" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
