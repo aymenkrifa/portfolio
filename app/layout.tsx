@@ -17,9 +17,9 @@ export const viewport: Viewport = {
   ],
 }
 
-const TITLE = 'Aymen Krifa — Machine Learning Engineer'
+const TITLE = 'Aymen Krifa — Machine Learning Engineer · LLM, RAG & Evaluation'
 const DESCRIPTION =
-  'Machine Learning Engineer shipping production GenAI and ML systems — multi-agent LLM pipelines, RAG, and voice AI for hospitality — plus open-source dev tools on the side.'
+  'Machine Learning Engineer building production LLM systems for hotel guest communication — multi-agent orchestration, RAG, and LLM-as-a-Judge evaluation.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(WEBSITE_URL),

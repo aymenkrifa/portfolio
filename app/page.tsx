@@ -573,14 +573,7 @@ export default function Personal() {
               {interpolate(paragraph)}
             </p>
           ))}
-          <p className="text-zinc-600 dark:text-zinc-400">If you're building something interesting, I'm always up for a good conversation. <a
-            href="#contact"
-            className="group relative inline-flex items-center font-[450] text-zinc-900 transition-colors dark:text-zinc-100"
-          >
-            Let's talk →
-            <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
-          </a></p>
-          <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {PROFESSIONAL_SUMMARY.highlights.map((item) => (
               <li
                 key={item}
@@ -591,6 +584,13 @@ export default function Personal() {
               </li>
             ))}
           </ul>
+          <p className="text-zinc-600 dark:text-zinc-400">If you're building something interesting, I'm always up for a good conversation. <a
+            href="#contact"
+            className="group relative inline-flex items-center font-[450] text-zinc-900 transition-colors dark:text-zinc-100"
+          >
+            Let's talk →
+            <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
+          </a></p>
         </div>
       </InView>
 

@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Aymen Krifa — Machine Learning Engineer'
+export const alt =
+  'Aymen Krifa — Machine Learning Engineer · LLM agents, RAG & evaluation'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -31,12 +32,15 @@ export default function Image() {
         <div style={{ fontSize: 38, color: '#a1a1aa', marginTop: 18 }}>
           Machine Learning Engineer
         </div>
+        <div style={{ fontSize: 28, color: '#71717a', marginTop: 14 }}>
+          LLM agents · RAG · Evaluation
+        </div>
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: 14,
-            marginTop: 64,
+            marginTop: 56,
           }}
         >
           <div
