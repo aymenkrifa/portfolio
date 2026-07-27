@@ -6,6 +6,7 @@ import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
 import { WEBSITE_URL } from '@/lib/constants'
+import { SOCIAL_LINKS, EMAIL } from './data'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -18,7 +19,7 @@ export const viewport: Viewport = {
 
 const TITLE = 'Aymen Krifa — Machine Learning Engineer'
 const DESCRIPTION =
-  'Machine Learning Engineer shipping production GenAI and ML systems — multi-agent LLM pipelines, RAG, and voice AI — plus open-source dev tools on the side.'
+  'Machine Learning Engineer shipping production GenAI and ML systems — multi-agent LLM pipelines, RAG, and voice AI for hospitality — plus open-source dev tools on the side.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(WEBSITE_URL),
@@ -56,6 +57,34 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Aymen Krifa',
+  jobTitle: 'Machine Learning Engineer',
+  url: WEBSITE_URL,
+  email: `mailto:${EMAIL}`,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Quinta',
+    url: 'https://www.quinta.im',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'École Polytechnique de Sousse',
+    url: 'https://www.polytecsousse.tn',
+  },
+  knowsAbout: [
+    'Machine Learning',
+    'Generative AI',
+    'Large Language Models',
+    'Retrieval-Augmented Generation',
+    'MLOps',
+    'Natural Language Processing',
+  ],
+  sameAs: SOCIAL_LINKS.map((s) => s.link),
+}
+
 const geist = Geist({
   variable: '--font-geist',
   subsets: ['latin'],
@@ -77,6 +106,10 @@ export default function RootLayout({
         className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider
           enableSystem={true}
           attribute="class"
