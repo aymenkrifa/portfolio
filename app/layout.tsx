@@ -17,9 +17,9 @@ export const viewport: Viewport = {
   ],
 }
 
-const TITLE = 'Aymen Krifa — Machine Learning Engineer · LLM, RAG & Evaluation'
+const TITLE = 'Aymen Krifa — Machine Learning Engineer · NLP, LLM & Evaluation'
 const DESCRIPTION =
-  'Machine Learning Engineer building production LLM systems for hotel guest communication — multi-agent orchestration, RAG, and LLM-as-a-Judge evaluation.'
+  'Machine Learning Engineer building production ML systems for hotel guest communication — NLP classifiers, retrieval and RAG, multi-agent LLM orchestration, and model evaluation.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(WEBSITE_URL),
@@ -77,6 +77,11 @@ const personJsonLd = {
   },
   knowsAbout: [
     'Machine Learning',
+    'Natural Language Processing',
+    'Text Classification',
+    'Deep Learning',
+    'Information Retrieval',
+    'Model Evaluation',
     'Generative AI',
     'Large Language Models',
     'Multi-Agent Systems',
@@ -85,7 +90,6 @@ const personJsonLd = {
     'Conversational AI',
     'Voice AI',
     'MLOps',
-    'Natural Language Processing',
   ],
   sameAs: SOCIAL_LINKS.map((s) => s.link),
 }

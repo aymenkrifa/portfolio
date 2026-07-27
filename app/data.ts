@@ -275,7 +275,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     jobType: 'Full-time',
     tags: ['Main Job'],
     teaser:
-      'Replaced a legacy stack with 50+ specialized agents; mentored 7 engineers and led technical interviewing.',
+      '50+ specialized agents resolving compound guest requests in one turn, over the BERT and FastText models underneath.',
     description:
       'Quinta builds AI-powered guest communication for hotels — chat, email, and voice across the booking journey.',
     bulletPoints: [
@@ -403,15 +403,15 @@ export const BLOG_POSTS: BlogPost[] = []
 
 export const PROFESSIONAL_SUMMARY = {
   paragraphs: [
-    "I've spent the last {yoe} years at Quinta, building the AI behind hotel guest communication. The early work was classic ML — intent classification, language detection; these days it's production GenAI.",
+    "I've spent the last {yoe} years at Quinta, building the AI behind hotel guest communication: the classifiers and retrieval underneath it as much as the LLM systems on top.",
     "I led a team of 4 to ship our LangGraph multi-agent system, and I built the LLM-as-a-Judge evaluation pipeline that tells us whether a change actually made answers better.",
     "I mostly build things: AI systems at work, dev tools when a workflow annoys me enough, and the occasional side project that outgrows its weekend. I earned my master's in computer science in night classes while working full-time. Off the clock, I'm usually a few layers deep in some new rabbit hole.",
   ],
   highlights: [
+    'Multi-label BERT intents · 250K+ monthly inferences',
     'RAG pipeline · 100K+ monthly queries',
-    'Multi-label BERT intents · 250K+ monthly calls',
-    'Voice concierge · 24+ languages',
-    'FastText language detection · 600K+ monthly requests',
+    'HNSW embedding retrieval over noisy transcripts',
+    'Model evaluation · Macro-F1 and LLM-as-a-Judge',
   ],
   availability: [
     'Got an open-source idea, a question about something I built, or just want to talk shop about LLM systems? My inbox is open.',

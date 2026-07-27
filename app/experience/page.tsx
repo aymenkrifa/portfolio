@@ -7,7 +7,7 @@ import { WORK_EXPERIENCE, EDUCATION } from '../data'
 
 const TITLE = 'Experience'
 const DESCRIPTION =
-  'The full detail behind every role: LangGraph multi-agent orchestration, RAG, LLM-as-a-Judge evaluation, voice AI, and the ML systems behind hotel guest communication at Quinta.'
+  'The full detail behind every role: BERT intent classification, RAG and embedding retrieval, LangGraph multi-agent orchestration, LLM-as-a-Judge evaluation, and voice AI at Quinta.'
 
 export const metadata: Metadata = {
   title: TITLE,
