@@ -408,10 +408,8 @@ export const PROFESSIONAL_SUMMARY = {
     "I mostly build things: AI systems at work, dev tools when a workflow annoys me enough, and the occasional side project that outgrows its weekend. I earned my master's in computer science in night classes while working full-time. Off the clock, I'm usually a few layers deep in some new rabbit hole.",
   ],
   highlights: [
-    'Multi-label BERT intents · 250K+ monthly inferences',
-    'RAG pipeline · 100K+ monthly queries',
-    'HNSW embedding retrieval over noisy transcripts',
-    'Model evaluation · Macro-F1 and LLM-as-a-Judge',
+    'Multi-label BERT intent classification over 250K+ inferences a month',
+    'A RAG pipeline grounding LLM answers across 100K+ queries a month',
   ],
   availability: [
     'Got an open-source idea, a question about something I built, or just want to talk shop about LLM systems? My inbox is open.',
