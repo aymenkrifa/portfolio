@@ -43,7 +43,7 @@ type Education = {
   link: string
   id: string
   description?: string
-  achievements?: { text: string; link?: string }[]
+  achievements?: { text: string; link?: string; linkLabel?: string }[]
   tags?: string[]
   media?: MediaLink[]
   visible: boolean
@@ -379,7 +379,7 @@ export const EDUCATION: Education[] = [
     description: 'Specialized in Artificial Intelligence',
     achievements: [
       { text: 'Graduated with High Honors (GPA: 3.8/4.0)' },
-      { text: 'EUR-ACE® accredited programme (CTI), recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452' },
+      { text: 'EUR-ACE® accredited programme (CTI), recognized across 40+ European countries', link: 'https://eurace.enaee.eu/node/18452', linkLabel: 'View accreditation page →' },
       { text: 'Thesis: "An AI-Powered Voice-Interactive Assistant for Intelligent Hotel Room Booking"' },
       { text: 'Relevant Coursework: Deep Learning, Natural Language Processing, Cloud Computing' },
     ],

@@ -15,15 +15,15 @@ import {
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
-import { AnimatedBackground } from '@/components/ui/animated-background'
 import { EmbedIframe } from '@/components/ui/embed-iframe'
 import ResumeSection from '@/components/resume-section'
 import { GitHubContributions } from '@/components/github-contributions'
+import { TagBadge, JobTypeBadge } from '@/components/badges'
+import { getPeriodMonths, calculateExperienceDuration } from '@/lib/duration'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
   EDUCATION,
-  BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
   SKILL_CATEGORIES,
@@ -31,40 +31,6 @@ import {
   PROFESSIONAL_SUMMARY,
 } from './data'
 
-
-const MONTH_MAP: Record<string, number> = {
-  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
-  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
-}
-
-function getPeriodMonths(period: string): number {
-  const lower = period.toLowerCase()
-  if (lower.includes('present')) {
-    const m = period.match(/(\w+)\s+(\d{4})\s*-\s*present/i)
-    if (!m) return 0
-    const start = new Date(parseInt(m[2]), MONTH_MAP[m[1].toLowerCase()] ?? 0)
-    const now = new Date()
-    return (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth())
-  }
-  const m = period.match(/(\w+)\s+(\d{4})\s*-\s*(\w+)\s+(\d{4})/i)
-  if (!m) return 0
-  const start = new Date(parseInt(m[2]), MONTH_MAP[m[1].toLowerCase()] ?? 0)
-  const end = new Date(parseInt(m[4]), MONTH_MAP[m[3].toLowerCase()] ?? 0)
-  return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1
-}
-
-function formatMonths(months: number): string {
-  if (months <= 0) return ''
-  if (months < 12) return months === 1 ? '1 month' : `${months} months`
-  const years = Math.floor(months / 12)
-  const rem = months % 12
-  const yearStr = years === 1 ? '1 year' : `${years} years`
-  return rem === 0 ? yearStr : `${yearStr} ${rem} month${rem > 1 ? 's' : ''}`
-}
-
-function calculateExperienceDuration(moreInfoPeriod: string): string {
-  return formatMonths(getPeriodMonths(moreInfoPeriod))
-}
 
 function getFullTimeYearsRounded(workExperience: typeof WORK_EXPERIENCE): number {
   const { fullTimeMonths } = calculateTotalExperience(workExperience)
@@ -159,30 +125,6 @@ function Sparkles() {
         </motion.div>
       ))}
     </div>
-  )
-}
-
-function TagBadge({ label }: { label: string }) {
-  const styles: Record<string, string> = {
-    'Side Venture': 'border-violet-400 text-violet-600 dark:bg-violet-950/40 dark:border-violet-700/60 dark:text-violet-300',
-    'Main Job': 'border-blue-400 text-blue-600 dark:bg-blue-950/40 dark:border-blue-700/60 dark:text-blue-300',
-    'EUR-ACE® Accredited': 'border-blue-400 text-blue-600 dark:bg-blue-950/40 dark:border-blue-700/60 dark:text-blue-300',
-    "Bachelor's Equivalent": 'border-zinc-300 text-zinc-500 dark:border-zinc-700 dark:text-zinc-400',
-  }
-  return (
-    <span className={`inline-block rounded px-2 py-0.5 text-xs font-medium border ${styles[label] ?? 'border-amber-400 text-amber-600 dark:border-amber-600 dark:text-amber-400'}`}>
-      {label.split('®').map((part, i, arr) => (
-        <span key={i}>{part}{i < arr.length - 1 && <sup>®</sup>}</span>
-      ))}
-    </span>
-  )
-}
-
-function JobTypeBadge({ type }: { type: string }) {
-  return (
-    <span className="inline-block rounded px-2 py-0.5 text-xs font-medium border border-zinc-300 text-zinc-500 dark:border-zinc-600 dark:text-zinc-400">
-      {type}
-    </span>
   )
 }
 
@@ -468,7 +410,7 @@ function EducationCard({ education }: { education: typeof EDUCATION[0] }) {
                         ))}
                         {achievement.link && (
                           <>{' '}<a href={achievement.link} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center whitespace-nowrap font-medium text-zinc-900 transition-colors dark:text-zinc-100">
-                            View accreditation page →
+                            {achievement.linkLabel ?? 'View →'}
                             <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
                           </a></>
                         )}
@@ -609,6 +551,15 @@ export default function Personal() {
             <WorkExperienceCard key={job.id} job={job} />
           ))}
         </div>
+        <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+          <Link
+            href="/experience"
+            className="group relative inline-flex items-center font-[450] text-zinc-900 transition-colors dark:text-zinc-100"
+          >
+            Every role in full detail →
+            <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
+          </Link>
+        </p>
       </InView>
 
       <InView as="section"
