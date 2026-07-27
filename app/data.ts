@@ -299,7 +299,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work_skinify',
     jobType: 'Part-time',
     tags: ['Side Venture'],
-    description: 'Skinify is an AI platform that helps people find skincare products that actually fit their skin. I co-founded it and build on it nights and weekends, alongside my full-time work at Quinta.',
+    description: 'Skinify is an AI platform that helps people find skincare products that actually fit their skin. I co-founded it and build on it nights and weekends.',
     cta: {
       label: 'Visit Skinify →',
       url: 'https://skinify.ai',
