@@ -85,12 +85,18 @@ type Certification = {
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    name: 'Programming',
+    name: 'GenAI & LLM Systems',
     skills: [
-      { name: 'Python' },
-      { name: 'SQL' },
-      { name: 'Bash' },
-      { name: 'Rust', exploring: true },
+      { name: 'LangGraph' },
+      { name: 'LangChain' },
+      { name: 'Multi-Agent Systems' },
+      { name: 'RAG (Retrieval-Augmented Generation)' },
+      { name: 'LLM Evaluation (LLM-as-a-Judge)' },
+      { name: 'LangSmith' },
+      { name: 'Embeddings' },
+      { name: 'OpenAI SDK' },
+      { name: 'Voice AI (Ultravox, Twilio)' },
+      { name: 'Prompt Engineering' },
     ],
   },
   {
@@ -98,23 +104,14 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: 'PyTorch' },
       { name: 'Hugging Face Transformers' },
+      { name: 'NLP' },
       { name: 'BERT' },
-      { name: 'CLIP' },
-      { name: 'scikit-learn' },
       { name: 'spaCy' },
+      { name: 'FastText' },
+      { name: 'scikit-learn' },
+      { name: 'CLIP' },
       { name: 'pandas' },
       { name: 'NumPy' },
-    ],
-  },
-  {
-    name: 'GenAI & LLM Systems',
-    skills: [
-      { name: 'LangChain' },
-      { name: 'LangGraph' },
-      { name: 'OpenAI SDK' },
-      { name: 'Retrieval-Augmented Generation' },
-      { name: 'LLM-as-a-Judge Evaluation' },
-      { name: 'Prompt Engineering' },
     ],
   },
   {
@@ -123,11 +120,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'Docker' },
       { name: 'Docker Compose' },
       { name: 'Kubernetes' },
-      { name: 'MLflow' },
-      { name: 'LangSmith' },
-      { name: 'DVC' },
       { name: 'GitHub Actions' },
+      { name: 'MLflow' },
+      { name: 'DVC' },
       { name: 'Datadog' },
+      { name: 'Linux' },
     ],
   },
   {
@@ -150,8 +147,13 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [{ name: 'AWS' }, { name: 'Azure (Microsoft Foundry)' }],
   },
   {
-    name: 'Development Environment',
-    skills: [{ name: 'Linux' }, { name: 'Git' }, { name: 'Jupyter' }],
+    name: 'Programming',
+    skills: [
+      { name: 'Python' },
+      { name: 'SQL' },
+      { name: 'Bash' },
+      { name: 'Rust', exploring: true },
+    ],
   },
   {
     name: 'AI Tools',
@@ -161,15 +163,6 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'GitHub Copilot' },
       { name: 'kata', link: 'https://katatracker.com', exploring: true },
       { name: 'roborev', link: 'https://roborev.io', exploring: true },
-    ],
-  },
-  {
-    name: 'Collaboration',
-    skills: [
-      { name: 'Jira' },
-      { name: 'Confluence' },
-      { name: 'GitHub' },
-      { name: 'Bitbucket' },
     ],
   },
   {
