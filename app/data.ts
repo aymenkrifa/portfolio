@@ -145,7 +145,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Cloud Platforms',
-    skills: [{ name: 'AWS' }, { name: 'Azure (OpenAI Service)' }],
+    skills: [{ name: 'AWS' }, { name: 'Azure (Microsoft AI Foundry)' }],
   },
   {
     name: 'Development Environment',
