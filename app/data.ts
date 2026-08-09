@@ -83,6 +83,20 @@ type Certification = {
   visible: boolean
 }
 
+type Recommendation = {
+  name: string
+  byline: string
+  /** Verbatim excerpt shown on the marquee card, chosen to end on a complete
+   * sentence. Deliberately not the opening line — most LinkedIn
+   * recommendations open with the same "I had the pleasure of working with"
+   * boilerplate, which reads as templated across a row of cards. */
+  pull: string
+  quote: string[]
+  linkedin?: string
+  id: string
+  visible: boolean
+}
+
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'GenAI & LLM Systems',
@@ -210,6 +224,72 @@ export const CERTIFICATIONS: Certification[] = [
     credentialId: '8QLPUR9CTQLE',
     link: 'https://www.coursera.org/account/accomplishments/verify/8QLPUR9CTQLE',
     id: 'stanford-ml',
+    visible: true,
+  },
+]
+
+export const RECOMMENDATIONS: Recommendation[] = [
+  {
+    id: 'manel-hassairi',
+    name: 'Manel Hassaïri',
+    byline: 'Was Aymen\'s mentor at École Polytechnique de Sousse',
+    pull: 'Un étudiant particulièrement brillant et rigoureux.',
+    quote: [
+      'J\'ai eu le plaisir d\'enseigner Aymen durant son parcours à l\'Ecole Polytechnique de Sousse. Un étudiant particulièrement brillant et rigoureux. Au-delà de ses excellents résultats académiques, Aymen s\'est distingué par ses qualités humaines aussi. Je recommande vivement Aymen, qui sera sans aucun doute un véritable atout pour toute équipe professionnelle.',
+    ],
+    linkedin: 'https://www.linkedin.com/in/manel-hassaïri18/',
+    visible: true,
+  },
+  {
+    id: 'raed-lazreg',
+    name: 'Raed Lazreg',
+    byline: 'Worked with Aymen on the same team at Quinta',
+    pull: 'One of the most skilled and dedicated ML engineers I\'ve had the chance to collaborate with.',
+    quote: [
+      'I had the pleasure of working alongside Aymen for two years, and I can confidently say he is one of the most skilled and dedicated ML engineers I\'ve had the chance to collaborate with. As an AI engineer myself, I truly appreciated how seamlessly we were able to collaborate, Aymen always brought technical precision and a problem-solving mindset to every project. I highly recommend him to any team looking for a talented and reliable ML professional.',
+    ],
+    linkedin: 'https://www.linkedin.com/in/raidlazreg/',
+    visible: true,
+  },
+  {
+    id: 'cyrine-messaoud',
+    name: 'Cyrine Messaoud',
+    byline: 'Reported to Aymen directly at Quinta',
+    pull: 'One of the people I learned the most from, both technically and professionally.',
+    quote: [
+      'I had the chance to work closely with Aymen for nearly two years on Quinta\'s AI team, and he was one of the people I learned the most from, both technically and professionally.',
+      'He has a natural ability to bring clarity to a project: he asks the right questions, challenges unclear requirements, and makes sure everyone understands not only what they need to do, but why. He was often a natural point of reference for the team. He is calm, thoughtful and remarkably mature in the way he handles pressure, collaboration and difficult situations.',
+      'Technically, he is one of the most genuinely curious engineers I have worked with. He has strong expertise in Python, Git and Docker, and I personally learned a lot from him in all three. What I particularly appreciate is that he cares about the quality of the code he writes: clean structure, readability, linting, maintainability, and doing things properly rather than simply making something work.',
+      'Aymen also has an impressive curiosity for new technologies, especially around AI. Whenever a new tool, framework or approach appeared, chances were he had already explored it and had ideas about where it could be useful. You could see how much he enjoyed learning and sharing what he discovered with the rest of the team.',
+      'Beyond the technical side, Aymen is reliable, fair, supportive, and someone who genuinely looks out for the people around him. He also brings a great sense of humor and makes the day-to-day work more enjoyable. He is simply a great person to have on a team.',
+    ],
+    linkedin: 'https://www.linkedin.com/in/cyrine-messaoud/',
+    visible: true,
+  },
+  {
+    id: 'mayssen-laoyene',
+    name: 'Mayssen Laoyene',
+    byline: 'Reported to Aymen directly at Quinta',
+    pull: 'A highly skilled ML Engineer with strong technical knowledge and excellent problem-solving skills.',
+    quote: [
+      'I had the pleasure of working with Aymen Krifa at Quinta, and he was one of the people I learned the most from during my experience there. He is a highly skilled ML Engineer with strong technical knowledge and excellent problem-solving skills.',
+      'Whenever I had a technical question or needed help understanding a concept, he was always someone I could rely on. He has a great ability to break down complex technical topics and explain them in a simple and practical way. He also has a strong understanding of how to approach technical challenges and find effective solutions.',
+      'Beyond his technical expertise, he was also a great mentor. His guidance played an important role in my learning and professional growth, and I really appreciated having someone with such strong technical skills who was also approachable and supportive.',
+    ],
+    linkedin: 'https://www.linkedin.com/in/mayssen-laoyene-b979981bb/',
+    visible: true,
+  },
+  {
+    id: 'mohamed-brahim',
+    name: 'Mohamed Brahim',
+    byline: 'Reported to Aymen directly at Quinta',
+    pull: 'I\'d jump at the chance to work with him again.',
+    quote: [
+      'I worked with Aymen at Quinta while he was a Senior ML Engineer. Technically, he brings real rigor: when Aymen ships a model or a pipeline, you can count on it being thoroughly tested, reliable, and built to hold up in production.',
+      'What stood out most to me, though, was his leadership. He\'s a natural mentor and always ready to support his team. I learned a lot from him, especially about design patterns, system internals, and decision-making. He knows how to handle people and define a clear path forward. He\'s also good at keeping his nerves under control in critical moments, which is what lets him find solutions when everyone else is stuck.',
+      'Beyond the technical side, Aymen is approachable and easy to work with. I\'d jump at the chance to work with him again.',
+    ],
+    linkedin: 'https://www.linkedin.com/in/mohamed-brahim-b4366b225/',
     visible: true,
   },
 ]

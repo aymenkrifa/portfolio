@@ -19,6 +19,10 @@ import { EmbedIframe } from '@/components/ui/embed-iframe'
 import ResumeSection from '@/components/resume-section'
 import { GitHubContributions } from '@/components/github-contributions'
 import { TagBadge, JobTypeBadge } from '@/components/badges'
+import {
+  RecommendationsMarquee,
+  LinkedInMark,
+} from '@/components/recommendations-marquee'
 import { getPeriodMonths, calculateExperienceDuration } from '@/lib/duration'
 import {
   PROJECTS,
@@ -735,6 +739,20 @@ export default function Personal() {
           ))}
         </div>
       </InView>
+
+      {process.env.NEXT_PUBLIC_SHOW_RECOMMENDATIONS === 'true' && (
+        <InView as="section"
+          id="recommendations"
+        >
+          <h3 className="mb-2 text-lg font-medium">Recommendations</h3>
+          <p className="mb-5 flex items-center gap-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+            <LinkedInMark className="h-3 w-3 shrink-0 text-zinc-400 dark:text-zinc-500" />
+            Written on LinkedIn by colleagues and mentors.
+          </p>
+          <RecommendationsMarquee />
+        </InView>
+      )}
+
       {/* Resume Section */}
       {process.env.NEXT_PUBLIC_SHOW_RESUME === 'true' && (
         <InView as="section"

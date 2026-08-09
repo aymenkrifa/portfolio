@@ -101,11 +101,14 @@ Some sections are gated behind environment variables in `.env.local`. Each is hi
 
    ```bash
    NEXT_PUBLIC_SHOW_GITHUB_CONTRIBUTIONS=true
+   NEXT_PUBLIC_SHOW_RECOMMENDATIONS=true
    NEXT_PUBLIC_SHOW_RESUME=true
    NEXT_PUBLIC_SHOW_SKINIFY=true
    ```
 
 `NEXT_PUBLIC_SHOW_SKINIFY` toggles the Skinify.ai side-venture entry in Work Experience. It is a part-time role, which the experience calculators exclude, so hiding it does not change the years-of-experience figures.
+
+`NEXT_PUBLIC_SHOW_RECOMMENDATIONS` toggles a testimonials section quoting LinkedIn recommendations from former colleagues. It defaults to off.
 
 These are inlined at build time, so restart the dev server after changing them.
 
