@@ -190,16 +190,27 @@ function RecommendationDialog({
           }`}
         >
           <div>
-            <a
-              id="recommendation-name"
-              href={rec.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-semibold text-zinc-900 hover:underline dark:text-zinc-100"
-            >
-              {rec.name}
-              <ExternalArrow />
-            </a>
+            {/* not everyone's profile URL is on hand — without one, render the
+                name as plain text rather than an anchor that leads nowhere */}
+            {rec.linkedin ? (
+              <a
+                id="recommendation-name"
+                href={rec.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-semibold text-zinc-900 hover:underline dark:text-zinc-100"
+              >
+                {rec.name}
+                <ExternalArrow />
+              </a>
+            ) : (
+              <span
+                id="recommendation-name"
+                className="font-semibold text-zinc-900 dark:text-zinc-100"
+              >
+                {rec.name}
+              </span>
+            )}
             <p className="mt-0.5 text-[12.5px] text-zinc-500 dark:text-zinc-400">
               {rec.byline}
             </p>

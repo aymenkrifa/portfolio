@@ -241,6 +241,16 @@ export const RECOMMENDATIONS: Recommendation[] = [
     visible: true,
   },
   {
+    id: 'hajer-boudriga',
+    name: 'Hajer Boudriga',
+    byline: 'Was Aymen\'s team lead at Quinta',
+    pull: 'Aymen is smart, sharp, determined, and hardworking.',
+    quote: [
+      'Aymen is smart, sharp, determined, and hardworking. A great colleague who always gives his best and gets things done.',
+    ],
+    visible: true,
+  },
+  {
     id: 'raed-lazreg',
     name: 'Raed Lazreg',
     byline: 'Worked with Aymen on the same team at Quinta',
